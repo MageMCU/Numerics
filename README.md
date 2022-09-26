@@ -1,4 +1,4 @@
-# Numerics (math computations)
+# Numerics
 
 ## Index
 
