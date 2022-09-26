@@ -6,7 +6,7 @@
 
 - Angle.h
 - Map.h
-- Vector3.
+- Vector3.h
 
 ### Testing
 
