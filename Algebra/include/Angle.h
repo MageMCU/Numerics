@@ -34,7 +34,7 @@
 #define Numerics_Angle_h
 
 #include "Arduino.h"
-#include "Vector3f.h"
+#include "Vector3.h"
 
 namespace Numerics {
   template<typename T>
