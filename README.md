@@ -2,9 +2,9 @@
 
 ## Index
 
-- [Algebra OOP Library]()
-- [Numerics]()
-- [Testing Platform]()
+- [Algebra OOP Library](#algebra-oop-library)
+- [Numerics](#numerics)
+- [Testing Platform](#testing-platform)
 
 </hr>
 
