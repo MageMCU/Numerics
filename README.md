@@ -5,8 +5,7 @@
 - [Algebra OOP Library](#algebra-oop-library)
 - [Numerics](#numerics)
 - [Testing Platform](#testing-platform)
-
-</hr>
+- [Issues](#issues)
 
 ## Algebra OOP Library
 
@@ -24,13 +23,13 @@ This MCU chip **Atmega328P** is well known and the price is affordable as well a
 
 **Visual Studio Code** is a streamlined code editor and it runs on macOS, Linux, and Windows. The best thing about VSCode is that it's free.
 
-## In Development
-
-The Numerics project is active.
-
 ## Issues
 
 20220927 Tuesday - PlayformIO Arduino.h Libraries - Could not compile templated classes that ought to be dependent on each other. Actually Numerics will have many classes dependent on one another for access...
 
-- Point3f - removed temporarily until programmer, that's me, can learn the most efficient way in having multiple classes working together...
+- Point3f - removed temporarily until programmer, that's me, can learn the most efficient way in getting multiple classes working together...
 - Vector3f - uploaded new code additions...
+
+## In Development
+
+The Numerics project is active.
