@@ -15,7 +15,7 @@
 // CHANGELOG
 // Created 20220924
 // Corrections & Additions 20220925
-// ditto 20220926
+// ditto 20220926, -27
 // 
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -37,11 +37,15 @@ void setup() {
   //////////////////////////////////////
   // Numerics Tests 
   //////////////////////////////////////
-  mapTest();
-  vectorTest();
-  angleTest();
-  dotProductTest();
-  crossProductTest();
+  // mapTest();                    // ok
+  // vectorTest();                 // ok
+  // angleTest();                  // ok
+  // dotProductTest();             // ok
+  crossProductTest();           // ok
+  // vectorAdditionTest();         // ok
+  // vectorSubtractionTest();      // ok
+  // scalarMultiplicationTest();   // ok
+  // scalarDivisionTest();         // ok
   //////////////////////////////////////
 }
 

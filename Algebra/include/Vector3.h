@@ -15,6 +15,7 @@
 // Created 20220924
 // Corrections & Additions 20220925
 // Relabeled class Vector3f to Vector3 20220926
+// Corrections & Additions 20220927
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -54,11 +55,13 @@ namespace Numerics
         T x();
         T y();
         T z();
+        T w();
 
         // setters
         void x(T x);
         void y(T y);
         void z(T z);
+        void w(T z);
 
         // Inquiry
         bool IsVector();
@@ -71,8 +74,12 @@ namespace Numerics
         T PerpDot(Vector3<T> v);
 
         // Overloaded Operators
-        T operator*(Vector3<T> v);        // Dot Product
+        T operator*(Vector3<T> v);       // Dot Product
         Vector3 operator^(Vector3<T> v); // Cross product
+        Vector3 operator+(Vector3<T> v); // Vector Addition
+        Vector3 operator-(Vector3<T> v); // Vector Subtraction
+        Vector3 operator*(T s);          // Scalar Multiplication
+        Vector3 operator/(T s);          // Scalar Division
     };
 
     // Constructors
@@ -112,6 +119,8 @@ namespace Numerics
     T Vector3<T>::y() { return _y; }
     template <typename T>
     T Vector3<T>::z() { return _z; }
+    template <typename T>
+    T Vector3<T>::w() { return _w; }
 
     // setters
 
@@ -213,6 +222,58 @@ namespace Numerics
     Vector3<T> Vector3<T>::operator^(Vector3<T> v)
     {
         return Cross(v);
+    }
+
+    template <typename T>
+    Vector3<T> Vector3<T>::operator+(Vector3<T> v)
+    {
+        Vector3<T> results = {};
+
+        results.x(_x + v.x());
+        results.y(_y + v.y());
+        results.z(_z + v.z());
+
+        return results;
+    }
+
+    template <typename T>
+    Vector3<T> Vector3<T>::operator-(Vector3<T> v)
+    {
+        Vector3<T> results = {};
+
+        results.x(_x - v.x());
+        results.y(_y - v.y());
+        results.z(_z - v.z());
+
+        return results;
+    }
+
+    template <typename T>
+    Vector3<T> Vector3<T>::operator*(T s)
+    {
+        Vector3<T> results = {};
+
+        results.x(_x * s);
+        results.y(_y * s);
+        results.z(_z * s);
+
+        return results;
+    }
+
+    template <typename T>
+    Vector3<T> Vector3<T>::operator/(T s)
+    {
+        Vector3<T> results = {_x, _y, _z};
+
+        // Is (s) zero?
+        if (abs(s) < (T)__FLT_EPSILON__)
+            return results;
+
+        results.x(_x / s);
+        results.y(_y / s);
+        results.z(_z / s);
+
+        return results;
     }
 
     // PRIVATE METHODS

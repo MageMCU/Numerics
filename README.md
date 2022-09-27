@@ -27,3 +27,10 @@ This MCU chip **Atmega328P** is well known and the price is affordable as well a
 ## In Development
 
 The Numerics project is active.
+
+## Issues
+
+20220927 Tuesday - PlayformIO Arduino.h Libraries - Could not compile templated classes that ought to be depended on each other. Actually Numerics will have many classes depended on one another for access...
+
+- Point3f - removed temporarily until programmer, that's me, can learn the most efficient way in having multiple classes working together...
+- Vector3f - uploaded new code addition...

@@ -4,9 +4,13 @@
 
 ### Classes
 
-- Angle.h
-- Map.h
-- Vector3.h
+**Following classes independed**
+- **Angle.h**
+- **Map.h**
+
+***Followng classes depended on one another***
++ ***Vector3.h*** 
++ ***Point3.h*** --- (*removed for now*)
 
 ### Testing
 

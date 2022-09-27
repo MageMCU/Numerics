@@ -14,7 +14,7 @@
 // CHANGELOG
 // Created 20220924
 // Corrections & Additions 20220925
-// ditto 20220926
+// ditto 20220926,-27
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -69,10 +69,65 @@ void printAngle(char c, double angle, double x, double y, double rad)
   Serial.println(rad);
 }
 
+void scalarDivisionTest()
+{
+  Numerics::Vector3<float> a = {1, 2, 3};
+  printVector('a', a);
+  Numerics::Vector3<float> c = {};
+  float s = 3;
+  Serial.print("s: ");
+  Serial.println(s);
+
+  c = a / s;
+  printVector('c', c);
+}
+
+void scalarMultiplicationTest()
+{
+  Numerics::Vector3<float> a = {1, 2, 3};
+  printVector('a', a);
+  Numerics::Vector3<float> c = {};
+  float s = 3;
+  Serial.print("s: ");
+  Serial.println(s);
+
+  c = a * s;
+  printVector('c', c);
+}
+
+void vectorSubtractionTest()
+{
+  Numerics::Vector3<float> a = {1, 2, 3};
+  printVector('a', a);
+  Numerics::Vector3<float> b = {3, 2, 1};
+  printVector('b', b);
+  Numerics::Vector3<float> c = {};
+
+  c = a - b;
+  printVector('c', c);
+
+  a = b + c;
+  printVector('a', a);
+}
+
+void vectorAdditionTest()
+{
+  Numerics::Vector3<float> a = {1, 2, 3};
+  printVector('a', a);
+  Numerics::Vector3<float> b = {3, 2, 1};
+  printVector('b', b);
+  Numerics::Vector3<float> c = {};
+
+  c = a + b;
+  printVector('c', c);
+}
+
 void crossProductTest()
 {
   Numerics::Vector3<float> a = {1, 2, 3};
+  printVector('a', a);
   Numerics::Vector3<float> b = {3, 2, 1};
+  printVector('b', b);
   Numerics::Vector3<float> c = {};
 
   // Mathematically
@@ -106,7 +161,9 @@ void crossProductTest()
 void dotProductTest()
 {
   Numerics::Vector3<float> a = {1, 2, 3};
-  Numerics::Vector3<float> b = {1, 2, 3};
+  printVector('a', a);
+  Numerics::Vector3<float> b = {3, 2, 1};
+  printVector('b', b);
 
   // Mathematically
   // dot = 1 * 1 + 2 * 2 + 3 * 3 = 14
@@ -146,8 +203,8 @@ void angleTest()
   for (int i = 0; i < 360; /* i++  */ i += 5)
   {
     // directional unit vector
-    x = cos(i * (float) DEG_TO_RAD);
-    y = sin(i * (float) DEG_TO_RAD);
+    x = cos(i * (float)DEG_TO_RAD);
+    y = sin(i * (float)DEG_TO_RAD);
 
     // TEST angle() or angle2()
     rad = angle.angle2(x, y);
@@ -162,7 +219,7 @@ void mapTest()
   Numerics::Map<float> dM;
   float fahrenheit = 77;
   float celcius = dM.map(fahrenheit, 32, 212, 0, 100);
-  
+
   Serial.print("celcius: ");
   Serial.println(celcius);
 }
