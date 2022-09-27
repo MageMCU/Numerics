@@ -4,11 +4,11 @@
 
 ### Classes
 
-**Following classes independed**
+**Following classes independent**
 - **Angle.h**
 - **Map.h**
 
-***Followng classes depended on one another***
+***Followng classes dependent on one another***
 + ***Vector3.h*** 
 + ***Point3.h*** --- (*removed for now*)
 
