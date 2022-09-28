@@ -25,7 +25,7 @@ This MCU chip **Atmega328P** is well known and the price is affordable as well a
 
 ## Issues
 
-No issues..., other than **class Matric** is presently in development...
+No issues..., other than **class Matrix** is presently in development...
 
 ## In Development
 

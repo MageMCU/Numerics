@@ -4,11 +4,11 @@
 
 ### Classes
 
-**Following classes independent**
+**Following classes stand alone**
 - **Angle.h**
 - **Map.h**
 
-***Followng classes dependent on one another***
+***Followng classes are now hierachical***
 + ***Tuples.h***
 + ***Vector.h*** 
 + ***Point.h***
