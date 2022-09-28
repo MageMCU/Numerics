@@ -9,11 +9,11 @@
 
 ## Algebra OOP Library
 
-The math is underneath the namespace called Numerics as in numeric computation. An interesting note on cross-platform is try converting a library for MCU devices that originated from desktop computers. The code conversion by keyboard occurs while plugged-in to the Arduino Uno board. The Algebra OOP Library is privately used for the Unity Game Engine written in C#.
+The math is underneath the namespace called Numerics as in numeric computation. An interesting note on cross-platform is try converting a library for MCU devices that originated from desktop computers. The code conversion by keyboard occurs while plugged-in to the Arduino Uno board. The desktop Algebra OOP Library is written in C# and is privately used for the Unity Game Engine for robotic simulations.
 
 ## Numerics
 
-The Numerics is math computations that will be necessary to further the study in robotics. Testing the math on an Arduino board and then use it in a SBC and a MCU. The Raspberry Pi is a low-cost single-board computer used to teach computer science. The microcontroller like the Atmega328P is also low-cost and is sold on the popular Arduino Uno board.
+The Numerics is math computations needed to further the study in robotics. Numerics is developed and tested on an Arduino board and then it will be used in a SBC and a MCU. The Raspberry Pi is a low-cost single-board computer used to teach computer science. The microcontroller like the Atmega328P is also low-cost and is sold on the popular Arduino Uno board.
 
 ## Testing Platform
 
