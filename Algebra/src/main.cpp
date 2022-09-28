@@ -1,7 +1,6 @@
-
 //
 // Carpenter Software
-// File: Main Function main.cpp
+// File: Main main.cpp
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
@@ -13,10 +12,8 @@
 // By Jesse Carpenter (carpentersoftware.com)
 //
 // CHANGELOG
-// Created 20220924
-// Corrections & Additions 20220925
-// ditto 20220926, -27
-// 
+// Created 20220927
+//
 // Testing Platform:
 //  * MCU:Atmega328P
 //  * IDE:PlatformIO
@@ -25,19 +22,22 @@
 // MIT LICENSE
 //
 
+#include <Arduino.h>
+#include "Tuples.h"
+#include "Point.h"
+#include "Vector.h"
+
 #include "Tests.h"
 
-void setup() {
+void setup()
+{
   Serial.begin(9600);
-  while (!Serial)
-  {
-    /* code */
-  }
+  while (!Serial) {};
 
   //////////////////////////////////////
   // Numerics Tests 
   //////////////////////////////////////
-  // mapTest();                    // ok
+  mapTest();                    // ok
   // vectorTest();                 // ok
   // angleTest();                  // ok
   // dotProductTest();             // ok
@@ -46,9 +46,14 @@ void setup() {
   // vectorSubtractionTest();      // ok
   // scalarMultiplicationTest();   // ok
   // scalarDivisionTest();         // ok
+  pointVectorTest(); // Notice the use of both 
+  // Point & Vector classes together *
+  // * Decided to do Hierachies instead of Associative 
+  //   Relationships with pointers... Too many static globals.
   //////////////////////////////////////
 }
 
-void loop() {
+void loop()
+{
   // put your main code here, to run repeatedly:
 }
