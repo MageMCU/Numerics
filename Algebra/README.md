@@ -5,14 +5,14 @@
 ### Classes
 
 **Following classes are stand-alone**
-- **Angle.h**
 - **Map.h**
 
 ***Followng classes are in an hierachical relationship***
-+ ***Tuples.h***
++ ***Tuples.h***    (*Not really tuples but a virtual class... Changes to come.*)
 + ***Vector.h*** 
++ ***Angle.h***
 + ***Point.h***
-+ ***Matrix.h***  (*in-development*)
++ ***Matrix.h***    (*in-development*)
 
 ### Testing
 

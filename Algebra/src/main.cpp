@@ -26,6 +26,8 @@
 #include "Tuples.h"
 #include "Point.h"
 #include "Vector.h"
+#include "Angle.h"
+#include "Matrix.h"
 
 #include "Tests.h"
 
@@ -34,22 +36,23 @@ void setup()
   Serial.begin(9600);
   while (!Serial) {};
 
+  // Please note that Serial Print eats
+  // up a lot of memory...
   //////////////////////////////////////
   // Numerics Tests 
   //////////////////////////////////////
-  mapTest();                    // ok
+  // mapTest();                    // ok
   // vectorTest();                 // ok
-  // angleTest();                  // ok
+  // angleTest1();                 // ok
+  // angleTest2();                 // ok
   // dotProductTest();             // ok
-  crossProductTest();           // ok
+  // crossProductTest();           // ok
   // vectorAdditionTest();         // ok
   // vectorSubtractionTest();      // ok
   // scalarMultiplicationTest();   // ok
   // scalarDivisionTest();         // ok
-  pointVectorTest(); // Notice the use of both 
-  // Point & Vector classes together *
-  // * Decided to do Hierachies instead of Associative 
-  //   Relationships with pointers... Too many static globals.
+  // pointVectorTest();            // ok
+  matrixTest();
   //////////////////////////////////////
 }
 
