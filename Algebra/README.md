@@ -6,7 +6,7 @@
 
 **Following classes are stand-alone**
 - **Motion.h**         (map-function moved here)
-- **DeltaTime**
+- **DeltaTime.h**
 
 ***Followng classes are in an hierachical relationship***
 + ***Vector3.h***      (could be used as stand-alone)
