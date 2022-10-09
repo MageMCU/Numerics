@@ -51,6 +51,10 @@ void loop()
     {
         // To Study Encoded Motors
         // Using Large delta time 250 ms
+        // Addendum: Suggested to use gravity g = 9.8 m/s*s 
+        //           y - yo = vo(t) - 0.5g(t * t);
+        //           dy = - 0.5 * 9.8 * t * t;
+        //   where   t = time - startTime;
         float deltaDistance = (float)random(20000, 30000);
         float dt = motion.dt(deltaTime.dt());
         float speed = motion.v(deltaDistance);
