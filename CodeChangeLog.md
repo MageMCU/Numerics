@@ -8,4 +8,6 @@
 <p>20220927 - Point.h ... Testing... </p>
 <p>20220927 - Notice the use of both Point & Vector classes working together. Decided to do Hierachies instead of Associative Relationships with pointers... Thinking that the number of static globals will increase over time.</p>
 <p>20220928 - Angles.h ... Testing... </p>
-<p>20220928 - Matrix.h ... Testing... </p>
+<p>20221008 - Rewrote all classes... </p>
+<p>20221009 - DeltaTime.h & Motion.h ... Testing... </p>
+

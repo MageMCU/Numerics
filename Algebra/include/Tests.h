@@ -22,11 +22,11 @@
 // MIT LICENSE
 //
 
-#ifndef Tests_h
-#define Tests_h
+#ifndef Numerics_Tests_h
+#define Numerics_Tests_h
 
 #include "Arduino.h"
-#include "Map.h"
+#include "Motion.h"
 #include "Angle.h"
 #include "Point3.h"
 #include "Matrix3x3.h"
@@ -167,8 +167,8 @@ void angleTest()
 
 void mapTest()
 {
-    printTitle("Map Test");
-    Map<float> dM;
+    printTitle("Motion Test");
+    Motion<float> dM;
     float fahrenheit = 77;
     float celcius = dM.map(fahrenheit, 32, 212, 0, 100);
     Serial.print("celcius: ");

@@ -1,0 +1,68 @@
+//
+// Carpenter Software
+// File: Main main.cpp
+// Folder: Algebra
+//
+// Purpose: Github Depository (MageMCU)
+// Testing: DeltaTime.h & Motion.h
+//
+// Algebra OOP Library
+// The math is underneath the namespace
+// called Numerics as in numeric computation.
+//
+// By Jesse Carpenter (carpentersoftware.com)
+//
+// CHANGELOG
+// Created 20221008
+//
+// Testing Platform:
+//  * MCU:Atmega328P
+//  * IDE:PlatformIO
+//  * Editor: VSCode
+//
+// MIT LICENSE
+//
+
+#include <Arduino.h>
+#include "Timer.h" // Use from Joystick_Uno_L298N
+#include "DeltaTime.h"
+#include "Motion.h"
+
+// GLOBAL VARIABLES
+uno::Timer timer;
+Numerics::DeltaTime<float> deltaTime;
+Numerics::Motion<float> motion;
+
+void setup()
+{
+    Serial.begin(9600);
+    while (!Serial)
+    {
+    }
+
+    timer = uno::Timer();
+    deltaTime = Numerics::DeltaTime<float>();
+    motion = Numerics::Motion<float>();
+}
+
+void loop()
+{
+    if (timer.isTimer(250))
+    {
+        // To Study Encoded Motors
+        // Using Large delta time 250 ms
+        float deltaDistance = (float)random(20000, 30000);
+        float dt = motion.dt(deltaTime.dt());
+        float speed = motion.v(deltaDistance);
+        float acceleration = motion.a(speed);
+
+        Serial.print("dx: ");
+        Serial.print(deltaDistance);
+        Serial.print(" dt: ");
+        Serial.print(dt);
+        Serial.print(" v: ");
+        Serial.print(speed);
+        Serial.print(" a: ");
+        Serial.println(acceleration);
+    }
+}

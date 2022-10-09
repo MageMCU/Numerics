@@ -32,10 +32,10 @@ void setup()
   {
   }
   // TEST-FUNCTIONS
-  // vectorTest();
+  vectorTest();
   pointTest();
-  // angleTest();
-  // mapTest();
+  angleTest();
+  mapTest();
   matrixTest();
 }
 

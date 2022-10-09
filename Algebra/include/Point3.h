@@ -22,8 +22,8 @@
 // MIT LICENSE
 //
 
-#ifndef POINT3_H
-#define POINT3_H
+#ifndef Numerics_Point3_h
+#define Numerics_Point3_h
 
 #include "Arduino.h"
 #include "Vector3.h"
@@ -34,13 +34,8 @@ namespace Numerics
     class Point3 : Vector3<real>
     {
     private:
+        // Private Members
         real p_tuples[3];
-
-        // Members
-        // real _x;
-        // real _y;
-        // real _z;
-        // real _w;
 
     public:
         // Constructors
@@ -51,13 +46,10 @@ namespace Numerics
         ~Point3(){};
 
         // GETTERS & SETTERS
-        real Element(int index);
         real x();
         real y();
         real z();
-
-        // Inquiry
-        bool IsPoint();
+        real Element(int index);
 
         // Point-Vector Operations
         Vector3<real> operator-(Point3<real> p);
@@ -91,11 +83,6 @@ namespace Numerics
     }
 
     // GETTERS & SETTERS
-    template <typename real>
-    real Point3<real>::Element(int index)
-    {
-        return p_tuples[index];
-    }
 
     template <typename real>
     real Point3<real>::x() { return p_tuples[0]; }
@@ -103,6 +90,11 @@ namespace Numerics
     real Point3<real>::y() { return p_tuples[1]; }
     template <typename real>
     real Point3<real>::z() { return p_tuples[2]; }
+    template <typename real>
+    real Point3<real>::Element(int index)
+    {
+        return p_tuples[index];
+    }
 
     // Point-Vector Operations
 

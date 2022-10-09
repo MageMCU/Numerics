@@ -35,6 +35,7 @@ namespace Numerics
   class Angle : Vector3<real>
   {
   private:
+    // Private methods
     real _angleRadian(real a, real b);
     real _angle2Radian(real a, real b);
     Vector3<real> _directionalVector(real angleRadian, int item);
@@ -42,8 +43,10 @@ namespace Numerics
   public:
     // Constructor
     Angle() {}
+    // Destructor
+    ~Angle() {}
 
-    // Implementation
+    // Public Methods
     Vector3<real> DirectionalVectorXY(real angleRadian);
     Vector3<real> DirectionalVectorXZ(real angleRadian);
     Vector3<real> DirectionalVectorYZ(real angleRadian);

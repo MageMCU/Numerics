@@ -22,8 +22,8 @@
 // MIT LICENSE
 //
 
-#ifndef Vector3_h
-#define Vector3_h
+#ifndef Numerics_Vector3_h
+#define Numerics_Vector3_h
 
 #include "Arduino.h"
 
@@ -33,7 +33,10 @@ namespace Numerics
     class Vector3
     {
     private:
+        // Private Members
         real v_tuples[3];
+
+        // Private Methods
         Vector3<real> _unitVector();
         Vector3<real> _vector();
 
@@ -42,7 +45,6 @@ namespace Numerics
         Vector3();
         Vector3(real x, real y, real z);
         Vector3(const real array[]);
-
         // Destructor
         ~Vector3() {}
 

@@ -22,8 +22,8 @@
 // MIT LICENSE
 //
 
-#ifndef Matrix3x3_h
-#define Matrix3x3_h
+#ifndef Numerics_Matrix3x3_h
+#define Numerics_Matrix3x3_h
 
 #include "Arduino.h"
 #include "Vector3.h"
@@ -34,15 +34,21 @@ namespace Numerics
     class Matrix3x3 : Vector3<real>
     {
     private:
+        // Private Members
         real m_tuples[9];
+
+        // Private Methods
         // item & items
         int _it(int row, int col);
         real _its(int index);
 
     public:
+        // Constructors
         // Creates an Identity
         Matrix3x3();
         Matrix3x3(const real array[]);
+        // ~Destructor
+        ~Matrix3x3() {}
 
         // GETTERS & SETTERS
         real Element(int row, int col);
@@ -87,22 +93,6 @@ namespace Numerics
     // METHODS
 
     template <typename real>
-    Vector3<real> Matrix3x3<real>::operator*(Vector3<real> v)
-    {
-        float values[3];
-        for (int row = 0; row < 3; row++)
-        {
-            values[row] = (real)0;
-            for (int col = 0; col < 3; col++)
-            {
-                values[row] += m_tuples[_it(row, col)] * v.Element(col);
-            }
-        }
-        Vector3<real> vector(values);
-        return vector;
-    }
-
-    template <typename real>
     Matrix3x3<real> Matrix3x3<real>::Transpose()
     {
         float values[9];
@@ -118,6 +108,22 @@ namespace Numerics
     }
 
     // OPERATORS
+
+    template <typename real>
+    Vector3<real> Matrix3x3<real>::operator*(Vector3<real> v)
+    {
+        float values[3];
+        for (int row = 0; row < 3; row++)
+        {
+            values[row] = (real)0;
+            for (int col = 0; col < 3; col++)
+            {
+                values[row] += m_tuples[_it(row, col)] * v.Element(col);
+            }
+        }
+        Vector3<real> vector(values);
+        return vector;
+    }
 
     template <typename real>
     Matrix3x3<real> Matrix3x3<real>::operator*(Matrix3x3<real> M)
