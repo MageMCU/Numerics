@@ -34,7 +34,7 @@
 using namespace Numerics;
 
 template <typename real>
-void printAngle(String s, int deg, Vector3<real> v, double rad)
+void printAngle(String s, int deg, Vector3<real> v, real rad)
 {
     Serial.print(s);
     Serial.print(" deg: ");
