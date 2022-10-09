@@ -12,9 +12,7 @@
 // By Jesse Carpenter (carpentersoftware.com)
 //
 // CHANGELOG
-// Created 20220924
-// Corrections & Additions 20220925
-// ditto 20220926,-27
+// Created 20221008
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -24,409 +22,246 @@
 // MIT LICENSE
 //
 
-// TODO
-// Comment-out USE_SERIAL_PRINT to
-// test everything for memory size... 40%
-
-#define USE_SERIAL_PRINT
+#ifndef Tests_h
+#define Tests_h
 
 #include "Arduino.h"
-
 #include "Map.h"
-#include "Tuples.h"
-#include "Vector.h"
-#include "Point.h"
 #include "Angle.h"
-#include "Matrix.h"
+#include "Point3.h"
+#include "Matrix3x3.h"
 
-#ifndef Functions_Tests_h
-#define Functions_Tests_h
+using namespace Numerics;
 
-void printMatrix(String s, Numerics::Matrix<float> m)
+template <typename real>
+void printAngle(String s, int deg, Vector3<real> v, double rad)
 {
-#ifdef USE_SERIAL_PRINT
-  Serial.println(s);
-  // Using only the 3x3 but actually
-  // it's an 4x4 affine matrix
-  int size2x2 = 2;
-  for (int row = 0; row < size2x2; row++)
-  {
-    for (int col = 0; col < size2x2; col++)
+    Serial.print(s);
+    Serial.print(" deg: ");
+    Serial.print(deg);
+    Serial.print(" d-vector (");
+    Serial.print(v.x());
+    Serial.print(", ");
+    Serial.print(v.y());
+    Serial.print(", ");
+    Serial.print(v.z());
+    Serial.print(") ");
+    Serial.print("rad: ");
+    Serial.println(rad);
+}
+
+template <typename real>
+void printVector(String s, Vector3<real> v)
+{
+    Serial.println(s);
+    for (int i = 0; i < 3; i++)
     {
-      Serial.print(m.GetValue(row, col));
-      Serial.print(" ");
+        Serial.print(v.Element(i));
+        Serial.print(" ");
     }
     Serial.println("");
-  }
-  
-  Serial.println(s);
-  int size3x3 = 3;
-  for (int row = 0; row < size3x3; row++)
-  {
-    for (int col = 0; col < size3x3; col++)
+}
+
+template <typename real>
+void printPoint(String s, Point3<real> p)
+{
+    Serial.println(s);
+    for (int i = 0; i < 3; i++)
     {
-      Serial.print(m.GetValue(row, col));
-      Serial.print(" ");
+        Serial.print(p.Element(i));
+        Serial.print(" ");
     }
     Serial.println("");
-  }
-  
-  Serial.println(s);
-  int size4x4 = 4;
-  for (int row = 0; row < size4x4; row++)
-  {
-    for (int col = 0; col < size4x4; col++)
+}
+
+template <typename real>
+void printMatrix(String s, Matrix3x3<real> A)
+{
+    Serial.println(s);
+    for (int i = 0; i < 3; i++)
     {
-      Serial.print(m.GetValue(row, col));
-      Serial.print(" ");
+        for (int j = 0; j < 3; j++)
+        {
+            Serial.print(A.Element(i, j));
+            Serial.print(" ");
+        }
+        Serial.println("");
     }
-    Serial.println("");
-  }
-#endif
-}
-
-void printPoint(String s, Numerics::Point<float> v)
-{
-#ifdef USE_SERIAL_PRINT
-  Serial.print(s);
-  Serial.print("(");
-  Serial.print(v.x());
-  Serial.print(", ");
-  Serial.print(v.y());
-  Serial.print(", ");
-  Serial.print(v.z());
-  Serial.println(")");
-#endif
-}
-
-void printVector(String s, Numerics::Vector<float> v)
-{
-#ifdef USE_SERIAL_PRINT
-  Serial.print(s);
-  Serial.print("(");
-  Serial.print(v.x());
-  Serial.print(", ");
-  Serial.print(v.y());
-  Serial.print(", ");
-  Serial.print(v.z());
-  Serial.println(")");
-#endif
-}
-
-void printVector(String s, double x, double y, double z)
-{
-#ifdef USE_SERIAL_PRINT
-  Serial.print(s);
-  Serial.print("(");
-  Serial.print(x);
-  Serial.print(", ");
-  Serial.print(y);
-  Serial.print(", ");
-  Serial.print(z);
-  Serial.println(")");
-#endif
-}
-
-void printAngle(String s, int deg, Numerics::Vector<float> v, double rad)
-{
-#ifdef USE_SERIAL_PRINT
-  Serial.print(s);
-  Serial.print(" deg: ");
-  Serial.print(deg);
-  Serial.print(" (");
-  Serial.print(v.x());
-  Serial.print(", ");
-  Serial.print(v.y());
-  Serial.print(", ");
-  Serial.print(v.z());
-  Serial.print(") ");
-  Serial.print("radian: ");
-  Serial.println(rad);
-#endif
 }
 
 void printTitle(String s)
 {
-#ifdef USE_SERIAL_PRINT
-  Serial.println("");
-  Serial.print(s);
-  Serial.println(" ------------------");
-#endif
+    Serial.print("----------------- ");
+    Serial.println(s);
+}
+
+void printSubTitle(String s)
+{
+    Serial.print("------ ");
+    Serial.print(s);
+    Serial.println(" ------");
+}
+
+void pointTest()
+{
+    printTitle("Point Test");
+    Point3<float> p1(-3, -4, 10);
+    printPoint("p1", p1);
+    Point3<float> p2(15, 2, 21);
+    printPoint("p2", p2);
+    Vector3<float> v1 = p2 - p1;
+    printVector("v1 = p2 - p1", v1);
+    Vector3<float> v2(1, 2, 3);
+    printVector("v2", v2);
+    Point3<float> p3 = p1 + v2;
+    printPoint("p3 = p1 + v2", p3);
 }
 
 void matrixTest()
 {
-  printTitle("matrixTest()");
+    printTitle("Matrix Test");
+    float array1[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    Matrix3x3<float> A(array1);
+    printMatrix("A", A);
 
-  Numerics::Matrix<float> m{};
-  printMatrix("m", m);
+    Matrix3x3<float> B;
+    printMatrix("B", B);
+
+    printSubTitle("Matrix Matrix Multiplication");
+    Matrix3x3<float> C = A * B;
+    printMatrix("C = A * B", C);
+
+    printSubTitle("Matrix Transpose");
+    C = A.Transpose();
+    printMatrix("AT", C);
+
+    printSubTitle("Matrix Vector Multiplication");
+    printMatrix("A", A);
+    Vector3<float> x(1, 2, 3);
+    printVector("x", x);
+    // b = 14, 32, 50
+    Vector3<float> b = A * x;
+    printVector("b = A * x", b);
 }
 
-void pointVectorTest()
+void angleTest()
 {
-  printTitle("pointVectorTest()");
+    printTitle("Angle Test");
+    Angle<float> angle;
+    Vector3<float> v;
+    printVector("directional vector v", v);
 
-  Numerics::Point<float> p1{1, 2};
-  printPoint("p1: ", p1);
-  Numerics::Point<float> p2{3, 4};
-  printPoint("p2: ", p2);
-  Numerics::Vector<float> v{6, 7};
-  printVector("v", v);
-
-  Numerics::Point<float> p{};
-  Numerics::Vector<float> u{};
-
-  // When using points and vectors
-  // these are only two allowable
-  // operations...
-  // At least until we get to affine
-  // transformations.
-  //
-  // When adding a vector to a point
-  // it give another point.
-  p = p1 + v;
-  printPoint("p = p1 + v: ", p);
-  if (p.IsPoint())
-  {
-#ifdef USE_SERIAL_PRINT
-    Serial.println("p is a Point");
-#endif
-  }
-  // When subtracting two points,
-  // it gives a vector.
-  u = p2 - p1;
-  printVector("u = p2 - p1: ", u);
-  if (u.IsVector())
-  {
-#ifdef USE_SERIAL_PRINT
-    Serial.println("u is a Vector");
-#endif
-  }
-}
-
-void scalarDivisionTest()
-{
-  printTitle("scalarDivisionTest()");
-
-  Numerics::Vector<float> a = {1, 2, 3};
-  printVector("a", a);
-  Numerics::Vector<float> c = {};
-  float s = 3;
-#ifdef USE_SERIAL_PRINT
-  Serial.print("s: ");
-  Serial.println(s);
-#endif
-
-  c = a / s;
-  printVector("c", c);
-}
-
-void scalarMultiplicationTest()
-{
-  printTitle("scalarMultiplicationTest()");
-
-  Numerics::Vector<float> a = {1, 2, 3};
-  printVector("a", a);
-  Numerics::Vector<float> c = {};
-  float s = 3;
-#ifdef USE_SERIAL_PRINT
-  Serial.print("s: ");
-  Serial.println(s);
-#endif
-
-  c = a * s;
-  printVector("c", c);
-}
-
-void vectorSubtractionTest()
-{
-  printTitle("vectorSubtractionTest()");
-
-  Numerics::Vector<float> a = {1, 2, 3};
-  printVector("a", a);
-  Numerics::Vector<float> b = {3, 2, 1};
-  printVector("b", b);
-  Numerics::Vector<float> c = {};
-
-  c = a - b;
-  printVector("c", c);
-
-  a = b + c;
-  printVector("a", a);
-}
-
-void vectorAdditionTest()
-{
-  printTitle("vectorAdditionTest()");
-
-  Numerics::Vector<float> a = {1, 2, 3};
-  printVector("a", a);
-  Numerics::Vector<float> b = {3, 2, 1};
-  printVector("b", b);
-  Numerics::Vector<float> c = {};
-
-  c = a + b;
-  printVector("c", c);
-}
-
-void crossProductTest()
-{
-  printTitle("crossProductTest()");
-
-  Numerics::Vector<float> a = {1, 2, 3};
-  printVector("a", a);
-  Numerics::Vector<float> b = {3, 2, 1};
-  printVector("b", b);
-  Numerics::Vector<float> c = {};
-
-  // Mathematically
-  // (2*1 - 3*2, 3*3 - 1*1, 1*2 - 2*3) = (-4, 8, -4)
-
-  c = a ^ b;
-  printVector("c = a ^ b: ", c);
-
-  c = a.Cross(b);
-  printVector("c = a.Cross(b): ", c);
-
-#ifdef USE_SERIAL_PRINT
-  Serial.print("z-component of c: ");
-  Serial.println(c.z());
-#endif
-
-  // Assign zeros to the z-component
-  // in case dot product adds in z...
-  a.z(0);
-  b.z(0);
-
-  // Notice this equals the previous
-  // z-component of the cross product.
-  float perpDot = a.PerpDot(b);
-#ifdef USE_SERIAL_PRINT
-  Serial.print("perpDot: ");
-  Serial.println(perpDot);
-#endif
-
-  if (a.IsVector())
-  {
-#ifdef USE_SERIAL_PRINT
-    Serial.println("a is a vector");
-#endif
-  }
-}
-
-void dotProductTest()
-{
-  printTitle("dotProductTest()");
-
-  Numerics::Vector<float> a = {1, 2, 3};
-  printVector("a", a);
-  Numerics::Vector<float> b = {3, 2, 1};
-  printVector("b", b);
-
-  // Mathematically
-  // dot = 1 * 1 + 2 * 2 + 3 * 3 = 14
-
-  // Method 1
-  float dot = a.Dot(b);
-#ifdef USE_SERIAL_PRINT
-  Serial.print("Dot1: ");
-  Serial.println(dot);
-#endif
-
-  // Method 2
-  dot = a * b;
-#ifdef USE_SERIAL_PRINT
-  Serial.print("Dot2: ");
-  Serial.println(dot);
-#endif
-}
-
-void vectorTest()
-{
-  printTitle("vectorTest()");
-
-  Numerics::Vector<float> v = {1, 2, 3};
-  printVector("v", v.x(), v.y(), v.z());
-
-  float m = v.Magnitude();
-#ifdef USE_SERIAL_PRINT
-  Serial.print("v.Mag: ");
-  Serial.println(m);
-#endif
-
-  Numerics::Vector<float> u = v.Normalize();
-  printVector("u", u.x(), u.y(), u.z());
-}
-
-void angleTest2()
-{
-  // This test checks the vectors
-  printTitle("angleTest2()");
-
-  Numerics::Angle<float> angle;
-  Numerics::Vector<float> v = {1, 2, 3};
-  printVector("v", v.x(), v.y(), v.z());
-
-  float angleXY = angle.AngleRadianXY(v);
-#ifdef USE_SERIAL_PRINT
-  Serial.print("angleXY: ");
-  Serial.print(angleXY);
-  Serial.print(" ");
-  Serial.println(angleXY * RAD_TO_DEG);
-#endif
-
-  float angleXZ = angle.AngleRadianXZ(v);
-#ifdef USE_SERIAL_PRINT
-  Serial.print("angleXZ: ");
-  Serial.print(angleXZ);
-  Serial.print(" ");
-  Serial.println(angleXZ * RAD_TO_DEG);
-#endif
-
-  float angleYZ = angle.AngleRadianYZ(v);
-#ifdef USE_SERIAL_PRINT
-  Serial.print("angleYZ: ");
-  Serial.print(angleYZ);
-  Serial.print(" ");
-  Serial.println(angleYZ * RAD_TO_DEG);
-#endif
-}
-
-void angleTest1()
-{
-  // This checks the quadrants...
-  printTitle("angleTest1()");
-
-  Numerics::Angle<float> angle;
-  Numerics::Vector<float> v = {};
-  float rad;
-
-  // Covers an entire unit circle
-  for (int deg = 0; deg < 360; deg += 10)
-  {
-    // angle to directional unit vector
-    v = angle.DirectionalVectorXY((float)deg * DEG_TO_RAD);
-
-    // Vector back to radian
-    rad = angle.AngleRadianXY(v);
-
-    // Debug Test
-    printAngle("angTest1: ", deg, v, rad);
-  }
+    printSubTitle("Unit Circle (UC)");
+    float rad;
+    // Covers an entire unit circle
+    for (int deg = 0; deg < 360; deg += 30)
+    {
+        // angle to directional unit vector
+        v = angle.DirectionalVectorXY((float)deg * DEG_TO_RAD);
+        // Vector back to radian
+        rad = angle.AngleRadianXY(v);
+        // Debug Test
+        printAngle("UC: ", deg, v, rad);
+    }
 }
 
 void mapTest()
 {
-  printTitle("mapTest()");
+    printTitle("Map Test");
+    Map<float> dM;
+    float fahrenheit = 77;
+    float celcius = dM.map(fahrenheit, 32, 212, 0, 100);
+    Serial.print("celcius: ");
+    Serial.println(celcius);
+}
 
-  Numerics::Map<float> dM;
-  float fahrenheit = 77;
-  float celcius = dM.map(fahrenheit, 32, 212, 0, 100);
+void vectorTest()
+{
+    printTitle("Vector Test");
 
-#ifdef USE_SERIAL_PRINT
-  Serial.print("celcius: ");
-  Serial.println(celcius);
-#endif
+    printSubTitle("Basis i");
+    float array1[] = {1, 0, 0};
+    Vector3<float> a1(array1);
+    printVector("a1", a1);
+
+    printSubTitle("Basis j");
+    float array2[] = {0, 1, 0};
+    Vector3<float> a2(array2);
+    printVector("a2", a2);
+
+    printSubTitle("Basis k");
+    Vector3<float> a3 = a1.Cross(a2);
+    printVector("a1.Cross(a2)", a3);
+    Vector3<float> a4 = a1 ^ a2;
+    printVector("a1 ^ a2", a4);
+
+    printSubTitle("Scalar Product");
+    a3 = a1 * (float)6;
+    printVector("a1 * (float) 6", a3);
+
+    printSubTitle("Vector Addtion");
+    a3 = a1 + a2;
+    printVector("a1 + a2", a3);
+
+    printSubTitle("Vector Sutraction");
+    a3 = a1 - a2;
+    printVector("a1 - a2", a3);
+
+    printSubTitle("Dot Product");
+    float dot = a1.Dot(a2);
+    Serial.print("a1.Dot(a2): ");
+    Serial.println(dot);
+    dot = a1 * a2;
+    Serial.print("a1 * a2: ");
+    Serial.println(dot);
+
+    printSubTitle("Misc");
+    a3 = a1 + a2;
+    printVector("a1 + a2", a3);
+    float array3[] = {-5, 10, 2};
+    Vector3<float> a5(array3);
+    printVector("a5", a5);
+    float magnitude = a5.Magnitude();
+    Serial.print("a5.Magnitude(): ");
+    Serial.println(magnitude);
+    a5 = a5.Normalize();
+    printVector("a5.Normalize()", a5);
+    magnitude = a5.Magnitude();
+    Serial.print("a5.Magnitude(): ");
+    Serial.println(magnitude);
+
+    printSubTitle("PerpVectorXY");
+    a3 = a1 + a2;
+    printVector("a1 + a2", a3);
+    float array4[] = {3, 8, 0};
+    Vector3<float> a6(array4);
+    printVector("a6", a6);
+    float array5[] = {1, 1, 0};
+    Vector3<float> a7(array5);
+    printVector("a7", a7);
+    a3 = a6.PerpVectorXY();
+    printVector("a3 = a6.PerpVectorXY", a3);
+    dot = a3 * a7;
+    Serial.print("a3 * a7: ");
+    Serial.println(dot);
+    a3 = a6 ^ a7;
+    printVector("a6 ^ a7", a3);
+    Serial.print("a3.z: ");
+    Serial.println(a3.z());
+
+    printSubTitle("ProjThisOntoV");
+    float array7[] = {3, -2, 0};
+    Vector3<float> a8(array7);
+    printVector("a8", a8);
+    float array8[] = {1, 4, 0};
+    Vector3<float> a9(array8);
+    printVector("a9", a9);
+    a3 = a9.Normalize();
+    printVector("a9.Normalize", a3);
+    Vector3<float> a10 = a8.ProjThisOntoV(a9);
+    printVector("a10 = a8.ProjThisOntoV(a9)", a10);
+    a3 = a10.Normalize();
+    printVector("a10.Normalize", a3);
 }
 
 #endif

@@ -12,7 +12,7 @@
 // By Jesse Carpenter (carpentersoftware.com)
 //
 // CHANGELOG
-// Created 20220924
+// Created 20221008
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -25,25 +25,30 @@
 #ifndef Numerics_Map_h
 #define Numerics_Map_h
 
-namespace Numerics {
-  template<typename T>
-  class Map {
+#include "Arduino.h"
+
+namespace Numerics
+{
+  template <typename real>
+  class Map
+  {
   private:
-  
   public:
-  // Constructor
+    // Constructor
     Map() {}
-  // Implementation
-    T map (T x, T x1, T x2, T y1, T y2);
+    // Destructor
+    ~Map() {}
+    // Implementation
+    real map(real x, real x1, real x2, real y1, real y2);
   };
 
-    template<typename T>
-    T Map<T>::map (T x, T x1, T x2, T y1, T y2)
-    {
-      // Assume linear functions
-      // m = (y2 - y1)/(x2 - x1)
-      // (y - y1) = m(x - x1)
-      return (y2 - y1) * (x - x1) / (x2 - x1) + y1;
-    }
+  template <typename real>
+  real Map<real>::map(real x, real x1, real x2, real y1, real y2)
+  {
+    // Assume linear functions
+    // m = (y2 - y1)/(x2 - x1)
+    // (y - y1) = m(x - x1)
+    return (y2 - y1) * (x - x1) / (x2 - x1) + y1;
+  }
 }
 #endif
