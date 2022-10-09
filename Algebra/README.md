@@ -8,11 +8,10 @@
 - **Map.h**
 
 ***Followng classes are in an hierachical relationship***
-+ ***Tuples.h***    (*Not really tuples but a virtual class... Changes to come.*)
-+ ***Vector.h*** 
-+ ***Angle.h***
-+ ***Point.h***
-+ ***Matrix.h***    (*in-development*)
++ ***Vector3.h***      (rewite 2022008)
++ ***Angle.h***        (rewite 2022008)
++ ***Point3.h***       (rewite 2022008)
++ ***Matrix3x3.h***    (*in-development*)
 
 ### Testing
 
