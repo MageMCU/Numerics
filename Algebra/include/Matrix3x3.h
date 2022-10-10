@@ -95,7 +95,7 @@ namespace Numerics
     template <typename real>
     Matrix3x3<real> Matrix3x3<real>::Transpose()
     {
-        float values[9];
+        real values[9];
         for (int row = 0; row < 3; row++)
         {
             for (int col = 0; col < 3; col++)
@@ -112,7 +112,7 @@ namespace Numerics
     template <typename real>
     Vector3<real> Matrix3x3<real>::operator*(Vector3<real> v)
     {
-        float values[3];
+        real values[3];
         for (int row = 0; row < 3; row++)
         {
             values[row] = (real)0;
@@ -128,7 +128,7 @@ namespace Numerics
     template <typename real>
     Matrix3x3<real> Matrix3x3<real>::operator*(Matrix3x3<real> M)
     {
-        float values[9];
+        real values[9];
         for (int row = 0; row < 3; row++)
         {
             for (int col = 0; col < 3; col++)
