@@ -65,14 +65,14 @@ namespace Numerics
     Matrix3x3<real>::Matrix3x3()
     {
         // Identity Matrix
-        for (int r = 0; r < 3; r++)
+        for (int row = 0; row < 3; row++)
         {
-            for (int c = 0; c < 3; c++)
+            for (int col = 0; col < 3; col++)
             {
-                if (r == c)
-                    m_tuples[_it(r, c)] = (real)1;
+                if (row == col)
+                    m_tuples[_it(row, col)] = (real)1;
                 else
-                    m_tuples[_it(r, c)] = (real)0;
+                    m_tuples[_it(row, col)] = (real)0;
             }
         }
     }
