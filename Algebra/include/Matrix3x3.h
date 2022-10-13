@@ -51,9 +51,12 @@ namespace Numerics
         ~Matrix3x3() {}
 
         // GETTERS & SETTERS
+        int Index(int row, int col);
         real Element(int row, int col);
 
         // METHODS
+        real Determinant();
+        bool IsInvertible();
         Matrix3x3<real> Transpose();
 
         // OPERATORS
@@ -65,14 +68,14 @@ namespace Numerics
     Matrix3x3<real>::Matrix3x3()
     {
         // Identity Matrix
-        for (int row = 0; row < 3; row++)
+        for (int r = 0; r < 3; r++)
         {
-            for (int col = 0; col < 3; col++)
+            for (int c = 0; c < 3; c++)
             {
-                if (row == col)
-                    m_tuples[_it(row, col)] = (real)1;
+                if (r == c)
+                    m_tuples[_it(r, c)] = (real)1;
                 else
-                    m_tuples[_it(row, col)] = (real)0;
+                    m_tuples[_it(r, c)] = (real)0;
             }
         }
     }
@@ -85,12 +88,41 @@ namespace Numerics
     }
 
     template <typename real>
+    int Matrix3x3<real>::Index(int row, int col)
+    {
+        return _it(row, col);
+    }
+
+    template <typename real>
     real Matrix3x3<real>::Element(int row, int col)
     {
         return m_tuples[_it(row, col)];
     }
 
     // METHODS
+
+    template <typename real>
+    bool Matrix3x3<real>::IsInvertible()
+    {
+        return Determinant() != (real)0;
+    }
+
+    template <typename real>
+    real Matrix3x3<real>::Determinant()
+    {
+        // 0 1 2
+        // 3 4 5
+        // 6 7 8
+        real det;
+
+        real m0 = m_tuples[4] * m_tuples[8] - m_tuples[7] * m_tuples[5];
+        real m1 = m_tuples[3] * m_tuples[8] - m_tuples[6] * m_tuples[5];
+        real m2 = m_tuples[3] * m_tuples[7] - m_tuples[6] * m_tuples[4];
+
+        det = m_tuples[0] * m0 - m_tuples[1] * m1 + m_tuples[2] * m2;
+
+        return det;
+    }
 
     template <typename real>
     Matrix3x3<real> Matrix3x3<real>::Transpose()

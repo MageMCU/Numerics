@@ -10,4 +10,6 @@
 <p>20220928 - Angles.h ... Testing... </p>
 <p>20221008 - Rewrote all classes... </p>
 <p>20221009 - DeltaTime.h & Motion.h ... Testing... Updated Vector3.h</p>
+<p>20221012 -Updated Vector3.h * Matrix3x3.h and Tests.h</p>
+
 

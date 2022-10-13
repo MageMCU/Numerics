@@ -32,11 +32,29 @@ void setup()
   {
   }
   // TEST-FUNCTIONS
-  vectorTest();
-  pointTest();
-  angleTest();
-  mapTest();
-  matrixTest();
+
+  matrixMatrixMultiplicationTestM6();
+  // matrixVectorMultiplicationTestM5();
+  // matrixTransposeTestM4();
+  // matrixDeterminantTestM3();
+  // matrixIndexElementTestM2();
+  // matrixConstructorTestM1();
+
+  // vectorSubtractionTestV11();
+  // vectorAdditionTestV10();
+  // vectorScalarMultiplicationTestV9();
+  // vectorNegationTestV8();
+  // vectorProjThisOntoV_TestV7();
+  // vectorPerpVectorXY_TestV6();
+  // vectorCrossProductTestV5();
+  // vectorDotProductTestV4();
+  // vectorNormalizeTestV3();
+  // vectorMagnitudeTestV2();
+  // vectorConstructorTestV1();
+
+  // pointTest();
+  // angleTest();
+  // mapTest();
 }
 
 void loop() {}

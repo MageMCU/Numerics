@@ -51,6 +51,10 @@ namespace Numerics
         real z();
         real Element(int index);
 
+        // Inquiery
+        bool IsVector() { return false; }
+        bool IsPoint() { return true; }
+
         // Point-Vector Operations
         Vector3<real> operator-(Point3<real> p);
         Point3 operator+(Vector3<real> p);

@@ -54,6 +54,10 @@ namespace Numerics
         real z();
         real Element(int index);
 
+        // Inquiery
+        bool IsVector() { return true; }
+        bool IsPoint() { return false; }
+
         // METHODS
         real Magnitude();
         Vector3<real> Normalize();
@@ -64,14 +68,16 @@ namespace Numerics
         Vector3<real> ProjThisOntoV(Vector3<real> v);
 
         // OPERATORS
+        // Negation
+        Vector3<real> operator-();
         //  Scalar product
         Vector3<real> operator*(real s);
-        // Dot Product
-        real operator*(Vector3<real> v);
         // Addition
         Vector3<real> operator+(Vector3<real> v);
         // Subtraction
         Vector3<real> operator-(Vector3<real> v);
+        // Dot Product
+        real operator*(Vector3<real> v);
         // Cross Product
         Vector3<real> operator^(Vector3<real> v);
     };
@@ -197,6 +203,7 @@ namespace Numerics
         // real dotVV = Dot(v, v);
         // real quot = dotUV / dotVV;
         real quot = Dot(u, v) / Dot(v, v);
+        // ref:
 
         // Constructed
         Vector3<real> vector = v * quot;
@@ -204,6 +211,18 @@ namespace Numerics
     }
 
     // OPERATORS
+
+    template <typename real>
+    Vector3<real> Vector3<real>::operator-()
+    {
+        real x = v_tuples[0] * (real)-1.0;
+        real y = v_tuples[1] * (real)-1.0;
+        real z = v_tuples[2] * (real)-1.0;
+
+        // Constructed
+        Vector3<real> vector(x, y, z);
+        return vector;
+    }
 
     template <typename real>
     Vector3<real> Vector3<real>::operator*(real s)
@@ -215,20 +234,6 @@ namespace Numerics
         // Constructed
         Vector3<real> vector(x, y, z);
         return vector;
-    }
-
-    template <typename real>
-    real Vector3<real>::operator*(Vector3<real> v)
-    {
-        // DOT Product
-        // yeilds a Scalar
-        real sum = 0;
-
-        sum += v_tuples[0] * v.x();
-        sum += v_tuples[1] * v.y();
-        sum += v_tuples[2] * v.z();
-
-        return sum;
     }
 
     template <typename real>
@@ -253,6 +258,20 @@ namespace Numerics
         // Constructed
         Vector3<real> vector(x, y, z);
         return vector;
+    }
+
+    template <typename real>
+    real Vector3<real>::operator*(Vector3<real> v)
+    {
+        // DOT Product
+        // yeilds a Scalar
+        real sum = 0;
+
+        sum += v_tuples[0] * v.x();
+        sum += v_tuples[1] * v.y();
+        sum += v_tuples[2] * v.z();
+
+        return sum;
     }
 
     template <typename real>
