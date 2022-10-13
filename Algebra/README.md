@@ -23,4 +23,4 @@
 ### Main
 
 - main.cpp
-- main.cpp.1.txt      (Used to test Motion.h & DeltaTime.h) requires Timer.h...
+- main.cpp.1.txt      (Used to test Motion.h & DeltaTime.h) There is a required dependency 'Timer.h' class located under the repository Joystick_Uno_L298N.
