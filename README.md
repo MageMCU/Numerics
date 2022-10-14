@@ -19,6 +19,8 @@ The Numerics is math computations needed to further the study in robotics. Numer
 
 This MCU chip **Atmega328P** is well known and the price is affordable as well as most of the robotic hardware that is described here. The Arduino Uno board comes with a removable MCU.
 
++ If there is any other boards with removeable MCUs, please let me know: (carpenterhesse@gmail.com).
+
 **PlatformIO** is a cross-platform, cross-architecture, multiple framework, professional tool for embedded systems engineers and for software developers who write applications for embedded products. 
 
 **Visual Studio Code** is a streamlined code editor and it runs on macOS, Linux, and Windows. The best thing about VSCode, it is free.
