@@ -25,7 +25,7 @@ This MCU chip **Atmega328P** is well known and the price is affordable as well a
 
 ## Issues
 
-No issues...
+No issues..., except working out inter-relationships among classes where presently using Class Hierarchies.
 
 ## In Development
 
