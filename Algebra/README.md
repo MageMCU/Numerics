@@ -13,7 +13,7 @@
 + ***Vector.h***      (could be used as stand-alone)
 + ***Point.h***       (depended on Vector3.h)
 + ***Matrix.h***      (depended on Vector3.h) The plan is to incorporate the dependency on both Point.h & Vector.h...
-+ *Quaternion*        (working process)
++ *Quaternion.h*        (working process)
 
 ### Testing
 
