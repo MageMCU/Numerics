@@ -11,5 +11,4 @@
 <p>20221008 - Rewrote all classes... </p>
 <p>20221009 - DeltaTime.h & Motion.h ... Testing... Updated Vector3.h</p>
 <p>20221012 -Updated Vector3.h * Matrix3x3.h and Tests.h</p>
-
-
+<p>20221013 -Rewrote Vector.h Point.h Matrix.h - Moved Angle.h methods to Math.h and removed Angle.h - Relationships is the issue? Maybe!</p>

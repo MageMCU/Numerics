@@ -5,18 +5,18 @@
 ### Classes
 
 **Following classes are stand-alone**
-- **Motion.h**         (map-function moved here)
 - **DeltaTime.h**
+- **Math.h**           (Angle Class moved here temporarily)
+- **Motion.h**         (map-function moved here)
 
 ***Followng classes are in an hierachical relationship***
-+ ***Vector3.h***      (could be used as stand-alone)
-+ ***Angle.h***        (depended on Vector3.h)
-+ ***Point3.h***       (depended on Vector3.h)
-+ ***Matrix3x3.h***    (depended on Vector3.h)
++ ***Vector.h***      (could be used as stand-alone)
++ ***Point.h***       (depended on Vector3.h)
++ ***Matrix.h***      (depended on Vector3.h)
 
 ### Testing
 
-- Tests.h
+- Tests.h            (Lots of testing...)
 
 </hr>
 
