@@ -27,7 +27,7 @@
 
 #include "Arduino.h"
 
-namespace Numerics
+namespace nmr
 {
     template <typename real>
     class Motion

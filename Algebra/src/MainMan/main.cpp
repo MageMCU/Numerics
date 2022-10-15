@@ -23,7 +23,17 @@
 //
 
 #include <Arduino.h>
-#include "Tests.h"
+
+// Common utility function
+#include "../TESTS/Common.h"
+// recommended to un-comment one at a time...
+// Sync includes with each set of test functions.
+// #include "../TESTS/TestMisc.h"
+// #include "../TESTS/TestVectors.h"
+#include "../TESTS/TestPoints.h"
+// #include "../TESTS/TestMatrices.h"
+
+// Motion.h & DeltaTime.h tested MainDied
 
 void setup()
 {
@@ -31,17 +41,36 @@ void setup()
   while (!Serial)
   {
   }
-  // TEST-FUNCTIONS
 
+  // TEST-FUNCTIONS
+  // WARNING: While learning the library, it is
+  // recommended to view each 'test' individually.
+  // Otherwise, a black-circled-white-question-mark will appear
+  // in the serial-monitor indicating memory overflow...
+
+  // Check Redundancies
+  DontKillTheRedundancy();
+
+  // TestQuaternions.h ---------------
   // quaternionConstructorTestQ1();
 
+  // TestMatrices.h ---------------
+  // matrixScalarMultiplicationTestM9();
+  // matrixNegationTestM8();
+  // matrixCopyMatrixTestM7();
   // matrixMatrixMultiplicationTestM6();
   // matrixVectorMultiplicationTestM5();
   // matrixTransposeTestM4();
   // matrixDeterminantTestM3();
-  matrixIndexElementTestM2();
+  // matrixElementTestM2();
   // matrixConstructorTestM1();
 
+  // TestPointers.h ---------------
+  pointVectorAdditionTestP3();
+  // pointPointSubtractionTestP2();
+  // pointConstructorTestP1();
+
+  // TestVectors.h ---------------
   // vectorAngleTestV12();
   // vectorSubtractionTestV11();
   // vectorAdditionTestV10();
@@ -55,9 +84,9 @@ void setup()
   // vectorMagnitudeTestV2();
   // vectorConstructorTestV1();
 
+  // TestMisc.h ---------------
   // angleTestA1();
-  // pointTest();
-  // mapTest();
+  // celciusFahrenheitMapTest();
 }
 
 void loop() {}

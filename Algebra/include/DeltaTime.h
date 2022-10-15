@@ -1,6 +1,6 @@
 //
 // Carpenter Software
-// File: Class Motion.h
+// File: Class DeltaTime.h
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
@@ -27,7 +27,7 @@
 
 #include "Arduino.h"
 
-namespace Numerics
+namespace nmr
 {
     template <typename real>
     class DeltaTime

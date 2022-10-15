@@ -30,8 +30,8 @@
 
 // GLOBAL VARIABLES
 uno::Timer timer;
-Numerics::DeltaTime<float> deltaTime;
-Numerics::Motion<float> motion;
+nmr::DeltaTime<float> deltaTime;
+nmr::Motion<float> motion;
 
 void setup()
 {
@@ -41,8 +41,8 @@ void setup()
     }
 
     timer = uno::Timer();
-    deltaTime = Numerics::DeltaTime<float>();
-    motion = Numerics::Motion<float>();
+    deltaTime = nmr::DeltaTime<float>();
+    motion = nmr::Motion<float>();
 }
 
 void loop()
@@ -51,14 +51,10 @@ void loop()
     {
         // To Study Encoded Motors
         // Using Large delta time 250 ms
-        // Addendum: Test class by using: 
-        //           x - xo = vo(t) - 0.5a(t * t);
-        //           dx = -0.5 * a * t * t;
-        //   where   t = time - startTime and vo = 0.
-        // To test whether acceleration is a constant
-        // by input dx instead of deltaDistance... 
-        // Not yet tested [].
-        
+        // Addendum: Suggested to use gravity g = 9.8 m/s*s
+        //           y - yo = vo(t) - 0.5g(t * t);
+        //           dy = -0.5 * 9.8 * t * t;
+        //   where   t = time - startTime;
         float deltaDistance = (float)random(20000, 30000);
         float dt = motion.dt(deltaTime.dt());
         float speed = motion.v(deltaDistance);

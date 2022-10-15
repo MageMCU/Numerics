@@ -13,6 +13,7 @@
 //
 // CHANGELOG
 // Created 20221008
+// Updated 20221015
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -28,7 +29,7 @@
 #include "Arduino.h"
 #include "Vector.h"
 
-namespace Numerics
+namespace nmr
 {
     template <typename real>
     class Point : Vector<real>
@@ -49,8 +50,14 @@ namespace Numerics
 
         // GETTERS & SETTERS
         real x();
+        void x(real x);
+
         real y();
+        void y(real y);
+
         real z();
+        void z(real z);
+
         real w();
         real Element(int index);
 
@@ -116,9 +123,18 @@ namespace Numerics
     template <typename real>
     real Point<real>::x() { return p_tuples[0]; }
     template <typename real>
+    void Point<real>::x(real x) { p_tuples[0] = x; }
+
+    template <typename real>
     real Point<real>::y() { return p_tuples[1]; }
     template <typename real>
+    void Point<real>::y(real y) { p_tuples[1] = y; }
+
+    template <typename real>
     real Point<real>::z() { return p_tuples[2]; }
+    template <typename real>
+    void Point<real>::z(real z) { p_tuples[2] = z; }
+
     template <typename real>
     real Point<real>::w() { return p_tuples[3]; }
 

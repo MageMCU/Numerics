@@ -28,9 +28,9 @@
 #include "Arduino.h"
 #include "Vector.h"
 
-namespace Numerics
+namespace nmr
 {
-    enum dimension
+    enum Dimension
     {
         XY = 1,
         XZ,
@@ -84,7 +84,7 @@ namespace Numerics
     }
 
     template <typename real>
-    void DirectionalVector(real angleRadian, real &x, real &y, real &z, dimension item)
+    void DirectionalVector(real angleRadian, real &x, real &y, real &z, Dimension item)
     {
         real a = cos(angleRadian);
         real b = sin(angleRadian);

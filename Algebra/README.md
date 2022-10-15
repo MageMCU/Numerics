@@ -2,7 +2,7 @@
 
 </hr>
 
-### Classes
+## ***include folder***
 
 **Following classes are stand-alone**
 - **DeltaTime.h**
@@ -12,16 +12,21 @@
 ***Followng classes are in an hierachical relationship***
 + ***Vector.h***      (could be used as stand-alone)
 + ***Point.h***       (depended on Vector3.h)
-+ ***Matrix.h***      (depended on Vector3.h) The plan is to incorporate the dependency on both Point.h & Vector.h...
-+ *Quaternion.h*        (working process)
-
-### Testing
-
-- Tests.h            (Lots of testing...)
++ ***Matrix.h***      (depended on Vector3.h) Plan: dependency on both Point.h & Vector.h...
++ *Quaternion.h*        (work in process)
 
 </hr>
 
-### Main
+## ***src folder***
 
-- main.cpp
-- main.cpp.1.txt      (Used to test Motion.h & DeltaTime.h) There is a required dependency 'Timer.h' class located under the repository Joystick_Uno_L298N.
+- MainMan
+    - main.cpp -> TESTS
+- MainDied
+    - main.cpp -> Used to test Motion.h & DeltaTime.h
+- TESTS
+    - Common.h
+    - TestMatrices.h
+    - TestMisc.h
+    - TestPoints.h
+    - TestQuaternions.h
+    - TestVectors.h

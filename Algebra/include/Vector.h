@@ -29,7 +29,7 @@
 #include "Arduino.h"
 #include "Math.h"
 
-namespace Numerics
+namespace nmr
 {
     template <typename real>
     class Vector
@@ -37,6 +37,9 @@ namespace Numerics
     private:
         // PRIVATE MEMBERS
         real v_tuples[4];
+
+        // PRIVATE METHODS
+        real _dot(Vector<real> u, Vector<real> v);
 
     public:
         // CONSTRUCTORS
@@ -73,28 +76,33 @@ namespace Numerics
         Vector<real> Distance();
         Vector<real> Normalize();
         real Dot(Vector<real> v);
-        real Dot(Vector<real> u, Vector<real> v);
         Vector<real> Cross(Vector<real> v);
         real Angle(Vector<real> v);
         Vector<real> PerpVectorXY();
         Vector<real> ProjV(Vector<real> v);
 
         // OPERATORS
+
         // Negation
-        Vector<real>
-        operator-();
+        Vector<real> operator-();
+
         //  Scalar product
         Vector<real> operator*(real s);
+
         // Addition
         Vector<real> operator+(Vector<real> v);
+
         // Subtraction
         Vector<real> operator-(Vector<real> v);
+
         // Dot Product
         real operator*(Vector<real> v);
+
         // Cross Product
         Vector<real> operator^(Vector<real> v);
+
         // Copy
-        Vector<real> operator=(Vector<real> v);
+        // Vector<real> operator=(Vector<real> v);
     };
 
     template <typename real>
@@ -229,18 +237,6 @@ namespace Numerics
         sum += v_tuples[0] * v.x();
         sum += v_tuples[1] * v.y();
         sum += v_tuples[2] * v.z();
-        return sum;
-    }
-
-    template <typename real>
-    real Vector<real>::Dot(Vector<real> u, Vector<real> v)
-    {
-        // DOT Product
-        // yeilds a Scalar
-        real sum = 0;
-        sum += u.x() * v.x();
-        sum += u.y() * v.y();
-        sum += u.z() * v.z();
         return sum;
     }
 
@@ -385,6 +381,7 @@ namespace Numerics
         return vector;
     }
 
+    /*
     template <typename real>
     Vector<real> Vector<real>::operator=(Vector<real> v)
     {
@@ -395,6 +392,21 @@ namespace Numerics
         // Constructed
         Vector<real> vector = GetVector();
         return vector;
+    }
+    */
+
+    // PRIVATE METHODS
+
+    template <typename real>
+    real Vector<real>::_dot(Vector<real> u, Vector<real> v)
+    {
+        // DOT Product
+        // yeilds a Scalar
+        real sum = 0;
+        sum += u.x() * v.x();
+        sum += u.y() * v.y();
+        sum += u.z() * v.z();
+        return sum;
     }
 }
 #endif
