@@ -4,7 +4,7 @@
 - [To Parents and Teachers](#parents-and-teachers)
 - [To Minors (Children) and Teenagers](#minors-and-teeagers)
 - [MIT License terms](#mit-license-terms)
-- [Github EULA & Terms](#github-eula-&-terms)
+- [Github EULA and Terms](#github-eula-and-terms)
 
 </hr>
 
@@ -52,7 +52,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## Github EULA & Terms
+## Github EULA and Terms
 
 - [Github EULA](https://desktop.github.com/eula/)
 - [Github Terms](https://docs.github.com/en/site-policy/github-terms)
