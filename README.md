@@ -31,7 +31,7 @@ Bad bad BUG 20221014. Block ***Un***-Comment sections of the Header-Source - Sta
 
 ## In Development
 
-The Numerics project is active.
+The Numerics project is currently **active**.
 
 ## Disclaimer and Terms
 
