@@ -27,7 +27,7 @@ This MCU chip **Atmega328P** is well known and the price is affordable as well a
 
 ## Issues
 
-Bad bad BUG 20221014. Block ***Un***-Comment sections of the Header-Source - Started to hunt for that pesty-beast... About 3 am 20221015 I found it hiding within a GETTER *Element* method.
+Bad bad BUG 20221014. Block ***Un***-Comment sections of the Header-Source - Started to hunt for that pesty-beast... About 3 am in the morning, I found it hiding within a GETTER *Element* method.
 
 ## In Development
 
