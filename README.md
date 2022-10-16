@@ -32,3 +32,7 @@ Bad bad BUG 20221014. Block Comment Source - Started to hunt for that pesty-beas
 ## In Development
 
 The Numerics project is active.
+
+## Dislaimer and Terms
+
+Please read the ***Disclaimer*** and ***Terms*** in the Repositories here at MageMCU.
