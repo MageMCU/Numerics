@@ -1,4 +1,4 @@
-# Numerics
+# Numerics *(namespace nmr)*
 
 ## Index
 
