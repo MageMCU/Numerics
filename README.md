@@ -9,7 +9,7 @@
 
 ## Algebra OOP Library
 
-The math is underneath the namespace called Numerics as in numeric computation. An interesting note on cross-platform is try converting a library for MCU devices that originated from desktop computers. The code conversion by keyboard occurs while plugged-in to the Arduino Uno board. The desktop Algebra OOP Library is written in C# and is privately used for the Unity Game Engine for robotic simulations.
+The math is underneath the namespace called Numerics as in numeric computation (now abreviated as ***nmr***). An interesting note on cross-platform is try converting a library for MCU devices that originated from desktop computers. The code conversion by keyboard occurs while plugged-in to the Arduino Uno board. The desktop Algebra OOP Library is written in C# and is privately used for the Unity Game Engine for robotic simulations.
 
 ## Numerics
 
