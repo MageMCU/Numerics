@@ -1,5 +1,7 @@
 # Numerics
 
+- namespace ***nmr***
+
 </hr>
 
 ## ***include folder***
