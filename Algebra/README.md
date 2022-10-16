@@ -30,3 +30,8 @@
     - TestPoints.h
     - TestQuaternions.h
     - TestVectors.h
+</hr>
+
+## ***root folder***
+
+- platformio.ini        (please review this document for platform configuration while testing the code.)
