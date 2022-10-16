@@ -35,4 +35,4 @@ The Numerics project is active.
 
 ## Disclaimer and Terms
 
-Please read the ***Disclaimer*** and ***Terms*** in the Repositories here at MageMCU.
+Please read the ***Disclaimer*** and ***Terms*** in the ***Numerics*** Repository.
