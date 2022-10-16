@@ -4,7 +4,7 @@
 - [To Parents and Teachers](#parents-and-teachers)
 - [To Minors (Children) and Teenagers](#minors-and-teeagers)
 - [MIT License terms](#mit-license-terms)
-- [Github terms](#github-end-userlicense-agreement)
+- [Github terms](#github-end-userlicense-agreement-(eula))
 
 </hr>
 
