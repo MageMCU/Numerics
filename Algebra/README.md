@@ -7,7 +7,7 @@
 **Following classes are stand-alone**
 - **DeltaTime.h**
 - **Math.h**           (Angle Class moved here temporarily)(map-function moved here)
-- **Motion.h**         (map-function romved)
+- **Motion.h**         (map-function removed)
 
 ***Followng classes are in an hierachical relationship***
 + ***Vector.h***      (could be used as stand-alone)
