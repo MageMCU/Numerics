@@ -52,7 +52,6 @@ void angleTestA1()
 void celciusFahrenheitMapTest()
 {
     printTitle("Celcius Fahrenheit Map Test");
-    nmr::Motion<float> dM;
     printSubTitle("Map Function uses a Linear Equation");
     printSubTitle("x1 & x2 are two points on the x-axis");
     printSubTitle("y1 & y2 are two points on the y-axis");
@@ -62,7 +61,7 @@ void celciusFahrenheitMapTest()
     Serial.print("fahrenheit: ");
     Serial.println(fahrenheit);
     // map() function
-    float celcius = dM.map(fahrenheit, 32, 212, 0, 100);
+    float celcius = map(fahrenheit, 32, 212, 0, 100);
     Serial.print("celcius = dM.map(fahrenheit, 32, 212, 0, 100): ");
     Serial.println(celcius);
 
@@ -71,7 +70,7 @@ void celciusFahrenheitMapTest()
     Serial.print("celcius: ");
     Serial.println(celcius);
     // map() function
-    fahrenheit = dM.map(celcius, 0, 100, 32, 212);
+    fahrenheit = map(celcius, 0, 100, 32, 212);
     Serial.print("fahrenheit = dM.map(celcius, 0, 100, 32, 212): ");
     Serial.println(fahrenheit);
 

@@ -1,8 +1,6 @@
-# Numerics
+## Numerics
 
 - namespace ***nmr***
-
-</hr>
 
 ## ***include folder***
 
@@ -17,8 +15,6 @@
 + ***Matrix.h***      (depended on Vector3.h) Plan: dependency on both Point.h & Vector.h...
 + *Quaternion.h*        (work in process)
 
-</hr>
-
 ## ***src folder***
 
 - MainMan
@@ -32,7 +28,6 @@
     - TestPoints.h
     - TestQuaternions.h
     - TestVectors.h
-</hr>
 
 ## ***root folder***
 

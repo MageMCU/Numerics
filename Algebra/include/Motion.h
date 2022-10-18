@@ -49,7 +49,6 @@ namespace nmr
         real dt(real dt);
         real v(real dx);
         real a(real v);
-        real map(real x, real x1, real x2, real y1, real y2);
     };
 
     template <typename real>
@@ -76,15 +75,6 @@ namespace nmr
         // Current speed
         m_v = v;
         return (m_v - m_vo) / m_dt;
-    }
-
-    template <typename real>
-    real Motion<real>::map(real x, real x1, real x2, real y1, real y2)
-    {
-        // Assume linear functions
-        // m = (y2 - y1)/(x2 - x1)
-        // (y - y1) = m(x - x1)
-        return (y2 - y1) * (x - x1) / (x2 - x1) + y1;
     }
 }
 #endif

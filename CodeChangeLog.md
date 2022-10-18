@@ -14,5 +14,5 @@
 <p>20221013 -Rewrote Vector.h Point.h Matrix.h - Moved Angle.h methods to Math.h and removed Angle.h - Relationships is the issue? Maybe!</p>
 <p>20221014 -Bad Bad Bug</p>
 <p>20221015 - files & folders organization - Lots of testing...</p>
-
+<p>20221017 - Sorry - moved map() function to Math.h... </p>
 

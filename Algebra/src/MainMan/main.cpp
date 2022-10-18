@@ -13,6 +13,7 @@
 //
 // CHANGELOG
 // Created 20221008
+// Updated 20221017
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -28,9 +29,9 @@
 #include "../TESTS/Common.h"
 // recommended to un-comment one at a time...
 // Sync includes with each set of test functions.
-// #include "../TESTS/TestMisc.h"
+#include "../TESTS/TestMisc.h"
 // #include "../TESTS/TestVectors.h"
-#include "../TESTS/TestPoints.h"
+// #include "../TESTS/TestPoints.h"
 // #include "../TESTS/TestMatrices.h"
 
 // Motion.h & DeltaTime.h tested MainDied
@@ -66,7 +67,7 @@ void setup()
   // matrixConstructorTestM1();
 
   // TestPointers.h ---------------
-  pointVectorAdditionTestP3();
+  // pointVectorAdditionTestP3();
   // pointPointSubtractionTestP2();
   // pointConstructorTestP1();
 
@@ -85,8 +86,8 @@ void setup()
   // vectorConstructorTestV1();
 
   // TestMisc.h ---------------
-  // angleTestA1();
-  // celciusFahrenheitMapTest();
+  angleTestA1();
+  celciusFahrenheitMapTest();
 }
 
 void loop() {}
