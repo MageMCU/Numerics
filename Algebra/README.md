@@ -15,7 +15,7 @@
 + ***Point2.h***       (depended on Vector2.h - testing)
 + ***Point3.h***       (depended on Vector3.h - testing)
 + ***Matrix.h***       (depended on Point2.h & Point3.h - testing) 
-+ ***Quaternion.h***   (Testing)
++ ***Quaternion.h***   (depended on Matrix.h Testing)
 
 ## ***src folder***
 
