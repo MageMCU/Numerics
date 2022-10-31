@@ -1,6 +1,6 @@
 //
 // Carpenter Software
-// File: Main main.cpp
+// File: ain main.cpp
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
@@ -12,8 +12,7 @@
 // By Jesse Carpenter (carpentersoftware.com)
 //
 // CHANGELOG
-// Created 20221008
-// Updated 20221017
+// Created 20221030
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -25,69 +24,62 @@
 
 #include <Arduino.h>
 
+#include "Vector2.h"
+#include "Vector3.h"
+#include "Point2.h"
+#include "Point3.h"
+#include "Matrix.h"
+#include "Quaternion.h"
+
 // Common utility function
-#include "../TESTS/Common.h"
+#include "TESTS/Common.h"
 // recommended to un-comment one at a time...
 // Sync includes with each set of test functions.
-#include "../TESTS/TestMisc.h"
-// #include "../TESTS/TestVectors.h"
-// #include "../TESTS/TestPoints.h"
-// #include "../TESTS/TestMatrices.h"
-
-// Motion.h & DeltaTime.h tested MainDied
+#include "TESTS/TestVector2.h"
+#include "TESTS/TestVector3.h"
+#include "TESTS/TestPoint2.h"
+#include "TESTS/TestPoint3.h"
+#include "TESTS/TestMatrix.h"
 
 void setup()
 {
   Serial.begin(9600);
   while (!Serial)
   {
+    /* code */
   }
 
-  // TEST-FUNCTIONS
-  // WARNING: While learning the library, it is
-  // recommended to view each 'test' individually.
-  // Otherwise, a black-circled-white-question-mark will appear
-  // in the serial-monitor indicating memory overflow...
+  //
+  // --------------------------------------
+  // TESTING IN PROGRESS
+  // --------------------------------------
 
-  // Check Redundancies
-  DontKillTheRedundancy();
+  // Quaternion Tests ---------------------- NOT STARTED
+  // Matrix Tests -------------------------- NOT STARTED
+  // Point3 Tests -------------------------- NOT STARTED
+  // Point2 Tests -------------------------- NOT STARTED
 
-  // TestQuaternions.h ---------------
-  // quaternionConstructorTestQ1();
+  // Vector3 Tests ------------------------- NOT COMPLETED
+  Vector3_T1_Constructor();
 
-  // TestMatrices.h ---------------
-  // matrixScalarMultiplicationTestM9();
-  // matrixNegationTestM8();
-  // matrixCopyMatrixTestM7();
-  // matrixMatrixMultiplicationTestM6();
-  // matrixVectorMultiplicationTestM5();
-  // matrixTransposeTestM4();
-  // matrixDeterminantTestM3();
-  // matrixElementTestM2();
-  // matrixConstructorTestM1();
-
-  // TestPointers.h ---------------
-  // pointVectorAdditionTestP3();
-  // pointPointSubtractionTestP2();
-  // pointConstructorTestP1();
-
-  // TestVectors.h ---------------
-  // vectorAngleTestV12();
-  // vectorSubtractionTestV11();
-  // vectorAdditionTestV10();
-  // vectorScalarMultiplicationTestV9();
-  // vectorNegationTestV8();
-  // vectorProjectionTestV7();
-  // vectorPerpVectorXY_TestV6();
-  // vectorCrossProductTestV5();
-  // vectorDotProductTestV4();
-  // vectorNormalizeTestV3();
-  // vectorMagnitudeTestV2();
-  // vectorConstructorTestV1();
-
-  // TestMisc.h ---------------
-  angleTestA1();
-  celciusFahrenheitMapTest();
+  // Vector2 Tests ------------------------- COMPLETED
+  // Vector2_T14_DotProduct();
+  // Vector2_T13_VectorVectorSubtraction();
+  // Vector2_T12_VectorVectorAddition();
+  // Vector2_T11_VectorScalarProduct();
+  // Vector2_T10_NegateVector();
+  // Vector2_T9_ProjV();
+  // Vector2_T8_PerpDot();
+  // Vector2_T7_Perp();
+  // Vector2_T6_Angle();
+  // Vector2_T5_Dot_Product();
+  // Vector2_T4_UnitVector_Normalize();
+  // Vector2_T3_Magnitude_Distance();
+  // Vector2_T2_GetVector();
+  // Vector2_T1_Constructor();
 }
 
-void loop() {}
+void loop()
+{
+  // put your main code here, to run repeatedly:
+}

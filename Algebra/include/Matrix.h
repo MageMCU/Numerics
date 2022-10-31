@@ -13,7 +13,7 @@
 //
 // CHANGELOG
 // Created 20221008
-// Updated 20221015
+// Updated 20221030
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -27,7 +27,10 @@
 #define Numerics_Matrix_h
 
 #include "Arduino.h"
-#include "Vector.h"
+#include "Vector2.h"
+#include "Vector3.h"
+#include "Point2.h"
+#include "Point3.h"
 
 namespace nmr
 {
@@ -39,7 +42,7 @@ namespace nmr
     };
 
     template <typename real>
-    class Matrix : Vector<real>
+    class Matrix : Point2<real> /* inherits Vector2 */, Point3<real> /* inherits Vector3 */
     {
     private:
         // Private Members
@@ -59,8 +62,8 @@ namespace nmr
         // Constructors
         // Creates an Identity
         Matrix();
-        Matrix(Vector<real> row1, Vector<real> row2);
-        Matrix(Vector<real> row1, Vector<real> row2, Vector<real> row3);
+        Matrix(Vector2<real> row1, Vector2<real> row2);
+        Matrix(Vector3<real> row1, Vector3<real> row2, Vector3<real> row3);
         Matrix(const real array[], MatrixRowSize numRows);
         // ~Destructor
         ~Matrix() {}
@@ -80,7 +83,8 @@ namespace nmr
         // OPERATORS
         Matrix<real> operator-();
         Matrix<real> operator*(real s);
-        Vector<real> operator*(Vector<real> v);
+        Vector2<real> operator*(Vector2<real> v);
+        Vector3<real> operator*(Vector3<real> v);
         Matrix<real> operator*(Matrix<real> M);
         // Matrix<real> operator=(Matrix<real> M);
     };
@@ -98,10 +102,8 @@ namespace nmr
     }
 
     template <typename real>
-    Matrix<real>::Matrix(Vector<real> row1, Vector<real> row2)
+    Matrix<real>::Matrix(Vector2<real> row1, Vector2<real> row2)
     {
-        Serial.println("Entered Matrix(Vector<real> row1, Vector<real> row2)");
-
         // 2x2 Operations Only
         // Row Size of the Square Matrix
         _rowSizeSquareMatrix = 2;
@@ -119,10 +121,8 @@ namespace nmr
     }
 
     template <typename real>
-    Matrix<real>::Matrix(Vector<real> row1, Vector<real> row2, Vector<real> row3)
+    Matrix<real>::Matrix(Vector3<real> row1, Vector3<real> row2, Vector3<real> row3)
     {
-        Serial.println("Entered Matrix()");
-
         // 3x3 Operations Only
         // Row Size of the Square Matrix
         _rowSizeSquareMatrix = 3;
@@ -204,7 +204,6 @@ namespace nmr
     }
 
     // METHODS
-
     template <typename real>
     bool Matrix<real>::IsInvertible()
     {
@@ -277,21 +276,42 @@ namespace nmr
     }
 
     template <typename real>
-    Vector<real> Matrix<real>::operator*(Vector<real> v)
+    Vector2<real> Matrix<real>::operator*(Vector2<real> v)
     {
         // Sizes belong to THIS
-        real tuples[_sizeSquareMatrix];
-        for (int r = 0; r < _rowSizeSquareMatrix; r++)
+        real size = v.Size();
+        real tuples[size];
+        for (int r = 0; r < size; r++)
         {
             tuples[r] = (real)0;
-            for (int c = 0; c < _rowSizeSquareMatrix; c++)
+            for (int c = 0; c < size; c++)
             {
                 // Only interested in size _rowSizeSquareMatrix
                 tuples[r] += m_tuples[_it4(r, c)] * v.Element(c); // Vector Element
             }
         }
         // Constructed
-        Vector<real> vector(tuples);
+        Vector2<real> vector(tuples);
+        return vector;
+    }
+
+    template <typename real>
+    Vector3<real> Matrix<real>::operator*(Vector3<real> v)
+    {
+        // Sizes belong to THIS
+        real size = v.Size();
+        real tuples[size];
+        for (int r = 0; r < size; r++)
+        {
+            tuples[r] = (real)0;
+            for (int c = 0; c < size; c++)
+            {
+                // Only interested in size _rowSizeSquareMatrix
+                tuples[r] += m_tuples[_it4(r, c)] * v.Element(c); // Vector Element
+            }
+        }
+        // Constructed
+        Vector3<real> vector(tuples);
         return vector;
     }
 
@@ -378,4 +398,4 @@ namespace nmr
         }
     }
 }
-#endif
+#endif /* Numerics_Matrix_h */

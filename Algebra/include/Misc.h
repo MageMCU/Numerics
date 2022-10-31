@@ -1,6 +1,6 @@
 //
 // Carpenter Software
-// File: Class Math.h
+// File: Class Mics.h was Math.h
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
@@ -13,6 +13,7 @@
 //
 // CHANGELOG
 // Created 20221013
+// Update 20221030 - renamed class name platformio conflict
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -22,11 +23,10 @@
 // MIT LICENSE
 //
 
-#ifndef Numerics_Math_h
-#define Numerics_Math_h
+#ifndef Numerics_Misc_h
+#define Numerics_Misc_h
 
 #include "Arduino.h"
-#include "Vector.h"
 
 namespace nmr
 {
@@ -127,4 +127,4 @@ namespace nmr
     }
 }
 
-#endif
+#endif /* Numerics_Misc_h */

@@ -1,6 +1,6 @@
 //
 // Carpenter Software
-// File: Common.h
+// File: Tests Common.h
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
@@ -12,7 +12,7 @@
 // By Jesse Carpenter (carpentersoftware.com)
 //
 // CHANGELOG
-// Created 20221015
+// Created 20221015 - Testing in Progress
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -27,13 +27,17 @@
 
 #include "Arduino.h"
 
-#include "Motion.h"
-#include "Vector.h"
-#include "Point.h"
-#include "Matrix.h"
-#include "Quaternion.h"
-#include "Math.h"
+// #include "Motion.h"
+// #include "Quaternion.h"
+// #include "Math.h"
 
+#include "Vector2.h"
+#include "Vector3.h"
+#include "Point2.h"
+#include "Point3.h"
+#include "Matrix.h"
+
+/*
 template <typename real>
 void printAngle(String s, int deg, real x, real y, real z, real result)
 {
@@ -50,7 +54,9 @@ void printAngle(String s, int deg, real x, real y, real z, real result)
     Serial.print("result: ");
     Serial.println(result);
 }
+*/
 
+/*
 template <typename real>
 void printAngle(String s, int deg, nmr::Vector<real> v, real result)
 {
@@ -67,31 +73,23 @@ void printAngle(String s, int deg, nmr::Vector<real> v, real result)
     Serial.print("result: ");
     Serial.println(result);
 }
+*/
 
+/*
 template <typename real>
 void printQuaternion(String s, nmr::Quaternion<real> q)
 {
     Serial.println(s);
     for (int i = 0; i < 4; i++)
     {
-        // Serial.print(q.Element(i));
+        Serial.print(q.Element(i));
         Serial.print(" ");
     }
     Serial.println("");
 }
+*/
 
-template <typename real>
-void printVector(String s, nmr::Vector<real> v)
-{
-    Serial.println(s);
-    for (int i = 0; i < 4; i++)
-    {
-        Serial.print(v.Element(i));
-        Serial.print(" ");
-    }
-    Serial.println("");
-}
-
+/*
 template <typename real>
 void printPoint(String s, nmr::Point<real> p)
 {
@@ -103,6 +101,7 @@ void printPoint(String s, nmr::Point<real> p)
     }
     Serial.println("");
 }
+*/
 
 template <typename real>
 void printMatrix(String s, nmr::Matrix<real> M)
@@ -117,6 +116,30 @@ void printMatrix(String s, nmr::Matrix<real> M)
         }
         Serial.println("");
     }
+}
+
+template <typename real>
+void printVector3(String s, nmr::Vector3<real> v)
+{
+    Serial.print(s);
+    Serial.print(" (");
+    Serial.print(v.x());
+    Serial.print(", ");
+    Serial.print(v.y());
+    Serial.print(", ");
+    Serial.print(v.z());
+    Serial.println(") ");
+}
+
+template <typename real>
+void printVector2(String s, nmr::Vector2<real> v)
+{
+    Serial.print(s);
+    Serial.print(" (");
+    Serial.print(v.x());
+    Serial.print(", ");
+    Serial.print(v.y());
+    Serial.println(") ");
 }
 
 void printTitle(String s)
@@ -138,4 +161,4 @@ void printNewLine()
     Serial.println("");
 }
 
-#endif
+#endif /* Numerics_Test_Common_h */

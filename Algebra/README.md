@@ -6,14 +6,16 @@
 
 **Following classes are stand-alone**
 - **DeltaTime.h**
-- **Math.h**           (Angle Class moved here temporarily)(map-function moved here)
-- **Motion.h**         (map-function removed)
+- **Misc.h**           (Was Math.h)
+- **Motion.h** 
 
 ***Followng classes are in an hierachical relationship***
-+ ***Vector.h***      (could be used as stand-alone)
-+ ***Point.h***       (depended on Vector3.h)
-+ ***Matrix.h***      (depended on Vector3.h) Plan: dependency on both Point.h & Vector.h...
-+ *Quaternion.h*        (work in process)
++ ***Vector2.h***      (could be used as stand-alone - testing completed)
++ ***Vector3.h***      (could be used as stand-alone - testing)
++ ***Point2.h***       (depended on Vector2.h - tesing)
++ ***Point3.h***       (depended on Vector3.h - testing)
++ ***Matrix.h***       (depended on Point2.h & Point3.h - testing) 
++ ***Quaternion.h***   (Testing)
 
 ## ***src folder***
 
@@ -21,13 +23,13 @@
     - main.cpp -> TESTS
 - MainDied
     - main.cpp -> Used to test Motion.h & DeltaTime.h
-- TESTS
+- TESTS 
     - Common.h
-    - TestMatrices.h
-    - TestMisc.h
-    - TestPoints.h
-    - TestQuaternions.h
-    - TestVectors.h
+    - TestMatrix.h
+    - TestPoint2.h
+    - TestPoint3.h
+    - TestVector2.h
+    - TestVector3.h
 
 ## ***root folder***
 

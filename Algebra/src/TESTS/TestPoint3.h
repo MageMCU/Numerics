@@ -1,6 +1,6 @@
 //
 // Carpenter Software
-// File: TestQuaternions.h
+// File: Tests TestPoint3.h
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
@@ -12,7 +12,7 @@
 // By Jesse Carpenter (carpentersoftware.com)
 //
 // CHANGELOG
-// Created 20221015
+// Created 20221030 - Testing in Progress
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -22,19 +22,9 @@
 // MIT LICENSE
 //
 
-#ifndef Numerics_Test_Quaternions_h
-#define Numerics_Test_Quaternions_h
+#ifndef Numerics_Test_Point3_h
+#define Numerics_Test_Point3_h
 
 #include "../TESTS/Common.h"
 
-void quaternionConstructorTestQ1()
-{
-    printTitle("Quaternion Constructor Test Q1");
-
-    // Quaternion<float> q;
-    // printQuaternion("", q);
-}
-
-void DontKillTheRedundancy() {}
-
-#endif
+#endif /* Numerics_Test_Point3_h */
