@@ -159,6 +159,7 @@ namespace nmr
     template <typename real>
     Vector3<real> Quaternion<real>::GetAxis()
     {
+        // Normalization may not be necessary - FIXME
         Vector3<real> normalized = GetVector().Normalize();
         return normalized;
     }
@@ -228,7 +229,7 @@ namespace nmr
         // Quaternion Product
         real w = wP * wQ; // Simple Multiplication
         w -= vP * vQ;     // Dot Product
-        // VectorScalar + VectorScalar + VectorVecotCross Multiplications
+        // VectorScalar + VectorScalar + VectorVectorCross Multiplications
         Vector3<real> v = (vQ * wP) + (vP * wQ) + (vP ^ vQ);
         // Quaternion
         Quaternion<real> quat(w, v.x(), v.y(), v.z());
