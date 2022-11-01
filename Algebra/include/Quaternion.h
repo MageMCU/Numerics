@@ -222,6 +222,7 @@ namespace nmr
     template <typename real>
     Quaternion<real> Quaternion<real>::operator*(const Quaternion<real> &q)
     {
+        // Use GetQuaternion to initialize p - FIXME
         Quaternion<real> p(q_tuples[0], q_tuples[1], q_tuples[2], q_tuples[3]);
         real wP = p.w();
         real wQ = q.w();
