@@ -82,6 +82,7 @@ namespace nmr
     template <typename real>
     Quaternion<real>::Quaternion(real w, real x, real y, real z)
     {
+        // This should be PRIVATE - FIXME
         m_size = 4;
 
         q_tuples[0] = w;
