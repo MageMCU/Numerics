@@ -7,12 +7,9 @@
 //
 // Algebra OOP Library
 // The math is underneath the namespace
-// called Numerics as in numeric computation.
+// nmr for Numerics as in numeric computation.
 //
 // By Jesse Carpenter (carpentersoftware.com)
-//
-// CHANGELOG
-// Created 20221030
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -57,9 +54,9 @@ namespace nmr
         real z();
         int Size();
         real Element(int index);
+        Vector3<real> GetVector();
 
         // METHODS
-        Vector3<real> GetVector();
         real Magnitude();
         Vector3<real> UnitVector();
         real Distance();
@@ -135,8 +132,6 @@ namespace nmr
         return value;
     }
 
-    // METHODS
-
     template <typename real>
     Vector3<real> Vector3<real>::GetVector()
     {
@@ -144,6 +139,7 @@ namespace nmr
         return vector;
     }
 
+    // METHODS
     template <typename real>
     real Vector3<real>::Magnitude()
     {

@@ -6,16 +6,16 @@
 
 **Following classes are stand-alone**
 - **DeltaTime.h**
-- **Misc.h**           (Was Math.h)
+- **Misc.h**           (Was Math.h - Naming Issues while using the name Math)
 - **Motion.h** 
 
 ***Followng classes are in an hierachical relationship***
-+ ***Vector2.h***      (could be used as stand-alone - testing completed)
-+ ***Vector3.h***      (could be used as stand-alone - testing)
-+ ***Point2.h***       (depended on Vector2.h - testing)
-+ ***Point3.h***       (depended on Vector3.h - testing)
-+ ***Matrix.h***       (depended on Point2.h & Point3.h - testing) 
-+ ***Quaternion.h***   (depended on Matrix.h Testing)
++ ***Vector2.h***      (could be used as stand-alone - code tested ok)
++ ***Vector3.h***      (could be used as stand-alone - code tested ok)
++ ***Point2.h***       (depended on Vector2.h - code tested ok)
++ ***Point3.h***       (depended on Vector3.h - tescode tested okting)
++ ***Matrix.h***       (depended on Point2.h & Point3.h - code tested ok) 
++ ***Quaternion.h***   (depended on Matrix.h - Testing in progress)
 
 ## ***src folder***
 
@@ -28,6 +28,7 @@
     - TestMatrix.h
     - TestPoint2.h
     - TestPoint3.h
+    - TestQuaternion.h
     - TestVector2.h
     - TestVector3.h
 

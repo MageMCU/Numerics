@@ -1,6 +1,6 @@
 //
 // Carpenter Software
-// File: Main main.cpp
+// File: main.cpp - DO NOT USE
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
@@ -8,12 +8,9 @@
 //
 // Algebra OOP Library
 // The math is underneath the namespace
-// called Numerics as in numeric computation.
+// nmr for Numerics as in numeric computation.
 //
 // By Jesse Carpenter (carpentersoftware.com)
-//
-// CHANGELOG
-// Created 20221008
 //
 // Testing Platform:
 //  * MCU:Atmega328P

@@ -1,18 +1,15 @@
 //
 // Carpenter Software
-// File: ain main.cpp
+// File: main.cpp
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
 //
 // Algebra OOP Library
 // The math is underneath the namespace
-// called Numerics as in numeric computation.
+// nmr for Numerics as in numeric computation.
 //
 // By Jesse Carpenter (carpentersoftware.com)
-//
-// CHANGELOG
-// Created 20221030
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -40,6 +37,7 @@
 #include "TESTS/TestPoint2.h"
 #include "TESTS/TestPoint3.h"
 #include "TESTS/TestMatrix.h"
+#include "TESTS/TestQuaternion.h"
 
 void setup()
 {
@@ -54,15 +52,50 @@ void setup()
   // TESTING IN PROGRESS
   // --------------------------------------
 
-  // Quaternion Tests ---------------------- NOT STARTED
-  // Matrix Tests -------------------------- NOT STARTED
-  // Point3 Tests -------------------------- NOT STARTED
-  // Point2 Tests -------------------------- NOT STARTED
+  // Quaternion Tests ---------------------- NOT COMPLETED
+  Quaternion_T1_Constructor();
 
-  // Vector3 Tests ------------------------- NOT COMPLETED
-  Vector3_T1_Constructor();
+  // Matrix Tests -------------------------- COMPLETED
+  // Matrix_T8_MatrixVectorMultiplication();
+  // Matrix_T7_MatrixScalarMultiplication();
+  // Matrix_T6_Negate();
+  // Matrix_T5_Transpose();
+  // Matrix_T4_Determinant_IsInvertible();
+  // Matrix_T3_GetMatrix();
+  // Matrix_T2_Getters_NoSetters();
+  // Matrix_T1_Constructor();
+
+  // Point3 Tests -------------------------- COMPLETED
+  // Point3_T4_PointFromPointVectorAddition();
+  // Point3_T3_VectorFromPointPointSubtraction();
+  // Point3_T2_GetPoint();
+  // Point3_T1_Constructor();
+
+  // Point2 Tests -------------------------- COMPLETED
+  // Point2_T4_PointFromPointVectorAddition();
+  // Point2_T3_VectorFromPointPointSubtraction();
+  // Point2_T2_GetPoint();
+  // Point2_T1_Constructor();
+
+  // Vector3 Tests ------------------------- COMPLETED
+  // Vector3_T15_COPY();
+  // Vector3_T14_CrossProduct();
+  // Vector3_T13_DotProduct();
+  // Vector3_T12_VectorVectorSubtraction();
+  // Vector3_T11_VectorVectorAddition();
+  // Vector3_T10_VectorScalarProduct();
+  // Vector3_T9_NegateVector();
+  // Vector3_T8_ProjV();
+  // Vector3_T7_Angle();
+  // Vector3_T6_Cross_Product();
+  // Vector3_T5_Dot_Product();
+  // Vector3_T4_UnitVector_Normalize();
+  // Vector3_T3_Magnitude_Distance();
+  // Vector3_T2_GetVector();
+  // Vector3_T1_Constructor();
 
   // Vector2 Tests ------------------------- COMPLETED
+  // Vector2_T15_COPY();
   // Vector2_T14_DotProduct();
   // Vector2_T13_VectorVectorSubtraction();
   // Vector2_T12_VectorVectorAddition();

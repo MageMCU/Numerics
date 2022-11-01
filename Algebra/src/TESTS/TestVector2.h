@@ -1,18 +1,15 @@
 //
 // Carpenter Software
-// File: Tests TestVector2.h
+// File: TestVector2.h
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
 //
 // Algebra OOP Library
 // The math is underneath the namespace
-// called Numerics as in numeric computation.
+// nmr for Numerics as in numeric computation.
 //
 // By Jesse Carpenter (carpentersoftware.com)
-//
-// CHANGELOG
-// Created 20221030 - Testing in Progress
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -27,6 +24,18 @@
 
 #include "Arduino.h"
 #include "../TESTS/Common.h"
+
+void Vector2_T15_COPY()
+{
+    printTitle("Vector2 COPY using the equal sign");
+
+    nmr::Vector2<float> v1(1, 2);
+    printVector2("v1", v1);
+
+    printSubTitle("This does not always work unless using an operator=");
+    nmr::Vector2<float> v2 = v1;
+    printVector2("v2", v2);
+}
 
 void Vector2_T14_DotProduct()
 {

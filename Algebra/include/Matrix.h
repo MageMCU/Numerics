@@ -7,13 +7,9 @@
 //
 // Algebra OOP Library
 // The math is underneath the namespace
-// called Numerics as in numeric computation.
+// nmr for Numerics as in numeric computation.
 //
 // By Jesse Carpenter (carpentersoftware.com)
-//
-// CHANGELOG
-// Created 20221008
-// Updated 20221030
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -58,6 +54,9 @@ namespace nmr
         // Identity Initialization
         void _identity();
 
+        // Determinate 2x2
+        real _det(real a00, real a01, real a10, real a11);
+
     public:
         // Constructors
         // Creates an Identity
@@ -86,7 +85,6 @@ namespace nmr
         Vector2<real> operator*(Vector2<real> v);
         Vector3<real> operator*(Vector3<real> v);
         Matrix<real> operator*(Matrix<real> M);
-        // Matrix<real> operator=(Matrix<real> M);
     };
 
     template <typename real>
@@ -160,7 +158,6 @@ namespace nmr
         {
             for (int c = 0; c < _rowSizeSquareMatrix; c++)
             {
-                // Only interested in size _rowSizeSquareMatrix
                 m_tuples[_it4(r, c)] = array[_it(r, c)];
             }
         }
@@ -194,7 +191,6 @@ namespace nmr
         {
             for (int c = 0; c < _rowSizeSquareMatrix; c++)
             {
-                // Only interested in size _rowSizeSquareMatrix
                 tuples[_it(r, c)] = m_tuples[_it4(r, c)];
             }
         }
@@ -216,15 +212,23 @@ namespace nmr
         // 00 01 02
         // 10 11 12
         // 20 21 22
+        // 20221031 ToT :)
         real det = (real)0;
-        // Sizes belong to THIS - size constriant
-        if (_sizeSquareMatrix == 9)
+
+        if (_sizeSquareMatrix == 4)
         {
-            real m0 = m_tuples[_it4(1, 1)] * m_tuples[_it4(2, 2)] - m_tuples[_it4(2, 1)] * m_tuples[_it4(1, 2)];
-            real m1 = m_tuples[_it4(1, 0)] * m_tuples[_it4(2, 2)] - m_tuples[_it4(2, 0)] * m_tuples[_it4(1, 2)];
-            real m2 = m_tuples[_it4(1, 0)] * m_tuples[_it4(2, 1)] - m_tuples[_it4(2, 0)] * m_tuples[_it4(1, 1)];
-            det = m_tuples[_it4(0, 0)] * m0 - m_tuples[_it4(0, 1)] * m1 + m_tuples[_it4(0, 2)] * m2;
+            det = _det(m_tuples[_it4(0, 0)], m_tuples[_it4(0, 1)], m_tuples[_it4(1, 0)], m_tuples[_it4(1, 1)]);
         }
+        else if (_sizeSquareMatrix == 9)
+        {
+            // Column
+            real d00 = _det(m_tuples[_it4(1, 1)], m_tuples[_it4(1, 2)], m_tuples[_it4(2, 1)], m_tuples[_it4(2, 2)]);
+            real d10 = _det(m_tuples[_it4(0, 1)], m_tuples[_it4(0, 2)], m_tuples[_it4(2, 1)], m_tuples[_it4(2, 2)]);
+            real d20 = _det(m_tuples[_it4(0, 1)], m_tuples[_it4(0, 2)], m_tuples[_it4(1, 1)], m_tuples[_it4(1, 2)]);
+
+            det = m_tuples[_it4(0, 0)] * d00 - m_tuples[_it4(1, 0)] * d10 + m_tuples[_it4(2, 0)] * d20;
+        }
+        // pending size 16
         return det;
     }
 
@@ -237,7 +241,6 @@ namespace nmr
         {
             for (int c = 0; c < _rowSizeSquareMatrix; c++)
             {
-                // Only interested in size _rowSizeSquareMatrix
                 tuples[_it(r, c)] = m_tuples[_it4(c, r)];
             }
         }
@@ -266,7 +269,6 @@ namespace nmr
         {
             for (int c = 0; c < _rowSizeSquareMatrix; c++)
             {
-                // Only interested in size _rowSizeSquareMatrix
                 tuples[_it(r, c)] = m_tuples[_it4(r, c)] * s;
             }
         }
@@ -278,15 +280,12 @@ namespace nmr
     template <typename real>
     Vector2<real> Matrix<real>::operator*(Vector2<real> v)
     {
-        // Sizes belong to THIS
-        real size = v.Size();
-        real tuples[size];
-        for (int r = 0; r < size; r++)
+        real tuples[4];
+        for (int r = 0; r < 2; r++)
         {
             tuples[r] = (real)0;
-            for (int c = 0; c < size; c++)
+            for (int c = 0; c < 2; c++)
             {
-                // Only interested in size _rowSizeSquareMatrix
                 tuples[r] += m_tuples[_it4(r, c)] * v.Element(c); // Vector Element
             }
         }
@@ -298,15 +297,12 @@ namespace nmr
     template <typename real>
     Vector3<real> Matrix<real>::operator*(Vector3<real> v)
     {
-        // Sizes belong to THIS
-        real size = v.Size();
-        real tuples[size];
-        for (int r = 0; r < size; r++)
+        real tuples[9];
+        for (int r = 0; r < 3; r++)
         {
             tuples[r] = (real)0;
-            for (int c = 0; c < size; c++)
+            for (int c = 0; c < 3; c++)
             {
-                // Only interested in size _rowSizeSquareMatrix
                 tuples[r] += m_tuples[_it4(r, c)] * v.Element(c); // Vector Element
             }
         }
@@ -327,7 +323,6 @@ namespace nmr
                 tuples[_it(r, c)] = (real)0;
                 for (int k = 0; k < _rowSizeSquareMatrix; k++)
                 {
-                    // Only interested in size _rowSizeSquareMatrix
                     tuples[_it(r, c)] += m_tuples[_it4(r, k)] * M.Element(k, c);
                 }
             }
@@ -336,34 +331,6 @@ namespace nmr
         Matrix<real> matrix(tuples, (MatrixRowSize)_rowSizeSquareMatrix);
         return matrix;
     }
-
-    /* NOTE: IT SEEMS THAT build_flags = -std=gnu++11 WORKS
-             BETTER THAN -std=c++11... THE ONLY build_flags
-             USED WAS STATED ABOVE...THEREFORE THE COPY MIGHT
-             NOT BE NEEDED... FURTHER TEST REQUIRED...
-    template <typename real>
-    Matrix<real> Matrix<real>::operator=(Matrix<real> M)
-    {
-        // Sizes belong to M
-        _sizeSquareMatrix = M.GetSizeSquareMatrix();
-        _rowSizeSquareMatrix = M.GetRowSizeSquareMatrix();
-        //
-        real tuples[_sizeSquareMatrix];
-
-        // Identity Matrix
-        for (int r = 0; r < _rowSizeSquareMatrix; r++)
-        {
-            for (int c = 0; c < _rowSizeSquareMatrix; c++)
-            {
-                // Only interested in size _rowSizeSquareMatrix
-                tuples[_it(r, c)] = M.Element(r, c);
-            }
-        }
-        // Constructed
-        Matrix<real> matrix(tuples, (MatrixRowSize)_rowSizeSquareMatrix);
-        return matrix;
-    }
-    */
 
     // PRIVATE
 
@@ -378,7 +345,8 @@ namespace nmr
     template <typename real>
     int Matrix<real>::_it4(int row, int col)
     {
-        return row * 4 + col;
+        int index = row * 4 + col;
+        return index;
     }
 
     template <typename real>
@@ -397,5 +365,31 @@ namespace nmr
             }
         }
     }
+
+    // Determinate 2x2
+
+    template <typename real>
+    real Matrix<real>::_det(real aa, real ab, real ba, real bb)
+    {
+        // row-major order
+        real a = aa * bb;
+        // debug
+        // Serial.print("a ");
+        // Serial.println(a);
+        //
+        real b = ab * ba;
+        // debug
+        // Serial.print("b ");
+        // Serial.println(b);
+
+        // Det
+        real det = a - b;
+        // debug
+        // Serial.print("det ");
+        // Serial.println(det);
+
+        return det;
+    }
 }
+
 #endif /* Numerics_Matrix_h */

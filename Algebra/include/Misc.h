@@ -1,19 +1,15 @@
 //
 // Carpenter Software
-// File: Class Mics.h was Math.h
+// File: Class Misc.h - was Math.h
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
 //
 // Algebra OOP Library
 // The math is underneath the namespace
-// called Numerics as in numeric computation.
+// nmr for Numerics as in numeric computation.
 //
 // By Jesse Carpenter (carpentersoftware.com)
-//
-// CHANGELOG
-// Created 20221013
-// Update 20221030 - renamed class name platformio conflict
 //
 // Testing Platform:
 //  * MCU:Atmega328P

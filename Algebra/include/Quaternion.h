@@ -7,13 +7,9 @@
 //
 // Algebra OOP Library
 // The math is underneath the namespace
-// called Numerics as in numeric computation.
+// nmr for Numerics as in numeric computation.
 //
 // By Jesse Carpenter (carpentersoftware.com)
-//
-// CHANGELOG
-// Created 20221015
-// Updated 20221030
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -142,6 +138,7 @@ namespace nmr
     Quaternion<real> Quaternion<real>::GetQuaternion()
     {
         Quaternion<real> quat(q_tuples[0], q_tuples[1], q_tuples[2], q_tuples[3]);
+        return quat;
     }
 
     template <typename real>

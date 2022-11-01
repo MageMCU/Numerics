@@ -1,18 +1,15 @@
 //
 // Carpenter Software
-// File: Tests Common.h
+// File: Common.h
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
 //
 // Algebra OOP Library
 // The math is underneath the namespace
-// called Numerics as in numeric computation.
+// nmr for Numerics as in numeric computation.
 //
 // By Jesse Carpenter (carpentersoftware.com)
-//
-// CHANGELOG
-// Created 20221015 - Testing in Progress
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -36,6 +33,7 @@
 #include "Point2.h"
 #include "Point3.h"
 #include "Matrix.h"
+#include "Quaternion.h"
 
 /*
 template <typename real>
@@ -75,7 +73,6 @@ void printAngle(String s, int deg, nmr::Vector<real> v, real result)
 }
 */
 
-/*
 template <typename real>
 void printQuaternion(String s, nmr::Quaternion<real> q)
 {
@@ -87,21 +84,6 @@ void printQuaternion(String s, nmr::Quaternion<real> q)
     }
     Serial.println("");
 }
-*/
-
-/*
-template <typename real>
-void printPoint(String s, nmr::Point<real> p)
-{
-    Serial.println(s);
-    for (int i = 0; i < 4; i++)
-    {
-        Serial.print(p.Element(i));
-        Serial.print(" ");
-    }
-    Serial.println("");
-}
-*/
 
 template <typename real>
 void printMatrix(String s, nmr::Matrix<real> M)
@@ -139,6 +121,30 @@ void printVector2(String s, nmr::Vector2<real> v)
     Serial.print(v.x());
     Serial.print(", ");
     Serial.print(v.y());
+    Serial.println(") ");
+}
+
+template <typename real>
+void printPoint3(String s, nmr::Point3<real> p)
+{
+    Serial.print(s);
+    Serial.print(" (");
+    Serial.print(p.x());
+    Serial.print(", ");
+    Serial.print(p.y());
+    Serial.print(", ");
+    Serial.print(p.z());
+    Serial.println(") ");
+}
+
+template <typename real>
+void printPoint2(String s, nmr::Point2<real> p)
+{
+    Serial.print(s);
+    Serial.print(" (");
+    Serial.print(p.x());
+    Serial.print(", ");
+    Serial.print(p.y());
     Serial.println(") ");
 }
 
