@@ -22,7 +22,7 @@
 - MainMan
     - main.cpp -> TESTS
 - MainDied
-    - main.cpp -> Used to test Motion.h & DeltaTime.h - depencency Timer.h.
+    - main.cpp -> Used to test Motion.h & DeltaTime.h - dependency Timer.h.
 - TESTS 
     - Common.h
     - TestMatrix.h
