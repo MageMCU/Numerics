@@ -4,6 +4,7 @@
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
+// Testing: DeltaTime.h & Motion.h
 //
 // Algebra OOP Library
 // The math is underneath the namespace
@@ -52,8 +53,15 @@ void setup()
   // TESTING IN PROGRESS
   // --------------------------------------
 
-  // Quaternion Tests ---------------------- NOT COMPLETED
-  Quaternion_T1_Constructor();
+  // Quaternion Tests ---------------------- NEARLY COMPLETED
+  Quaternion_T8_QuaternionMultiplication();
+  // Quaternion_T7_Inverse();
+  // Quaternion_T6_Conjugate();
+  // Quaternion_T5_UnitQuaternion();
+  // Quaternion_T4_Scale();
+  // Quaternion_T3_Norm();
+  // Quaternion_T2_NormSquared();
+  // Quaternion_T1_Constructor();
 
   // Matrix Tests -------------------------- COMPLETED
   // Matrix_T8_MatrixVectorMultiplication();

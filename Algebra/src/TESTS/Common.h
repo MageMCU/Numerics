@@ -7,9 +7,13 @@
 //
 // Algebra OOP Library
 // The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// called Numerics as in numeric computation.
 //
 // By Jesse Carpenter (carpentersoftware.com)
+//
+// CHANGELOG
+// Created 20221015
+// Updated 20221207
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -74,11 +78,37 @@ void printAngle(String s, int deg, nmr::Vector<real> v, real result)
 */
 
 template <typename real>
-void printQuaternion(String s, nmr::Quaternion<real> q)
+void printQuaternion(nmr::Quaternion<real> q)
 {
-    Serial.println(s);
+    // Float to String takes time (SLOW)
     for (int i = 0; i < 4; i++)
     {
+        // Source: Arduino's float data-types
+        // The float data type has only 6-7 decimal digits of precision.
+        // NOTE: Since the floats printed are mostly less-than the value of one (<1.0)
+        //       than 7 decimal digits were used...
+        // https://www.arduino.cc/reference/en/language/variables/data-types/float/
+        //
+        // Source: Arduino's String Object data-types (see note above...)
+        // https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/
+        //
+        // To 7 decimal places
+        Serial.print(String(q.Element(i), 7));
+        if (i < 3)
+        {
+            Serial.print(",");
+        }
+    }
+    Serial.println("");
+}
+
+template <typename real>
+void printQuaternion(String s, nmr::Quaternion<real> q)
+{
+    Serial.print(s);
+    for (int i = 0; i < 4; i++)
+    {
+        // only prints 2 decimal places
         Serial.print(q.Element(i));
         Serial.print(" ");
     }
@@ -88,7 +118,7 @@ void printQuaternion(String s, nmr::Quaternion<real> q)
 template <typename real>
 void printMatrix(String s, nmr::Matrix<real> M)
 {
-    Serial.println(s);
+    Serial.print(s);
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
