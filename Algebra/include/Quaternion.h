@@ -13,7 +13,7 @@
 //
 // CHANGELOG
 // Created 20221015
-// Updated 20221207
+// Updated 20221217
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -64,15 +64,17 @@ namespace nmr
         Vector3<real> ToVector();
 
         // PUBLIC Methods
+        bool NormDeviation(real test);
         real NormSquared();
         real Norm();
         Quaternion<real> Scale(real scalar);
         Quaternion<real> UnitQuaternion();
         Quaternion<real> Conjugate();
         Quaternion<real> Inverse();
+        Quaternion<real> Multiply(Quaternion<real> c);
 
         // OPERATORS
-        Quaternion<real> operator*(Quaternion<real> q);
+        Quaternion<real> operator*(Quaternion<real> c);
     };
 
     template <typename real>
@@ -173,6 +175,18 @@ namespace nmr
     }
 
     template <typename real>
+    bool Quaternion<real>::NormDeviation(real testUnitLength)
+    {
+        // The unit length should be 1.0 (+/-) float-epsilon
+        real testEpsilon = abs(testUnitLength - (real)1.0);
+        // Return true is norm deviates
+        if (testEpsilon > (real)__FLT_EPSILON__)
+            return true;
+        // otherwise return false
+        return false;
+    }
+
+    template <typename real>
     real Quaternion<real>::NormSquared()
     {
         real SqMag = q_tuples[0] * q_tuples[0];
@@ -222,11 +236,66 @@ namespace nmr
         return Conjugate().Scale((real)1.0 / NormSquared());
     }
 
+    /*
+    // Although different, the result is the same...
+    template <typename real>
+    Quaternion<real> Quaternion<real>::Multiply(Quaternion<real> c)
+    {
+        // Quaternion Multiplication (qc) - Unit Quaternions
+        Quaternion<real> q = ToQuaternion();
+        real w = q.w() * c.w() - q.x() * c.x() - q.y() * c.y() - q.z() * c.z();
+        real x = q.w() * c.x() + q.x() * c.w() + q.y() * c.z() - q.z() * c.y();
+        real y = q.w() * c.y() - q.x() * c.z() + q.y() * c.w() + q.z() * c.x();
+        real z = q.w() * c.z() + q.x() * c.y() - q.y() * c.x() + q.z() * c.w();
+        // Quaternion
+        Quaternion<real> quat(w, x, y, z);
+        // Is there a norm-squared  deviation
+        if (NormDeviation(quat.NormSquared()))
+        {
+            // Unit Quaternion
+            // Must normalize quaterion afterwards otherwise the components
+            // 'might' converge to zero due to the floating point rounding
+            // errors that diviates a unit-quaternion from its norm.
+            Quaternion<real> uQuat = quat.UnitQuaternion();
+            return uQuat;
+        }
+        //
+        return quat;
+    }
+    */
+
+    // Although different, the result is the same...
+    template <typename real>
+    Quaternion<real> Quaternion<real>::Multiply(Quaternion<real> c)
+    {
+        // Quaternion Multiplication (qc) - Unit Quaternions
+        Quaternion<real> q = ToQuaternion();
+        real w = q.w() * c.w() - q.x() * c.x() - q.y() * c.y() - q.z() * c.z();
+        real x = q.x() * c.w() + q.w() * c.x() - q.z() * c.y() + q.y() * c.z();
+        real y = q.y() * c.w() + q.z() * c.x() + q.w() * c.y() - q.x() * c.z();
+        real z = q.z() * c.w() - q.y() * c.x() + q.x() * c.y() + q.w() * c.z();
+        // Quaternion
+        Quaternion<real> quat(w, x, y, z);
+        // Is there a norm-squared  deviation
+        if (NormDeviation(quat.NormSquared()))
+        {
+            // Unit Quaternion
+            // Must normalize quaterion afterwards otherwise the components
+            // 'might' converge to zero due to the floating point rounding
+            // errors that diviates a unit-quaternion from its norm.
+            Quaternion<real> uQuat = quat.UnitQuaternion();
+            return uQuat;
+        }
+        //
+        return quat;
+    }
+
     // OPERATORS
 
     template <typename real>
     Quaternion<real> Quaternion<real>::operator*(Quaternion<real> c)
     {
+        // Quaternion Multiplication - Unit Quaternions
         Quaternion<real> q = ToQuaternion();
         Vector3<real> qV = q.ToVector();
         Vector3<real> cV = c.ToVector();
@@ -238,12 +307,18 @@ namespace nmr
         Vector3<real> v = (qV * c.w()) + (cV * q.w()) + (qV ^ cV);
         // Quaternion
         Quaternion<real> quat(wS, v.x(), v.y(), v.z());
-        // Unit Quaternion
-        // Must normalize quaterion afterwards otherwise the components
-        // 'might' converge to zero due to the floating point rounding
-        // errors that diviates a unit-quaternion from its norm.
-        Quaternion<real> uQuat = quat.UnitQuaternion();
-        return uQuat;
+        // Is there a norm-squared  deviation
+        if (NormDeviation(quat.NormSquared()))
+        {
+            // Unit Quaternion
+            // Must normalize quaterion afterwards otherwise the components
+            // 'might' converge to zero due to the floating point rounding
+            // errors that diviates a unit-quaternion from its norm.
+            Quaternion<real> uQuat = quat.UnitQuaternion();
+            return uQuat;
+        }
+        //
+        return quat;
     }
 }
 

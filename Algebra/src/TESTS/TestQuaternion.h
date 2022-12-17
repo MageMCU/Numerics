@@ -13,7 +13,7 @@
 //
 // CHANGELOG
 // Created 20221015
-// Updated 20221207
+// Updated 20221217
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -35,6 +35,8 @@ void Quaternion_T8_QuaternionMultiplication()
     // it could take a minute or two to finish...
 
     // Intialization
+    // This becomes a half-angle in
+    // quaternion multiplication...
     float radian = 1.0 * DEG_TO_RAD;
     nmr::Vector3<float> axis(1, 2, 3);
     // Constant
@@ -42,18 +44,33 @@ void Quaternion_T8_QuaternionMultiplication()
     // Multiplicative
     nmr::Quaternion<float> q(axis, 0.0);
 
-    // Game Loop
+    // Game Loop 1 with first quaternion multiplication
     int i = 0;
+    /*
     do
     {
         // Prints four columns with 7 decimal digits
         // data for a csv-file
         printQuaternion(q);
-        // Quaternion Multiplication
+        // Quaternion Multiplication --- FIRST method
         q = q * c;
         // Counter
         i++;
-    } while (i < 850);
+    } while (i < 721);
+    */
+
+    // Game Loop 2 with second quaternion multiplication
+    // int i = 0;
+    do
+    {
+        // Prints four columns with 7 decimal digits
+        // data for a csv-file
+        printQuaternion(q);
+        // Quaternion Multiplication --- SECOND method
+        q = q.Multiply(c);
+        // Counter
+        i++;
+    } while (i < 721);
 }
 
 void Quaternion_T7_Inverse()
