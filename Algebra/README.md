@@ -26,6 +26,7 @@
     - main.cpp -> Used to test Motion.h & DeltaTime.h - dependency Timer.h.
 - TESTS 
     - Common.h
+    - TestBitwise.h
     - TestMatrix.h
     - TestPoint2.h
     - TestPoint3.h
