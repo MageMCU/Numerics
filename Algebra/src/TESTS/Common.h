@@ -13,7 +13,6 @@
 //
 // CHANGELOG
 // Created 20221015
-// Updated 20221207
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -28,9 +27,11 @@
 
 #include "Arduino.h"
 
-// #include "Motion.h"
-// #include "Quaternion.h"
-// #include "Math.h"
+#include "Bitwise.h"
+#include "DeltaTime.h"
+#include "Misc.h"
+#include "Motion.h"
+#include "Timer.h"
 
 #include "Vector2.h"
 #include "Vector3.h"

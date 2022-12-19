@@ -1,24 +1,4 @@
-//
-// Carpenter Software
-// File: main.cpp
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-// Testing: DeltaTime.h & Motion.h
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
-//
-// By Jesse Carpenter (carpentersoftware.com)
-//
-// Testing Platform:
-//  * MCU:Atmega328P
-//  * IDE:PlatformIO
-//  * Editor: VSCode
-//
-// MIT LICENSE
-//
+
 
 #include <Arduino.h>
 
@@ -39,6 +19,7 @@
 #include "TESTS/TestPoint3.h"
 #include "TESTS/TestMatrix.h"
 #include "TESTS/TestQuaternion.h"
+#include "TESTS/TestBitwise.h"
 
 void setup()
 {
@@ -52,6 +33,11 @@ void setup()
   // --------------------------------------
   // TESTING IN PROGRESS
   // --------------------------------------
+
+  // Bitwise Tests ---------------------- COMPLETED
+  // Bitwise_T3_ClearBitNUmber();
+  // Bitwise_T2_SetBitNumber();
+  // Bitwise_T1_Contructor();
 
   // Quaternion Tests ---------------------- NEARLY COMPLETED
   Quaternion_T8_QuaternionMultiplication();

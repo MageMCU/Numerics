@@ -27,7 +27,7 @@ This MCU chip **Atmega328P** is well known and the price is affordable as well a
 
 ## Issues
 
-As of 20221217, no issues.
+As of 20221219, no issues.
 
 ## In Development
 
