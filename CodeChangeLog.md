@@ -18,3 +18,4 @@
 <p>20221031 - Lots of Testing... Fixing code while testing...</p>
 <p>20221217 - Updated Quaternion Class</p>
 <p>20221219 - New Bitwise Class</p>
+<p>20221220 - Updated Bitwise Class</p>
