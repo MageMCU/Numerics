@@ -46,7 +46,7 @@ namespace nmr
         void SetBitNumber(integer bitNumber);
         bool IsBitNumberSet(integer bitNumber);
         void ClearBitNumber(integer bitNumber);
-        integer GetBits();
+        integer GetBitsValue();
         integer GetBitNumber();
         String PrintBinaryBits();
     };
@@ -121,7 +121,7 @@ namespace nmr
     }
 
     template <typename integer>
-    integer Bitwise<integer>::GetBits()
+    integer Bitwise<integer>::GetBitsValue()
     {
         return (integer)b_bits;
     }
