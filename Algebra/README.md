@@ -5,7 +5,7 @@
 ## ***include folder***
 
 **Following classes are stand-alone**
-- **Bitwise.h**       (New - used in FSM)
+- **Bitwise.h**       (20221220 - sorry - recently updated - used in FSM)
 - **DeltaTime.h**
 - **Misc.h**           (Was Math.h - Naming Issues while using the name Math)
 - **Motion.h** 
