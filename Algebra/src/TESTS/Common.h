@@ -27,18 +27,17 @@
 
 #include "Arduino.h"
 
-#include "Bitwise.h"
-#include "DeltaTime.h"
-#include "Misc.h"
-#include "Motion.h"
-#include "Timer.h"
+#include "Bitwise.h"  // New Class...
+#include "TimeNMR.h"  // Updated...
+#include "MiscMath.h" // Renamed from Misc.h to MiscMath.h...
+#include "Timer.h"    // Updated...
 
 #include "Vector2.h"
 #include "Vector3.h"
 #include "Point2.h"
 #include "Point3.h"
 #include "Matrix.h"
-#include "Quaternion.h"
+#include "Quaternion.h" // Work Study in Progress
 
 /*
 template <typename real>

@@ -1,6 +1,6 @@
 //
 // Carpenter Software
-// File: TestVectors.h
+// File: TestQuaternions.h
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)

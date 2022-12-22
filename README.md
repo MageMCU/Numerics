@@ -27,11 +27,11 @@ This MCU chip **Atmega328P** is well known and the price is affordable as well a
 
 ## Issues
 
-As of 20221219, no issues.
+As of 20221221, no issues.
 
 ## In Development
 
-The Numerics project will be updated as needed for other projects. Moving on to other work..., FSM.
+The Numerics project will be updated as needed for other projects. Moving on to other work..., FSM, PID, etc.
 
 ## Disclaimer and Terms
 

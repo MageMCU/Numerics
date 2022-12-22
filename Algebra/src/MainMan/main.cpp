@@ -1,4 +1,27 @@
-
+//
+// Carpenter Software
+// File: Main main.cpp
+// Folder: Algebra
+//
+// Purpose: Github Depository (MageMCU)
+// Testing: DeltaTime.h & Motion.h
+//
+// Algebra OOP Library
+// The math is underneath the namespace
+// called Numerics as in numeric computation.
+//
+// By Jesse Carpenter (carpentersoftware.com)
+//
+// CHANGELOG
+// Created 20221008
+//
+// Testing Platform:
+//  * MCU:Atmega328P
+//  * IDE:PlatformIO
+//  * Editor: VSCode
+//
+// MIT LICENSE
+//
 
 #include <Arduino.h>
 
@@ -20,6 +43,7 @@
 #include "TESTS/TestMatrix.h"
 #include "TESTS/TestQuaternion.h"
 #include "TESTS/TestBitwise.h"
+#include "TESTS/TestTimeNMR.h"
 
 void setup()
 {
@@ -34,13 +58,19 @@ void setup()
   // TESTING IN PROGRESS
   // --------------------------------------
 
+  // DeltaTime Tests -------------------- COMPLETED
+  // Note: Requires void loop() with the following:
+  // Un-comment the call function DeltaTimeLoop();
+  // SEE DeltaTimeLoop() function in TestDeltaTime.h.
+  // for further details... Advisement - Complicated...
+
   // Bitwise Tests ---------------------- COMPLETED
   // Bitwise_T3_ClearBitNUmber();
   // Bitwise_T2_SetBitNumber();
   // Bitwise_T1_Contructor();
 
   // Quaternion Tests ---------------------- NEARLY COMPLETED
-  Quaternion_T8_QuaternionMultiplication();
+  // Quaternion_T8_QuaternionMultiplication();
   // Quaternion_T7_Inverse();
   // Quaternion_T6_Conjugate();
   // Quaternion_T5_UnitQuaternion();
@@ -108,5 +138,7 @@ void setup()
 
 void loop()
 {
-  // put your main code here, to run repeatedly:
+  // Un-comment when testing DeltaTime.h
+  //
+  DeltaTimeLoop();
 }

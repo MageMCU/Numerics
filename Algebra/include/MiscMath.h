@@ -1,6 +1,6 @@
 //
 // Carpenter Software
-// File: Class Misc.h - was Math.h
+// File: Class MiscMath.h - was Math.h
 // Folder: Algebra
 //
 // Purpose: Github Depository (MageMCU)
