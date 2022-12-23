@@ -20,4 +20,4 @@
 <p>20221219 - New Bitwise Class</p>
 <p>20221220 - Updated Bitwise Class</p>
 <p>20221221 - Updated Multiple Classes... Removed Motion.h</p>
-
+<p>20221222 - Updated MiscMath.h Functions and Tested...</p>

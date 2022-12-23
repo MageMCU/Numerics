@@ -39,7 +39,21 @@
 #include "Matrix.h"
 #include "Quaternion.h" // Work Study in Progress
 
-/*
+template <typename real>
+void printAngle(String s, int deg, real x, real y, real result)
+{
+    Serial.print(s);
+    Serial.print(" deg: ");
+    Serial.print(deg);
+    Serial.print(" dv(");
+    Serial.print(x);
+    Serial.print(", ");
+    Serial.print(y);
+    Serial.print(") ");
+    Serial.print("result: ");
+    Serial.println(result);
+}
+
 template <typename real>
 void printAngle(String s, int deg, real x, real y, real z, real result)
 {
@@ -56,11 +70,9 @@ void printAngle(String s, int deg, real x, real y, real z, real result)
     Serial.print("result: ");
     Serial.println(result);
 }
-*/
 
-/*
 template <typename real>
-void printAngle(String s, int deg, nmr::Vector<real> v, real result)
+void printAngle(String s, int deg, nmr::Vector3<real> v, real result)
 {
     Serial.print(s);
     Serial.print(" deg: ");
@@ -75,7 +87,6 @@ void printAngle(String s, int deg, nmr::Vector<real> v, real result)
     Serial.print("result: ");
     Serial.println(result);
 }
-*/
 
 template <typename real>
 void printQuaternion(nmr::Quaternion<real> q)

@@ -19,19 +19,21 @@
 // MIT LICENSE
 //
 
-#ifndef Numerics_Misc_h
-#define Numerics_Misc_h
+#ifndef Numerics_MiscMath_h
+#define Numerics_MiscMath_h
 
 #include "Arduino.h"
 
 namespace nmr
 {
-    enum Dimension
+    enum Plane2D
     {
         XY = 1,
         XZ,
         YZ
     };
+
+    // FUNCTION-TEMPLATES
 
     template <typename real>
     real Square(real value)
@@ -80,41 +82,48 @@ namespace nmr
     }
 
     template <typename real>
-    void DirectionalVector(real angleRadian, real &x, real &y, real &z, Dimension item)
+    void DirectionComponents(real angleRadian, real &x, real &y, real &z, Plane2D plane2D)
     {
+        Vector3<real> vector = DirectionVector(angleRadian, plane2D);
+        x = vector.x();
+        y = vector.y();
+        z = vector.z();
+    }
+
+    template <typename real>
+    Vector3<real> DirectionVector(real angleRadian, Plane2D plane2D)
+    {
+
         real a = cos(angleRadian);
         real b = sin(angleRadian);
-
-        x = (real)0;
-        y = (real)0;
-        z = (real)0;
-
-        switch (item)
+        real x = (real)0;
+        real y = (real)0;
+        real z = (real)0;
+        switch (plane2D)
         {
         case XY:
             x = a; // X
             y = b; // Y
             break;
-
         case XZ:
             x = a; // X
             z = b; // Z
             break;
-
         case YZ:
             y = a; // Y
             z = b; // Z
             break;
-
         default:
             x = a; // X
             y = b; // Y
             break;
         }
+        Vector3<real> vector(x, y, z);
+        return vector;
     }
 
     template <typename real>
-    real map(real x, real x1, real x2, real y1, real y2)
+    real Map(real x, real x1, real x2, real y1, real y2)
     {
         // Assume linear functions
         // m = (y2 - y1)/(x2 - x1)

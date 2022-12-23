@@ -31,8 +31,9 @@
 #include "Point3.h"
 #include "Matrix.h"
 #include "Quaternion.h"
+#include "MiscMath.h"
 
-// Common utility function
+// Common utility functions.
 #include "TESTS/Common.h"
 // recommended to un-comment one at a time...
 // Sync includes with each set of test functions.
@@ -44,6 +45,7 @@
 #include "TESTS/TestQuaternion.h"
 #include "TESTS/TestBitwise.h"
 #include "TESTS/TestTimeNMR.h"
+#include "TESTS/TestMiscMath.h"
 
 void setup()
 {
@@ -57,6 +59,13 @@ void setup()
   // --------------------------------------
   // TESTING IN PROGRESS
   // --------------------------------------
+
+  // MiscMath Tests -------------------- NOT COMPLETED
+  MiscMath_T5_DirectionVector();
+  // MiscMath_T4_DirectionComponents();
+  // MiscMath_T3_Angle2Radian();
+  // MiscMath_T2_AngleRadian();
+  // MiscMath_T1_Map();
 
   // DeltaTime Tests -------------------- COMPLETED
   // Note: Requires void loop() with the following:
@@ -140,5 +149,5 @@ void loop()
 {
   // Un-comment when testing DeltaTime.h
   //
-  DeltaTimeLoop();
+  // DeltaTimeLoop();
 }
