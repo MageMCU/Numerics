@@ -35,4 +35,4 @@ The Numerics project will be updated as needed for other projects. Moving on to 
 
 ## Disclaimer and Terms
 
-Please follow the ***Disclaimer*** and ***Terms*** in the ***Numerics*** Depository.
+Please follow the ***Disclaimer*** and ***Terms*** in the ***Numerics*** Repository.
