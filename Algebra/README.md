@@ -7,7 +7,7 @@
 **Following classes are stand-alone**
 - **Bitwise.h**        (20221220 - Recently updated - used in FSM...)
 - **TimeNMR.h**        (20221221 Name change from *DeltaTime.h* to *TimeNMR.h*.)
-- **Timer.h**          (*Timer.h* was copied from the *Joystick_Uno_L298N* Depository. There was the private property in the class called *_lastMillisecond*. Since it was never used, it is now removed in this update. Also the namespace has changed from *uno* to *nmr* (Numerics) since it is part of *TimeNMR.h*... Therefore, there are two copies, one in each of the depositories: *Numerics* and *Joystick_Uno_L298N*...)
+- **Timer.h**          (*Timer.h* was copied from the *Joystick_Uno_L298N* Repository. There was the private property in the class called *_lastMillisecond*. Since it was never used, it is now removed in this update. Also the namespace has changed from *uno* to *nmr* (Numerics) since it is part of *TimeNMR.h*... Therefore, there are two copies, one in each of the repositories: *Numerics* and *Joystick_Uno_L298N*...)
 
 ***Followng classes are in an hierachical relationship***
 + ***Vector2.h***      (could be used as stand-alone - code tested ok)
