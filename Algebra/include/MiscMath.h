@@ -82,7 +82,7 @@ namespace nmr
     }
 
     template <typename real>
-    void DirectionComponents(real angleRadian, real &x, real &y, real &z, Plane2D plane2D)
+    void DirectionComponents(real angleRadian, real& x, real& y, real& z, Plane2D plane2D)
     {
         Vector3<real> vector = DirectionVector(angleRadian, plane2D);
         x = vector.x();
@@ -122,6 +122,7 @@ namespace nmr
         return vector;
     }
 
+    // See also LinearMap.h
     template <typename real>
     real Map(real x, real x1, real x2, real y1, real y2)
     {

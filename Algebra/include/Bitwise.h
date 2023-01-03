@@ -19,8 +19,8 @@
 // MIT LICENSE
 //
 
-#ifndef Bitwise_H
-#define Bitwise_H
+#ifndef Numerics_Bitwise_H
+#define Numerics_Bitwise_H
 
 #include <Arduino.h>
 
@@ -43,11 +43,15 @@ namespace nmr
         Bitwise();
 
         // Public Methods - Bit Numbers 0, 1, 2, 3, 4, etc.
+        // Bit Numbers
         void SetBitNumber(integer bitNumber);
         bool IsBitNumberSet(integer bitNumber);
-        void ClearBitNumber(integer bitNumber);
-        integer GetBitsValue();
         integer GetBitNumber();
+        void ClearBitNumber(integer bitNumber);
+        // Bits Value
+        void SetBitsValue(integer);
+        integer GetBitsValue();
+        void ClearAllBits();
         String PrintBinaryBits();
     };
 
@@ -58,7 +62,7 @@ namespace nmr
         b_numberOfBits = (sizeof(integer) * (integer)8);
         // MINUS-ONE: assuming programmer might use a signed-integer.
         b_maxSize = b_sumPowerOfTwo(b_numberOfBits - (integer)1);
-        b_bits = 0;
+        b_bits = (integer)0;
 
         // DEBUG
         // Serial.print("number of bits: ");
@@ -70,15 +74,15 @@ namespace nmr
     template <typename integer>
     integer Bitwise<integer>::b_powerOfTwo(integer bitNumber)
     {
-        integer value = 1;
-        if (bitNumber >= 0 && bitNumber < b_numberOfBits)
+        integer value = (integer)1;
+        if (bitNumber >= (integer)0 && bitNumber < b_numberOfBits)
         {
-            if (bitNumber == 0)
+            if (bitNumber == (integer)0)
                 return value;
 
             for (int i = 0; i < (int)bitNumber; i++)
             {
-                value *= 2;
+                value *= (integer)2;
             }
         }
         else
@@ -91,7 +95,7 @@ namespace nmr
     template <typename integer>
     integer Bitwise<integer>::b_sumPowerOfTwo(integer bitNumber)
     {
-        integer sum = 0;
+        integer sum = (integer)0;
         for (int poT = 0; poT < (int)bitNumber; poT++)
         {
             sum += b_powerOfTwo(poT);
@@ -112,18 +116,6 @@ namespace nmr
             return true;
 
         return false;
-    }
-
-    template <typename integer>
-    void Bitwise<integer>::ClearBitNumber(integer bitNumber)
-    {
-        b_bits &= ~b_powerOfTwo(bitNumber);
-    }
-
-    template <typename integer>
-    integer Bitwise<integer>::GetBitsValue()
-    {
-        return (integer)b_bits;
     }
 
     template <typename integer>
@@ -149,6 +141,30 @@ namespace nmr
     }
 
     template <typename integer>
+    void Bitwise<integer>::ClearBitNumber(integer bitNumber)
+    {
+        b_bits &= ~b_powerOfTwo(bitNumber);
+    }
+
+    template <typename integer>
+    void Bitwise<integer>::SetBitsValue(integer bitsValue)
+    {
+        b_bits = bitsValue;
+    }
+
+    template <typename integer>
+    integer Bitwise<integer>::GetBitsValue()
+    {
+        return (integer)b_bits;
+    }
+
+    template <typename integer>
+    void Bitwise<integer>::ClearAllBits()
+    {
+        b_bits = (integer)0;
+    }
+
+    template <typename integer>
     String Bitwise<integer>::PrintBinaryBits()
     {
         String str = "bits:";
@@ -156,7 +172,7 @@ namespace nmr
         for (int bitNumber = (int)b_numberOfBits - 1; bitNumber >= 0; bitNumber--)
         {
             // Insert Space-Char after every 4th digit
-            if (((bitNumber + 1) % 4) == 0)
+            if (((bitNumber + (integer)1) % (integer)4) == (integer)0)
                 str += ' ';
 
             // Insert binary digit
