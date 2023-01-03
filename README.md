@@ -31,7 +31,7 @@ As of 20230102, no issues.
 
 ## In Development
 
-The Numerics project will be updated as needed for other projects. Moving on to other work..., FSM, PID, etc.
+The Numerics project will be updated as needed for other projects. Moving on to other work..., SJUL, FSM, PID, etc.
 
 ## Disclaimer and Terms
 
