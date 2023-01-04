@@ -32,7 +32,7 @@
 namespace nmr
 {
     template <typename real>
-    class Quaternion : Matrix<real>
+    class Quaternion: Matrix<real>
     {
     private:
         // PRIVATE MEMBERS
@@ -71,7 +71,15 @@ namespace nmr
         Quaternion<real> UnitQuaternion();
         Quaternion<real> Conjugate();
         Quaternion<real> Inverse();
+	
+	// Experimental ///////////////
+        real GetRadianAngle();
+        real GetEulerAngle();
+        Vector3<real> GetAxis();
+	//////////////////////////////
+	
         Quaternion<real> Multiply(Quaternion<real> c);
+
 
         // OPERATORS
         Quaternion<real> operator*(Quaternion<real> c);
@@ -234,6 +242,37 @@ namespace nmr
     Quaternion<real> Quaternion<real>::Inverse()
     {
         return Conjugate().Scale((real)1.0 / NormSquared());
+    }
+
+    template <typename real>
+    real Quaternion<real>::GetRadianAngle()
+    {
+        // y = acos(x) if cos(y) = x, where (−1 ≤ x ≤ 1) & (0 ≤ y ≤ π)
+        real radianAngle = (real)(2.0 * acos(q_tuples[0]));
+
+        return radianAngle;
+    }
+
+    template <typename real>
+    real Quaternion<real>::GetEulerAngle()
+    {
+        real angle = GetRadianAngle() * (real)RAD_TO_DEG;
+
+        return angle;
+    }
+
+    template <typename real>
+    Vector3<real> Quaternion<real>::GetAxis()
+    {
+        Vector3<real> vector; // Zero Vector
+        if (abs(q_tuples[0]) < (real)1)
+        {
+            real den = sqrt((real)1 - (q_tuples[0] * q_tuples[0]));
+            vector.x() = q_tuples[1] / den;
+            vector.y() = q_tuples[2] / den;
+            vector.z() = q_tuples[3] / den;
+        }
+        return vector.Normalize();
     }
 
     /*

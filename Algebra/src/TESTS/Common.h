@@ -113,6 +113,33 @@ void printQuaternion(nmr::Quaternion<real> q)
     Serial.println("");
 }
 
+template <typename real> 
+void printQuaternion(String s, nmr::Quaternion<real> q, real angle) // -------------- Experimental
+{
+    // Float to String takes time (SLOW)
+    Serial.print(s);
+    for (int i = 0; i < 4; i++)
+    {
+        // Source: Arduino's float data-types
+        // The float data type has only 6-7 decimal digits of precision.
+        // NOTE: Since the floats printed are mostly less-than the value of one (<1.0)
+        //       than 7 decimal digits were used...
+        // https://www.arduino.cc/reference/en/language/variables/data-types/float/
+        //
+        // Source: Arduino's String Object data-types (see note above...)
+        // https://www.arduino.cc/reference/en/language/variables/data-types/stringobject/
+        //
+        // To 7 decimal places
+        Serial.print(String(q.Element(i), 3));
+        if (i < 3)
+        {
+            Serial.print(",");
+        }
+    }
+    Serial.print(" angle: ");
+    Serial.println(String(angle, 3));
+}
+
 template <typename real>
 void printQuaternion(String s, nmr::Quaternion<real> q)
 {

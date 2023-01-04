@@ -28,6 +28,37 @@
 
 #include "../TESTS/Common.h"
 
+void Quaternion_T9_Quaternion_to_Angle_Axis()
+{
+    printTitle("Quaternion T9 Quaternion to Angle Axis");
+
+    // Intialization
+    // This becomes a half-angle in
+    // quaternion multiplication...
+    float radian = 2.0 * DEG_TO_RAD;
+    float angle;
+    nmr::Vector3<float> axis(1, 0, 0);
+    // Constant
+    nmr::Quaternion<float> c(axis, radian); // Constant set to 2-degrees
+    // Multiplicative
+    nmr::Quaternion<float> q(axis, 0.0);
+
+    // Game Loop 1 with first quaternion multiplication
+    int iAngle = 0;
+    do
+    {
+        String s = String(iAngle) + " ";
+        // Prints four columns with 7 decimal digits
+        // data for a csv-file
+        angle = q.GetEulerAngle();
+        printQuaternion(s, q, angle);
+        // Quaternion Multiplication --- FIRST method
+        q = q * c;
+        // Counter
+        iAngle += 2; // --------------------- Constant set to 2-degrees
+    } while (iAngle < 360);
+}
+
 void Quaternion_T8_QuaternionMultiplication()
 {
     printTitle("Quaternion T8 Quaternion Multiplication");
