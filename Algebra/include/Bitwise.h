@@ -46,6 +46,7 @@ namespace nmr
         // Bit Numbers
         void SetBitNumber(integer bitNumber);
         bool IsBitNumberSet(integer bitNumber);
+        bool IsBitNumberSetToBitsValue(integer bitNumber, integer bitsValue);
         integer GetBitNumber();
         void ClearBitNumber(integer bitNumber);
         // Bits Value
@@ -113,6 +114,15 @@ namespace nmr
     bool Bitwise<integer>::IsBitNumberSet(integer bitNumber)
     {
         if ((b_bits & b_powerOfTwo(bitNumber)) != 0)
+            return true;
+
+        return false;
+    }
+
+    template <typename integer>
+    bool Bitwise<integer>::IsBitNumberSetToBitsValue(integer bitNumber, integer bitsValue)
+    {
+        if ((bitsValue & b_powerOfTwo(bitNumber)) != 0)
             return true;
 
         return false;

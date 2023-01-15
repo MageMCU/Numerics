@@ -7,8 +7,7 @@
 **Following classes are stand-alone**
 - **Bitwise.h**        - (20230102 - Recently updated...)
 - **LinearMap.h**      - (New Class)
-- **TimeNMR.h**        - (20221221 Name change from *DeltaTime.h* to *TimeNMR.h*.)
-- **Timer.h**          - (The file is located at *Simplified-Joystick-Uno-L298N* Repository)
+- **Timer.h**          - (Class moved here from *Simplified-Joystick-Uno-L298N* Repository)
 - **Vector2.h**        - (code tested ok)
 - **Vector3.h**        - (code tested ok)
 
@@ -26,13 +25,13 @@
 - TESTS folder
     - Common.h          - (Used for all TESTS files mainly for Arduino's Serial.print...)
     - TestBitwise.h
-    - TestLinearMap.h   - (not yet incorporated)
+    - TestLinearMap.h 
     - TestMatrix.h
     - TestMiscMath.h
     - TestPoint2.h
     - TestPoint3.h
     - TestQuaternion.h
-    - TestTimeNMR.h
+    - Timer.h           - (Updated for up-comming projects...)
     - TestVector2.h
     - TestVector3.h
 
@@ -42,6 +41,6 @@
 
 ## ***Notes***
 
-- The MainMan folder - *main.cpp* - has all the testing functions for each class. The exception is the *LinearMap.h*.
-- As of 20230102, the *LinearMap.h* - as of yet, there is no testing except in the *Simplified-Joystick-Uno-L298N* Repository.
+- Updated *Bitwise.h* and *Timer.h* moved here. Removed *TimeNMR.h*.... 
+- Replaced *TimeNMR.h* with *Timer.h* to reduce overhead...
 

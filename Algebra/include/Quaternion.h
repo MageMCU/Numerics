@@ -11,10 +11,6 @@
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
-// CHANGELOG
-// Created 20221015
-// Updated 20221217
-//
 // Testing Platform:
 //  * MCU:Atmega328P
 //  * IDE:PlatformIO
@@ -71,13 +67,13 @@ namespace nmr
         Quaternion<real> UnitQuaternion();
         Quaternion<real> Conjugate();
         Quaternion<real> Inverse();
-	
-	// Experimental ///////////////
+
+        // Experimental ///////////////
         real GetRadianAngle();
         real GetEulerAngle();
         Vector3<real> GetAxis();
-	//////////////////////////////
-	
+        //////////////////////////////
+
         Quaternion<real> Multiply(Quaternion<real> c);
 
 

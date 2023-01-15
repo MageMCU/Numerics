@@ -23,4 +23,5 @@
 <p>20221222 - Updated MiscMath.h Functions and Tested...</p>
 <p>20230102 - Bitwise.h updated and LinearMap.h new file...</p>
 <p>20230103 - Experimental testing on Quaternion-To-Axis-Angle... (4 files).</p>
+<p>20230114 - Updated Bitwise.h Class and LinearMap.h Class. Removed TimeNMR,h Class...</p>
 
