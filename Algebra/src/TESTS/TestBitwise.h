@@ -27,6 +27,16 @@
 
 #include "../TESTS/Common.h"
 
+void Bitwise_T5_GetBitsValue()
+{
+    // Pending
+}
+
+void Bitwise_T4_SetBitsValue()
+{
+    // Pending
+}
+
 void Bitwise_T3_ClearBitNUmber()
 {
     printTitle("Bitwise T3_ClearBitNUmber");

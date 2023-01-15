@@ -6,7 +6,7 @@
 
 **Following classes are stand-alone**
 - **Bitwise.h**        - (20230102 - Recently updated...)
-- **LinearMap.h**      - (New Class)
+- **LinearMap.h**      - (code tested ok)
 - **Timer.h**          - (Class moved here from *Simplified-Joystick-Uno-L298N* Repository)
 - **Vector2.h**        - (code tested ok)
 - **Vector3.h**        - (code tested ok)

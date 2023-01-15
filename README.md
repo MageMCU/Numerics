@@ -27,7 +27,7 @@ This MCU chip **Atmega328P** is well known and the price is affordable as well a
 
 ## Issues
 
-As of 20230114, no issues. Experimental testing on *Bitwise.h*, *LinearMap.h* and *Timer.h*.
+As of 20230114, did not completely upload all file. No issues... Experimental testing on *Bitwise.h*, *LinearMap.h* and *Timer.h*.
 
 ## In Development
 

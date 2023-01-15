@@ -27,17 +27,16 @@
 
 #include "Arduino.h"
 
-#include "Bitwise.h"  // New Class...
-#include "TimeNMR.h"  // Updated...
-#include "MiscMath.h" // Renamed from Misc.h to MiscMath.h...
-#include "Timer.h"    // Updated...
-
-#include "Vector2.h"
-#include "Vector3.h"
+#include "Bitwise.h"
+#include "LinearMap.h"
+#include "Matrix.h"
+#include "MiscMath.h"
 #include "Point2.h"
 #include "Point3.h"
-#include "Matrix.h"
-#include "Quaternion.h" // Work Study in Progress
+#include "Quaternion.h"
+#include "Timer.h" 
+#include "Vector2.h"
+#include "Vector3.h"
 
 template <typename real>
 void printAngle(String s, int deg, real x, real y, real result)
@@ -113,7 +112,7 @@ void printQuaternion(nmr::Quaternion<real> q)
     Serial.println("");
 }
 
-template <typename real> 
+template <typename real>
 void printQuaternion(String s, nmr::Quaternion<real> q, real angle) // -------------- Experimental
 {
     // Float to String takes time (SLOW)

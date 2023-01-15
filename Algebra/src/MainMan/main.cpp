@@ -25,27 +25,17 @@
 
 #include <Arduino.h>
 
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Point2.h"
-#include "Point3.h"
-#include "Matrix.h"
-#include "Quaternion.h"
-#include "MiscMath.h"
-
 // Common utility functions.
 #include "TESTS/Common.h"
-// recommended to un-comment one at a time...
-// Sync includes with each set of test functions.
-#include "TESTS/TestVector2.h"
-#include "TESTS/TestVector3.h"
+#include "TESTS/TestBitwise.h"
+#include "TESTS/TestMatrix.h"
+#include "TESTS/TestMiscMath.h"
 #include "TESTS/TestPoint2.h"
 #include "TESTS/TestPoint3.h"
-#include "TESTS/TestMatrix.h"
 #include "TESTS/TestQuaternion.h"
-#include "TESTS/TestBitwise.h"
-#include "TESTS/TestTimeNMR.h"
-#include "TESTS/TestMiscMath.h"
+#include "TESTS/TestTimer.h"
+#include "TESTS/TestVector2.h"
+#include "TESTS/TestVector3.h"
 
 void setup()
 {
@@ -60,26 +50,25 @@ void setup()
   // TESTING IN PROGRESS
   // --------------------------------------
 
-  // MiscMath Tests -------------------- NOT COMPLETED
+  // Timer Tests ---------------------- NOT COMPLETED
+  // PENDING
+
+  // MiscMath Tests -------------------- COMPLETED
   // MiscMath_T5_DirectionVector();
   // MiscMath_T4_DirectionComponents();
   // MiscMath_T3_Angle2Radian();
   // MiscMath_T2_AngleRadian();
   // MiscMath_T1_Map();
 
-  // DeltaTime Tests -------------------- COMPLETED
-  // Note: Requires void loop() with the following:
-  // Un-comment the call function DeltaTimeLoop();
-  // SEE DeltaTimeLoop() function in TestDeltaTime.h.
-  // for further details... Advisement - Complicated...
-
-  // Bitwise Tests ---------------------- COMPLETED
+  // Bitwise Tests ---------------------- NOT COMPLETED
+  // Bitwise_T5_GetBitsValue(); // NOT COMPLETED
+  // Bitwise_T4_SetBitsValue(); // NOT COMPLETED
   // Bitwise_T3_ClearBitNUmber();
   // Bitwise_T2_SetBitNumber();
-  // Bitwise_T1_Contructor();
+  Bitwise_T1_Contructor();
 
   // Quaternion Tests ---------------------- NEARLY COMPLETED
-  Quaternion_T9_Quaternion_to_Angle_Axis();
+  // Quaternion_T9_Quaternion_to_Angle_Axis(); // Further Testing
   // Quaternion_T8_QuaternionMultiplication();
   // Quaternion_T7_Inverse();
   // Quaternion_T6_Conjugate();
@@ -87,7 +76,7 @@ void setup()
   // Quaternion_T4_Scale();
   // Quaternion_T3_Norm();
   // Quaternion_T2_NormSquared();
-  // Quaternion_T1_Constructor();
+  Quaternion_T1_Constructor();
 
   // Matrix Tests -------------------------- COMPLETED
   // Matrix_T8_MatrixVectorMultiplication();
@@ -97,19 +86,19 @@ void setup()
   // Matrix_T4_Determinant_IsInvertible();
   // Matrix_T3_GetMatrix();
   // Matrix_T2_Getters_NoSetters();
-  // Matrix_T1_Constructor();
+  Matrix_T1_Constructor();
 
   // Point3 Tests -------------------------- COMPLETED
   // Point3_T4_PointFromPointVectorAddition();
   // Point3_T3_VectorFromPointPointSubtraction();
   // Point3_T2_GetPoint();
-  // Point3_T1_Constructor();
+  Point3_T1_Constructor();
 
   // Point2 Tests -------------------------- COMPLETED
   // Point2_T4_PointFromPointVectorAddition();
   // Point2_T3_VectorFromPointPointSubtraction();
   // Point2_T2_GetPoint();
-  // Point2_T1_Constructor();
+  Point2_T1_Constructor();
 
   // Vector3 Tests ------------------------- COMPLETED
   // Vector3_T15_COPY();
@@ -126,7 +115,7 @@ void setup()
   // Vector3_T4_UnitVector_Normalize();
   // Vector3_T3_Magnitude_Distance();
   // Vector3_T2_GetVector();
-  // Vector3_T1_Constructor();
+  Vector3_T1_Constructor();
 
   // Vector2 Tests ------------------------- COMPLETED
   // Vector2_T15_COPY();
@@ -143,7 +132,7 @@ void setup()
   // Vector2_T4_UnitVector_Normalize();
   // Vector2_T3_Magnitude_Distance();
   // Vector2_T2_GetVector();
-  // Vector2_T1_Constructor();
+  Vector2_T1_Constructor();
 }
 
 void loop()
