@@ -63,6 +63,9 @@ namespace nmr
     // value in the loop(); This method
     // is safe because the denominator
     // is never zero...
+    // The return value has the units
+    // Ticks Per Second (or in the gaming
+    // world - Frames per Second).
     return (float)1 / seconds;
   }
 
