@@ -12,7 +12,7 @@
 - **Vector3.h**        - (code tested ok)
 
 ***Followng classes are in an hierachical relationship***
-+ ***MiscMath.h***     - (depended on *Vector3.h* - code tested ok) - Will be removing the Map() function by end of January 2923 since this has been updated to the *LinearMap.h* Class.
++ ***MiscMath.h***     - (depended on *Vector3.h* - code tested ok) - Will be removing the Map() function by end of January 2023 since this has been updated to the *LinearMap.h* Class.
 + ***Point2.h***       - (depended on *Vector2.h* - code tested ok)
 + ***Point3.h***       - (depended on *Vector3.h* - code tested ok)
 + ***Matrix.h***       - (depended on *Point2.h* & *Point3.h* - code tested ok) 
