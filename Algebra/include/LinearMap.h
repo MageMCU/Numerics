@@ -73,7 +73,7 @@ namespace nmr
     }
 
     template <typename T>
-    T Map(T x, T x1, T x2, T y1, T y2)
+    T LinearMap<T>::Map(T x, T x1, T x2, T y1, T y2)
     {
         // Assume linear functions
         // Point-1 (x1, y1)
