@@ -19,8 +19,8 @@
 // MIT LICENSE
 //
 
-#ifndef SJUL_Uno_Timer_h
-#define SJUL_Uno_Timer_h
+#ifndef Numerics_Timer_h
+#define Numerics_Timer_h
 
 #include <Arduino.h>
 

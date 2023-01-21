@@ -11,9 +11,6 @@
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
-// CHANGELOG
-// Created 20221219
-//
 // Testing Platform:
 //  * MCU:Atmega328P
 //  * IDE:PlatformIO
@@ -29,12 +26,47 @@
 
 void Bitwise_T5_GetBitsValue()
 {
-    // Pending
+    printTitle("Bitwise T5 GetBitsValue");
+
+    nmr::Bitwise<int> bw;
+    bw.SetBitsValue(99);
+    // Timer Instantiation
+    nmr::Timer testTimer = nmr::Timer();
+    // Test
+    int cnt = 99;
+    do
+    {
+        if (testTimer.isTimer(500))
+        {
+            bw.SetBitsValue(cnt);
+            printSpecial("Bits Value: ", bw.GetBitsValue(), bw.PrintBinaryBits());
+            // counter
+            cnt--;
+        }
+        // Iterates less than a minute
+    } while (cnt >= 0);
 }
 
 void Bitwise_T4_SetBitsValue()
 {
-    // Pending
+    printTitle("Bitwise T4 SetBitsValue");
+
+    nmr::Bitwise<int> bw;
+    // Timer Instantiation
+    nmr::Timer testTimer = nmr::Timer();
+    // Test
+    int cnt = 0;
+    do
+    {
+        if (testTimer.isTimer(500))
+        {
+            bw.SetBitsValue(cnt);
+            printSpecial("Bits Value: ", cnt, bw.PrintBinaryBits());
+            // counter
+            cnt++;
+        }
+        // Iterates less than a minute
+    } while (cnt < 100);
 }
 
 void Bitwise_T3_ClearBitNUmber()

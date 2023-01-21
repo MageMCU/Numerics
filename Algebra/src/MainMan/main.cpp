@@ -28,11 +28,13 @@
 // Common utility functions.
 #include "TESTS/Common.h"
 #include "TESTS/TestBitwise.h"
+#include "TESTS/TestLinearMap.h"
 #include "TESTS/TestMatrix.h"
 #include "TESTS/TestMiscMath.h"
 #include "TESTS/TestPoint2.h"
 #include "TESTS/TestPoint3.h"
 #include "TESTS/TestQuaternion.h"
+#include "TESTS/TestRandomNumber.h"
 #include "TESTS/TestTimer.h"
 #include "TESTS/TestVector2.h"
 #include "TESTS/TestVector3.h"
@@ -50,8 +52,12 @@ void setup()
   // TESTING IN PROGRESS
   // --------------------------------------
 
-  // Timer Tests ---------------------- NOT COMPLETED
-  // PENDING
+  // The following also includes RandomNuber.h
+  // LinearMap Tests ---------------------- COMPLETED
+  LinearMap_T1_Inclusive_Test();
+
+  // Timer Tests ---------------------- COMPLETED
+  // Timer_T1_Inclusive_Test();
 
   // MiscMath Tests -------------------- COMPLETED
   // MiscMath_T5_DirectionVector();
@@ -60,12 +66,12 @@ void setup()
   // MiscMath_T2_AngleRadian();
   // MiscMath_T1_Map();
 
-  // Bitwise Tests ---------------------- NOT COMPLETED
-  // Bitwise_T5_GetBitsValue(); // NOT COMPLETED
-  // Bitwise_T4_SetBitsValue(); // NOT COMPLETED
+  // Bitwise Tests ---------------------- COMPLETED
+  // Bitwise_T5_GetBitsValue();
+  // Bitwise_T4_SetBitsValue();
   // Bitwise_T3_ClearBitNUmber();
   // Bitwise_T2_SetBitNumber();
-  Bitwise_T1_Contructor();
+  // Bitwise_T1_Contructor();
 
   // Quaternion Tests ---------------------- NEARLY COMPLETED
   // Quaternion_T9_Quaternion_to_Angle_Axis(); // Further Testing
@@ -76,7 +82,7 @@ void setup()
   // Quaternion_T4_Scale();
   // Quaternion_T3_Norm();
   // Quaternion_T2_NormSquared();
-  Quaternion_T1_Constructor();
+  // Quaternion_T1_Constructor();
 
   // Matrix Tests -------------------------- COMPLETED
   // Matrix_T8_MatrixVectorMultiplication();
@@ -86,19 +92,19 @@ void setup()
   // Matrix_T4_Determinant_IsInvertible();
   // Matrix_T3_GetMatrix();
   // Matrix_T2_Getters_NoSetters();
-  Matrix_T1_Constructor();
+  // Matrix_T1_Constructor();
 
   // Point3 Tests -------------------------- COMPLETED
   // Point3_T4_PointFromPointVectorAddition();
   // Point3_T3_VectorFromPointPointSubtraction();
   // Point3_T2_GetPoint();
-  Point3_T1_Constructor();
+  // Point3_T1_Constructor();
 
   // Point2 Tests -------------------------- COMPLETED
   // Point2_T4_PointFromPointVectorAddition();
   // Point2_T3_VectorFromPointPointSubtraction();
   // Point2_T2_GetPoint();
-  Point2_T1_Constructor();
+  // Point2_T1_Constructor();
 
   // Vector3 Tests ------------------------- COMPLETED
   // Vector3_T15_COPY();
@@ -115,7 +121,7 @@ void setup()
   // Vector3_T4_UnitVector_Normalize();
   // Vector3_T3_Magnitude_Distance();
   // Vector3_T2_GetVector();
-  Vector3_T1_Constructor();
+  // Vector3_T1_Constructor();
 
   // Vector2 Tests ------------------------- COMPLETED
   // Vector2_T15_COPY();
@@ -132,7 +138,7 @@ void setup()
   // Vector2_T4_UnitVector_Normalize();
   // Vector2_T3_Magnitude_Distance();
   // Vector2_T2_GetVector();
-  Vector2_T1_Constructor();
+  // Vector2_T1_Constructor();
 }
 
 void loop()

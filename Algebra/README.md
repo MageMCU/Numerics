@@ -5,25 +5,38 @@
 ## ***include folder***
 
 **Following classes are stand-alone**
-- **Bitwise.h**        - (20230102 - Recently updated...)
-- **LinearMap.h**      - (code tested ok)
-- **Timer.h**          - (Class moved here from *Simplified-Joystick-Uno-L298N* Repository)
-- **Vector2.h**        - (code tested ok)
-- **Vector3.h**        - (code tested ok)
+- **Bitwise.h**        
+    - (checked)
+- **LinearMap.h**      
+    - (checked)
+- **Timer.h**          
+    - (checked)
+- **Vector2.h**        
+    - (checked)
+- **Vector3.h**        
+    - (checked)
+- **RandomNumber.h**   
+    - (checked)
 
 ***Followng classes are in an hierachical relationship***
-+ ***MiscMath.h***     - (depended on *Vector3.h* - code tested ok) - Will be removing the Map() function by end of January 2023 since this has been updated to the *LinearMap.h* Class.
-+ ***Point2.h***       - (depended on *Vector2.h* - code tested ok)
-+ ***Point3.h***       - (depended on *Vector3.h* - code tested ok)
-+ ***Matrix.h***       - (depended on *Point2.h* & *Point3.h* - code tested ok) 
-+ ***Quaternion.h***   - (depended on *Matrix.h* - code tested ok)
++ ***Matrix.h***       
+    - (depended on *Point2.h* & *Point3.h* - checked) 
++ ***MiscMath.h***     
+    - (depended on *Vector3.h* - checked)
++ ***Point2.h***       
+    - (depended on *Vector2.h* - checked)
++ ***Point3.h***       
+    - (depended on *Vector3.h* - checked)
++ ***Quaternion.h***   
+    - (depended on *Matrix.h* - checked)
 
 ## ***src folder***
 
 - MainMan folder
     - main.cpp
 - TESTS folder
-    - Common.h          - (Used for all TESTS files mainly for Arduino's Serial.print...)
+    - Common.h          
+        - (Used for all TESTS files mainly for Arduino's Serial.print...)
     - TestBitwise.h
     - TestLinearMap.h 
     - TestMatrix.h
@@ -31,13 +44,15 @@
     - TestPoint2.h
     - TestPoint3.h
     - TestQuaternion.h
-    - Timer.h           - (Updated for up-comming projects...)
+    - TestRandomNumber.h
+    - Timer.h  
     - TestVector2.h
     - TestVector3.h
 
 ## ***root folder***
 
-- platformio.ini        (Please review this document for platform configuration while testing the code.)
+- platformio.ini        
+    - (Please review this document for platform configuration while testing the code.)
 
 ## ***Notes***
 

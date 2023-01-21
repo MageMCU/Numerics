@@ -11,9 +11,6 @@
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
-// CHANGELOG
-// Created 20221015
-//
 // Testing Platform:
 //  * MCU:Atmega328P
 //  * IDE:PlatformIO
@@ -34,9 +31,36 @@
 #include "Point2.h"
 #include "Point3.h"
 #include "Quaternion.h"
+#include "RandomNumber.h"
 #include "Timer.h" 
 #include "Vector2.h"
 #include "Vector3.h"
+
+
+template <typename real>
+void printResult(String s, real result)
+{
+    Serial.print(s);
+    Serial.println(String(result, 5));
+}
+
+template <typename real>
+void printResults(String s1, real result1, String s2, real result2)
+{
+    Serial.print(s1);
+    Serial.print(result1);
+    Serial.print(s2);
+    Serial.println(result2);
+}
+
+template <typename integer>
+void printSpecial(String s1, integer integerNumber, String s2)
+{
+    Serial.print(s1);
+    Serial.print(integerNumber);
+    Serial.print(" - ");
+    Serial.println(s2);
+}
 
 template <typename real>
 void printAngle(String s, int deg, real x, real y, real result)
@@ -155,7 +179,7 @@ void printQuaternion(String s, nmr::Quaternion<real> q)
 template <typename real>
 void printMatrix(String s, nmr::Matrix<real> M)
 {
-    Serial.print(s);
+    Serial.println(s);
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)

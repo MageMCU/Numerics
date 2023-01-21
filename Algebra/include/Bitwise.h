@@ -19,8 +19,8 @@
 // MIT LICENSE
 //
 
-#ifndef Numerics_Bitwise_H
-#define Numerics_Bitwise_H
+#ifndef Numerics_Bitwise_h
+#define Numerics_Bitwise_h
 
 #include <Arduino.h>
 
