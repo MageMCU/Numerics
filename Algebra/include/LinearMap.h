@@ -45,7 +45,8 @@ namespace nmr
         ~LinearMap() = default;
 
         // Methods
-        T Map(T x); 
+        T Map(T x);
+        T Reverse(T x);
         T Map(T x, T x1, T x2, T y1, T y2);
     };
 
@@ -62,14 +63,14 @@ namespace nmr
 
     template <typename T>
     T LinearMap<T>::Map(T x)
-    { 
-        // Assume linear functions
-        // Point-1 (x1, y1)
-        // Point-2 (x2, y2)
-        // Slope: m = (y2 - y1)/(x2 - x1)
-        // Point-Slope: (y - y1) = m(x - x1)
-        //               y = m(x - x1) + y1
+    {
         return (m_y2 - m_y1) * (x - m_x1) / (m_x2 - m_x1) + m_y1;
+    }
+
+    template <typename T>
+    T LinearMap<T>::Reverse(T x)
+    {
+        return (m_x2 - m_x1) * (x - m_y1) / (m_y2 - m_y1) + m_x1;
     }
 
     template <typename T>

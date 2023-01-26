@@ -26,18 +26,26 @@
 
 void Timer_T1_Inclusive_Test()
 {
+    // BUGFIX - Earlier assumptions incorrect...
     printTitle("Timer T1 Inclusive Test");
+
+    // Let's assume the speed is always at 1 meter per second...
+    float distance = (float)1; // 1 meter
+    long milliSeconds = 738;
+    float seconds = (float)milliSeconds * (float)0.001;
     // Timer Instantiation
     nmr::Timer testTimer = nmr::Timer();
     // Test
     int cnt = 0;
     do
     {
-        // Timer set for 1s intervals
-        if (testTimer.isTimer(1000))
+        // Timer set for obitrary interval
+        if (testTimer.isTimer(milliSeconds))
         {
-            // Delta Time in Seconds
-            printResult("DeltaTime 1s: ", testTimer.DeltaTimeSeconds());
+            float speed = distance / seconds;
+            // Better yet beware of longer processing times.
+            printResult("Distance: ", speed * testTimer.DeltaTimeSeconds());
+
             // counter
             cnt++;
         }

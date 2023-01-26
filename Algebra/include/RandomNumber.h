@@ -26,43 +26,53 @@
 
 namespace nmr
 {
-    template <typename integer, typename real>
+    template <typename real>
     class RandomNumber
     {
     public:
         // Constructor
         RandomNumber() = default;
-        RandomNumber(integer minValue, integer maxValue);
+        RandomNumber(real minValue, real maxValue);
         ~RandomNumber() = default;
         // Methods
-        integer RandomInteger();
-        real RandomReal();
+        real Random();
     private:
         // Properties
-        integer m_minValue;
-        integer m_maxValue;
+        real m_Min;
+        real m_Max;
         // Methods
+        long m_randomInteger();
+        real m_randomReal();
         void m_seed();
     };
 
-    template <typename integer, typename real>
-    RandomNumber<integer, real>::RandomNumber(integer minValue, integer maxValue)
+    template <typename real>
+    RandomNumber<real>::RandomNumber(real minValue, real maxValue)
     {
-        m_minValue = minValue;
-        m_maxValue = maxValue;
+        m_Min = minValue;
+        m_Max = maxValue;
     }
 
-    template <typename integer, typename real>
-    integer RandomNumber<integer, real>::RandomInteger()
+
+    template <typename real>
+    real RandomNumber<real>::Random()
+    {
+        return m_randomReal();
+    }
+
+    // Private Methods
+
+    template <typename real>
+    long RandomNumber<real>::m_randomInteger()
     {
         // seed random with millis()l
         m_seed();
-        // integer random number
-        return (integer)random((long)m_minValue, (long)m_maxValue);
+        // T random number
+        return random((long)m_Min, (long)m_Max);
     }
 
-    template <typename integer, typename real>
-    real RandomNumber<integer, real>::RandomReal()
+    template <typename real>
+    real RandomNumber<real>::m_randomReal()
     {
         // seed random with millis()
         m_seed();
@@ -83,19 +93,20 @@ namespace nmr
             vMultiplier *= 10;
             vDecimal /= (real)10;
         }
-        real vResult = (real)RandomInteger() +
+        real vResult = (real)m_randomInteger() +
             ((real)vInteger * vDecimal);
-        while (vResult > (real)m_maxValue)
+        while (vResult > (real)m_Max)
         {
             vResult -= (real)1;
         };
         return vResult;
     }
 
-    template <typename integer, typename real>
-    void RandomNumber<integer, real>::m_seed()
+    template <typename real>
+    void RandomNumber<real>::m_seed()
     {
-        randomSeed(millis());
+        // randomSeed(millis()); 
+        randomSeed(analogRead(A2));
     }
 }
 

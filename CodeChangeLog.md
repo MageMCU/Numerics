@@ -24,4 +24,5 @@
 <p>20230102 - Bitwise.h updated and LinearMap.h new file...</p>
 <p>20230103 - Experimental testing on Quaternion-To-Axis-Angle... (4 files).</p>
 <p>20230114 - Updated Bitwise.h Class and LinearMap.h Class. Removed TimeNMR,h Class...</p>
+<p>20230125 - Updated LinearMap.h Class, RandomNumer.h Class and Timer.h Class</p>
 

@@ -19,8 +19,8 @@
 // MIT LICENSE
 //
 
-#ifndef Numerics_Timer_h
-#define Numerics_Timer_h
+#ifndef SJUL_Uno_Timer_h
+#define SJUL_Uno_Timer_h
 
 #include <Arduino.h>
 
@@ -57,16 +57,7 @@ namespace nmr
 
   float Timer::DeltaTimeSeconds()
   {
-    float seconds = (float)t_deltaTime * 0.0010;
-    // Either way, there is a division....
-    // therefore, multiply the return
-    // value in the loop(); This method
-    // is safe because the denominator
-    // is never zero...
-    // The return value has the units
-    // Ticks Per Second (or in the gaming
-    // world - Frames per Second).
-    return (float)1 / seconds;
+    return (float)t_deltaTime * 0.0010;
   }
 
   boolean Timer::isTimer(long incrementedTime)

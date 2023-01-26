@@ -5,34 +5,31 @@
 ## ***include folder***
 
 **Following classes are stand-alone**
-- **Bitwise.h**        
-    - (checked)
+- **Bitwise.h**   
 - **LinearMap.h**      
-    - (checked)
+    - (updated)
 - **Timer.h**          
-    - (checked)
-- **Vector2.h**        
-    - (checked)
-- **Vector3.h**        
-    - (checked)
+    - (updated)
+- **Vector2.h**    
+- **Vector3.h**    
 - **RandomNumber.h**   
-    - (checked)
+    - (updated)
 
 ***Followng classes are in an hierachical relationship***
 + ***Matrix.h***       
-    - (depended on *Point2.h* & *Point3.h* - checked) 
+    - (depended on *Point2.h* & *Point3.h*) 
 + ***MiscMath.h***     
-    - (depended on *Vector3.h* - checked)
+    - (depended on *Vector3.h*)
 + ***Point2.h***       
-    - (depended on *Vector2.h* - checked)
+    - (depended on *Vector2.h*)
 + ***Point3.h***       
-    - (depended on *Vector3.h* - checked)
+    - (depended on *Vector3.h*)
 + ***Quaternion.h***   
-    - (depended on *Matrix.h* - checked)
+    - (depended on *Matrix.h*)
 
 ## ***src folder***
 
-- MainMan folder
+- MAIN folder
     - main.cpp
 - TESTS folder
     - Common.h          
@@ -45,7 +42,7 @@
     - TestPoint3.h
     - TestQuaternion.h
     - TestRandomNumber.h
-    - Timer.h  
+    - TestTimer.h  
     - TestVector2.h
     - TestVector3.h
 
@@ -56,6 +53,5 @@
 
 ## ***Notes***
 
-- Updated *Bitwise.h* and *Timer.h* moved here. Removed *TimeNMR.h*.... 
-- Replaced *TimeNMR.h* with *Timer.h* to reduce overhead...
+- 20230125 Updated LinearMap.h Class, RandomNumer.h Class and Timer.h Class for PID...
 

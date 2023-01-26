@@ -54,10 +54,11 @@ void setup()
 
   // The following also includes RandomNuber.h
   // LinearMap Tests ---------------------- COMPLETED
+  LinearMap_T2_Reverse();
   LinearMap_T1_Inclusive_Test();
 
   // Timer Tests ---------------------- COMPLETED
-  // Timer_T1_Inclusive_Test();
+  Timer_T1_Inclusive_Test();
 
   // MiscMath Tests -------------------- COMPLETED
   // MiscMath_T5_DirectionVector();
