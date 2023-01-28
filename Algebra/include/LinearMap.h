@@ -68,9 +68,9 @@ namespace nmr
     }
 
     template <typename T>
-    T LinearMap<T>::Reverse(T x)
+    T LinearMap<T>::Reverse(T y)
     {
-        return (m_x2 - m_x1) * (x - m_y1) / (m_y2 - m_y1) + m_x1;
+        return (m_x2 - m_x1) * (y - m_y1) / (m_y2 - m_y1) + m_x1;
     }
 
     template <typename T>

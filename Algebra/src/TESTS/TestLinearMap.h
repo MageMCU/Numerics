@@ -31,20 +31,28 @@ void LinearMap_T2_Reverse()
 
     // Constructor 
     nmr::LinearMap<float> mapCelcius =
-        nmr::LinearMap<float>(32, 212, 0, 100);  // Notice (32, 212, 0, 100) SAME
+        nmr::LinearMap<float>(32, 212, 0, 100);
     // Random Float
     // The constructor inputs an integer (int) type 
     // while RandomReal() outpuits a real (float)...
     nmr::RandomNumber<float> random =
-        nmr::RandomNumber<float>((float)32, (float)212);
-    // Test
+        nmr::RandomNumber<float>((float)-100, (float)1000);
+    // Test - Looking for negative values
     float celcius;
     float fahrenheit;
-    for (int i = 0; i < 10; i++)
+    for (int i = 0; i < 50; i++)
     {
-        celcius = random.Random();
-        fahrenheit = mapCelcius.Reverse(celcius); // ----------- Reverse Mapping
-        printResults("Celsius: ", celcius, " - fahrenheit: ", fahrenheit);
+        fahrenheit = random.Random();
+        // Space
+        Serial.println("");
+        // Map
+        Serial.print(" map: ");
+        celcius = mapCelcius.Map(fahrenheit); // Save Values
+        printResults("Fahrenheit: ", fahrenheit, " -> Celsius: ", celcius);
+        // Reverse
+        Serial.print(" reverse: ");
+        fahrenheit = mapCelcius.Reverse(celcius); // Reverse Values
+        printResults("Celsius: ", celcius, " -> Fahrenheit: ", fahrenheit);
     }
 }
 
@@ -54,12 +62,12 @@ void LinearMap_T1_Inclusive_Test()
 
     // Constructor 
     nmr::LinearMap<float> mapCelcius =
-        nmr::LinearMap<float>(32, 212, 0, 100);  // Notice (32, 212, 0, 100) SAME
+        nmr::LinearMap<float>(32, 212, 0, 100);
     // Random Float
     // The constructor inputs an integer (int) type 
     // while RandomReal() outpuits a real (float)...
     nmr::RandomNumber<float> random =
-        nmr::RandomNumber<float>((float)32, (float)212);
+        nmr::RandomNumber<float>((float)-100, (float)1000);
     // Test
     float celcius;
     float fahrenheit;

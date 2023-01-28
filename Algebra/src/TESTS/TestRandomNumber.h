@@ -25,4 +25,19 @@
 
 #include "../TESTS/Common.h"
 
+void RandomNumber_T1_Inclusive_Test()
+{
+    printTitle("RandomNumber T1 Inclusive");
+
+    nmr::RandomNumber<float> randomNumber = nmr::RandomNumber<float>((float)0, (float)10);
+
+    int cnt = 0;
+    while (cnt < 100)
+    {
+        // Small range - buggy - OK
+        Serial.println(String(randomNumber.Random()));
+        cnt++;
+    }
+
+}
 #endif

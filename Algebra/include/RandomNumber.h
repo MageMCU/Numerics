@@ -68,15 +68,10 @@ namespace nmr
     template <typename real>
     long RandomNumber<real>::m_randomInteger()
     {
-        // seed random with millis()l
+        // BUGFIX - OOPS want negative values
+        // seed random with millis()
         m_seed();
-        long rL = abs(random((long)m_Min, (long)m_Max));
-        while (rL > (long)0 && abs(rL - m_lastRandom) < (long)35)
-        {
-            rL = abs(random((long)m_Min, (long)m_Max));
-        }
-        m_lastRandom = rL;
-        return m_lastRandom;
+        return random((long)m_Min, (long)m_Max);
     }
 
     template <typename real>
@@ -91,30 +86,29 @@ namespace nmr
         // is set for a DOUBLE?
         // Significant Digits are not decimal places 
         // but this may well be enough for doubles.
-        long vMultiplier = 1;
-        long vInteger = 1;
-        real vDecimal = (real)1;
-        for (int i = 0; i < 7; i++)
+        long vMultiplier = 1; // Multiplication
+        long vInteger = 0; // Addition - BUGFIX ----- Caught-Cha
+        real vDecimal = (real)1; // Division
+        // '7' Significant Digits Iteration
+        int digits = 7;
+        //
+        for (int i = 0; i < digits; i++)
         {
-            // '7' Significant Digits Iteration
-            vInteger += random(0, 9) * vMultiplier;
+            vInteger += random(0, 10) * vMultiplier;
             vMultiplier *= 10;
             vDecimal /= (real)10;
         }
+        // 
         real vResult = (real)m_randomInteger() +
             ((real)vInteger * vDecimal);
-        while (vResult > (real)m_Max)
-        {
-            vResult -= (real)1;
-        };
+        //
         return vResult;
     }
 
     template <typename real>
     void RandomNumber<real>::m_seed()
     {
-        // randomSeed(millis()); 
-        randomSeed(analogRead(A2));
+        randomSeed(millis());
     }
 }
 

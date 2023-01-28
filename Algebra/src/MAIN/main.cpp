@@ -52,13 +52,17 @@ void setup()
   // TESTING IN PROGRESS
   // --------------------------------------
 
-  // The following also includes RandomNuber.h
+  // RandomNumber Test -------------------- COMPLETED
+  // Caught several bugs here 20230127 jc 
+  // RandomNumber_T1_Inclusive_Test();
+
+  // The following also includes ** RandomNuber.h **
   // LinearMap Tests ---------------------- COMPLETED
   LinearMap_T2_Reverse();
-  LinearMap_T1_Inclusive_Test();
+  // LinearMap_T1_Inclusive_Test();
 
-  // Timer Tests ---------------------- COMPLETED
-  Timer_T1_Inclusive_Test();
+  // Timer Tests ----------------------- COMPLETED
+  // Timer_T1_Inclusive_Test();
 
   // MiscMath Tests -------------------- COMPLETED
   // MiscMath_T5_DirectionVector();
