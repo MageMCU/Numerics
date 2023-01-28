@@ -25,5 +25,5 @@
 <p>20230103 - Experimental testing on Quaternion-To-Axis-Angle... (4 files).</p>
 <p>20230114 - Updated Bitwise.h Class and LinearMap.h Class. Removed TimeNMR,h Class...</p>
 <p>20230125 - Updated LinearMap.h Class, RandomNumer.h Class and Timer.h Class</p>
-<p>20230127 - Updated RandomNumer.h  has not been testing through TESTS...</p>
+<p>20230127 - Updated RandomNumer.h  has been testing through TESTS... Used for PID.</p>
 
