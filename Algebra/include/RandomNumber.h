@@ -40,6 +40,8 @@ namespace nmr
         // Properties
         real m_Min;
         real m_Max;
+        long m_lastRandom;
+
         // Methods
         long m_randomInteger();
         real m_randomReal();
@@ -51,6 +53,7 @@ namespace nmr
     {
         m_Min = minValue;
         m_Max = maxValue;
+        m_lastRandom = (real)0;
     }
 
 
@@ -67,8 +70,13 @@ namespace nmr
     {
         // seed random with millis()l
         m_seed();
-        // T random number
-        return random((long)m_Min, (long)m_Max);
+        long rL = abs(random((long)m_Min, (long)m_Max));
+        while (rL > (long)0 && abs(rL - m_lastRandom) < (long)35)
+        {
+            rL = abs(random((long)m_Min, (long)m_Max));
+        }
+        m_lastRandom = rL;
+        return m_lastRandom;
     }
 
     template <typename real>
