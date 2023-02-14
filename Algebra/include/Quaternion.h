@@ -186,8 +186,11 @@ namespace nmr
     bool Quaternion<real>::NormDeviation(real testUnitLength)
     {
         // The unit length should be 1.0 (+/-) float-epsilon
-        real testEpsilon = abs(testUnitLength - (real)1.0);
-        // Return true is norm deviates
+        // Ensure positive value by taking absolute value...
+        // WAS: real testEpsilon = abs(testUnitLength - (real)1.0);
+        // BUGFIX
+        real testEpsilon = abs(testUnitLength) - (real)1.0;
+        // Return true if norm deviates
         if (testEpsilon > (real)__FLT_EPSILON__)
             return true;
         // otherwise return false
@@ -197,6 +200,7 @@ namespace nmr
     template <typename real>
     real Quaternion<real>::NormSquared()
     {
+        // Positive Value
         real SqMag = q_tuples[0] * q_tuples[0];
         SqMag += q_tuples[1] * q_tuples[1];
         SqMag += q_tuples[2] * q_tuples[2];
@@ -207,6 +211,7 @@ namespace nmr
     template <typename real>
     real Quaternion<real>::Norm()
     {
+        // Positive Value
         return (real)sqrt((double)NormSquared());
     }
 
@@ -218,6 +223,7 @@ namespace nmr
         real yS = q_tuples[2] * scalar;
         real zS = q_tuples[3] * scalar;
         Quaternion<real> quat(wS, xS, yS, zS);
+        // scaled quaternion may not be a unit-quaternion...
         return quat;
     }
 
@@ -225,6 +231,8 @@ namespace nmr
     Quaternion<real> Quaternion<real>::UnitQuaternion()
     {
         // Assume norm is approx 1.0
+        // This not change the sign-values
+        // of the original quaternion...
         return Scale((real)1.0 / Norm());
     }
 

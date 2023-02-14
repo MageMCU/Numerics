@@ -176,12 +176,19 @@ void Quaternion_T2_NormSquared()
 {
     printTitle("Quaternion T2 Norm Squared");
 
-    nmr::Quaternion<float> q(1, 2, 3, 4);
+    nmr::Quaternion<float> q(-1, -2, -3, -4);
+    printQuaternion("q: ", q);
+    q = q.UnitQuaternion();
     printQuaternion("q: ", q);
 
     float n = q.NormSquared();
     Serial.print("n = q.NormSquared(): ");
     Serial.println(String(n, 4));
+
+    bool flag = q.NormDeviation(n);
+    Serial.print("Norm Deviation: ");
+    if (flag) Serial.println("TRUE");
+    else Serial.println("FALSE");
 }
 
 void Quaternion_T1_Constructor()

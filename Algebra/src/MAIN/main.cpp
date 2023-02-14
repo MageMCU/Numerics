@@ -58,7 +58,7 @@ void setup()
 
   // The following also includes ** RandomNuber.h **
   // LinearMap Tests ---------------------- COMPLETED
-  LinearMap_T2_Reverse();
+  // LinearMap_T2_Reverse();
   // LinearMap_T1_Inclusive_Test();
 
   // Timer Tests ----------------------- COMPLETED
@@ -80,13 +80,13 @@ void setup()
 
   // Quaternion Tests ---------------------- NEARLY COMPLETED
   // Quaternion_T9_Quaternion_to_Angle_Axis(); // Further Testing
-  // Quaternion_T8_QuaternionMultiplication();
+  Quaternion_T8_QuaternionMultiplication();
   // Quaternion_T7_Inverse();
   // Quaternion_T6_Conjugate();
   // Quaternion_T5_UnitQuaternion();
   // Quaternion_T4_Scale();
   // Quaternion_T3_Norm();
-  // Quaternion_T2_NormSquared();
+  Quaternion_T2_NormSquared();
   // Quaternion_T1_Constructor();
 
   // Matrix Tests -------------------------- COMPLETED

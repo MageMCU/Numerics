@@ -25,7 +25,7 @@
 + ***Point3.h***       
     - (depended on *Vector3.h*)
 + ***Quaternion.h***   
-    - (depended on *Matrix.h*)
+    - (depended on *Matrix.h*)(Minor Bug Fix)
 
 ## ***src folder***
 
