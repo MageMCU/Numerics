@@ -27,11 +27,15 @@
 #include "Bitwise.h"
 #include "LinearMap.h"
 #include "Matrix.h"
+#include "Matrix2x2.h" // In Process
+#include "Matrix3x3.h" // In Process
+#include "Matrix4x4.h" // In Process
 #include "MiscMath.h"
 #include "Point2.h"
 #include "Point3.h"
 #include "Quaternion.h"
 #include "RandomNumber.h"
+#include "Statistics.h" // In Process
 #include "Timer.h" 
 #include "Vector2.h"
 #include "Vector3.h"

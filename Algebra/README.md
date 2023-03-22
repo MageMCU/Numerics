@@ -6,14 +6,11 @@
 
 **Following classes are stand-alone**
 - **Bitwise.h**   
-- **LinearMap.h**      
-    - (updated)
-- **Timer.h**          
-    - (updated)
+- **LinearMap.h**   
+- **Timer.h**     
 - **Vector2.h**    
 - **Vector3.h**    
 - **RandomNumber.h**   
-    - (updated)
 
 ***Followng classes are in an hierachical relationship***
 + ***Matrix.h***       
@@ -27,6 +24,12 @@
 + ***Quaternion.h***   
     - (depended on *Matrix.h*)(Minor Bug Fix)
 
+***Presently under development***
+- ***Matrix2x2.h***
+- ***Matrix3x3.h***
+- ***Matrix4x4.h***
+- ***Statistics.h***
+
 ## ***src folder***
 
 - MAIN folder
@@ -37,11 +40,15 @@
     - TestBitwise.h
     - TestLinearMap.h 
     - TestMatrix.h
+    - TestMatrix2x2.h (new)
+    - TestMatrix3x3.h (new)
+    - TestMatrix4x4.h (new)
     - TestMiscMath.h
     - TestPoint2.h
     - TestPoint3.h
     - TestQuaternion.h
     - TestRandomNumber.h
+    - TestStatistics.h (new)
     - TestTimer.h  
     - TestVector2.h
     - TestVector3.h
@@ -53,5 +60,5 @@
 
 ## ***Notes***
 
-- 20230125 Updated LinearMap.h Class, RandomNumer.h Class and Timer.h Class for PID...
+- Under another development.... Having fun.
 

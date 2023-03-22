@@ -30,11 +30,15 @@
 #include "TESTS/TestBitwise.h"
 #include "TESTS/TestLinearMap.h"
 #include "TESTS/TestMatrix.h"
+#include "TESTS/TestMatrix2x2.h"
+#include "TESTS/TestMatrix3x3.h"
+#include "TESTS/TestMatrix4x4.h"
 #include "TESTS/TestMiscMath.h"
 #include "TESTS/TestPoint2.h"
 #include "TESTS/TestPoint3.h"
 #include "TESTS/TestQuaternion.h"
 #include "TESTS/TestRandomNumber.h"
+#include "TESTS/TestStatistics.h"
 #include "TESTS/TestTimer.h"
 #include "TESTS/TestVector2.h"
 #include "TESTS/TestVector3.h"
@@ -51,6 +55,12 @@ void setup()
   // --------------------------------------
   // TESTING IN PROGRESS
   // --------------------------------------
+
+  // Statistics Test ---------------------- Working
+  Statistics_T4_Median();
+  // Statistics_T3_Standard_Deviation();
+  // Statistics_T2_Average();
+  // Statistics_T1_Constructor();
 
   // RandomNumber Test -------------------- COMPLETED
   // Caught several bugs here 20230127 jc 
@@ -80,13 +90,13 @@ void setup()
 
   // Quaternion Tests ---------------------- NEARLY COMPLETED
   // Quaternion_T9_Quaternion_to_Angle_Axis(); // Further Testing
-  Quaternion_T8_QuaternionMultiplication();
+  // Quaternion_T8_QuaternionMultiplication();
   // Quaternion_T7_Inverse();
   // Quaternion_T6_Conjugate();
   // Quaternion_T5_UnitQuaternion();
   // Quaternion_T4_Scale();
   // Quaternion_T3_Norm();
-  Quaternion_T2_NormSquared();
+  // Quaternion_T2_NormSquared();
   // Quaternion_T1_Constructor();
 
   // Matrix Tests -------------------------- COMPLETED

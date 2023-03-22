@@ -31,7 +31,7 @@ None
 
 ## In Development
 
-The Numerics project will be updated as needed for other projects. Moving on to other work..., SJUL, FSM, PID, etc.
+Adding Statistics.h header and updating the matrices with new files... These files are presently under development. 20230322
 
 ## Disclaimer and Terms
 
