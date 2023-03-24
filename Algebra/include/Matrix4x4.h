@@ -27,15 +27,17 @@
 #include "Vector3.h"
 #include "Point2.h"
 #include "Point3.h"
-#include "Matrix2x2.h"
-#include "Matrix3x3.h"
+#include "Matrix.h"
 
 namespace nmr
 {
     template <typename real>
-    class Matrix4x4
+    class Matrix4x4 : Matrix<real>
     {
     private:
+        // Properties
+        real m_tuples[16];
+
     public:
         Matrix4x4() = default;
         ~Matrix4x4() = default;

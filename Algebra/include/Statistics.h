@@ -82,7 +82,7 @@ namespace nmr
         m_Mean();
         m_Variance();
         m_Copy();
-        m_BublleSort();
+        m_BublleSort(); // Used on small number of smaples...
         m_Median();
 
         // Linear Regression

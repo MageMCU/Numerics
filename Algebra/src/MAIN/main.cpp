@@ -56,14 +56,23 @@ void setup()
   // TESTING IN PROGRESS
   // --------------------------------------
 
+  // Matrix2x2 Test ----------------------- Working
+  Matrix2x2_T7_Solve();
+  // Matrix2x2_T6_Inverse();
+  // Matrix2x2_T5_Transpose();
+  // Matrix2x2_T4_Determinate();
+  // Matrix2x2_T3_IsInvertible();
+  // Matrix2x2_T2_Getters();
+  // Matrix2x2_T1_Constructor();
+
   // Statistics Test ---------------------- Working
-  Statistics_T4_Median();
+  // Statistics_T4_Median();
   // Statistics_T3_Standard_Deviation();
   // Statistics_T2_Average();
   // Statistics_T1_Constructor();
 
   // RandomNumber Test -------------------- COMPLETED
-  // Caught several bugs here 20230127 jc 
+  // Caught several bugs here 20230127 jc
   // RandomNumber_T1_Inclusive_Test();
 
   // The following also includes ** RandomNuber.h **

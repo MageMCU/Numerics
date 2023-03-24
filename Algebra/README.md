@@ -25,10 +25,13 @@
     - (depended on *Matrix.h*)(Minor Bug Fix)
 
 ***Presently under development***
-- ***Matrix2x2.h***
-- ***Matrix3x3.h***
-- ***Matrix4x4.h***
-- ***Statistics.h***
+- ***Matrix2x2.h*** (In process 20230323)    
+    - (depended on *Matrix.h*) 
+- ***Matrix3x3.h***      
+    - (depended on *Matrix.h*) 
+- ***Matrix4x4.h***    
+    - (depended on *Matrix.h*) 
+- ***Statistics.h*** (In process 20230322) 
 
 ## ***src folder***
 
@@ -40,7 +43,7 @@
     - TestBitwise.h
     - TestLinearMap.h 
     - TestMatrix.h
-    - TestMatrix2x2.h (new)
+    - TestMatrix2x2.h (In process)
     - TestMatrix3x3.h (new)
     - TestMatrix4x4.h (new)
     - TestMiscMath.h
@@ -48,7 +51,7 @@
     - TestPoint3.h
     - TestQuaternion.h
     - TestRandomNumber.h
-    - TestStatistics.h (new)
+    - TestStatistics.h (In process)
     - TestTimer.h  
     - TestVector2.h
     - TestVector3.h
