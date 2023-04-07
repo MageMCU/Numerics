@@ -57,7 +57,7 @@ void setup()
   // --------------------------------------
 
   // Matrix2x2 Test ----------------------- Working
-  Matrix2x2_T7_Solve();
+  // Matrix2x2_T7_Solve();
   // Matrix2x2_T6_Inverse();
   // Matrix2x2_T5_Transpose();
   // Matrix2x2_T4_Determinate();
@@ -66,6 +66,7 @@ void setup()
   // Matrix2x2_T1_Constructor();
 
   // Statistics Test ---------------------- Working
+  Statistics_T5_Queue();
   // Statistics_T4_Median();
   // Statistics_T3_Standard_Deviation();
   // Statistics_T2_Average();

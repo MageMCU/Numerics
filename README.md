@@ -31,6 +31,8 @@ None
 
 ## In Development
 
+Statistics.h updated 20230407...
+
 Matrix2x2.h header in process 20230323... Adding Statistics.h header and updating the matrices with new files... These files are presently under development 20230322...
 
 ## Disclaimer and Terms

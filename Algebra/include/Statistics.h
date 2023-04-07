@@ -32,6 +32,7 @@ namespace nmr
     private:
         real *m_ptrTuples;
         real *m_ptrSorted;
+        real *m_ptrRotator;
         int m_tuplesSize;
 
         real m_mean;
@@ -42,12 +43,17 @@ namespace nmr
         // Private Methods
         void m_Mean();
         void m_Variance();
+        void m_StandardDeviation();
         void m_BublleSort();
         void m_Swap(int index);
         void m_Copy();
         void m_Median();
         bool m_Odd(int value);
         bool m_Limits(int index);
+
+        // Envelopes
+        void m_minimum();
+        void m_complete();
 
     public:
         // Constructor
@@ -62,6 +68,8 @@ namespace nmr
         real Average();
         real StandardDeviation();
         real Median();
+        void Queue(real value, int index);
+        void QueueReset();
 
         real GetSorted(int index);
     };
@@ -79,11 +87,7 @@ namespace nmr
         m_ptrSorted = new real[size];
 
         // Envelope All results
-        m_Mean();
-        m_Variance();
-        m_Copy();
-        m_BublleSort(); // Used on small number of smaples...
-        m_Median();
+        m_complete();
 
         // Linear Regression
         // Pending
@@ -122,6 +126,32 @@ namespace nmr
     }
 
     template <typename real>
+    void Statistics<real>::Queue(real value, int index)
+    {
+        m_ptrTuples[index] = value;
+
+        // Envelope
+        m_minimum();
+    }
+
+    template <typename real>
+    void Statistics<real>::QueueReset()
+    {
+        // Used to increase the standard 
+        // deviation by inserting an offset 
+        // at the last index of the set....
+        //
+        // Needed to unstablize older set for testing
+        // a newly queued set..., otherwise the older
+        // stable set would give a false test....
+        real offset = m_mean + (real)10000;
+        m_ptrTuples[m_tuplesSize - 1] = offset;
+
+        // Envelope
+        m_minimum();
+    }
+
+    template <typename real>
     real Statistics<real>::GetSorted(int index)
     {
         if (m_Limits(index))
@@ -153,6 +183,11 @@ namespace nmr
             sum += temp * temp;
         }
         m_variance = sum / ((real)m_tuplesSize - (real)1);
+    }
+
+    template <typename real>
+    void Statistics<real>::m_StandardDeviation()
+    {
         m_standardDeviation = sqrt((real)m_variance);
     }
 
@@ -227,6 +262,39 @@ namespace nmr
             return true;
         return false;
     }
+
+    template <typename real>
+    void Statistics<real>::m_minimum()
+    {
+        // Minimum
+        // Average
+        m_Mean();
+        // Variance
+        m_Variance();
+        // Standard Deviation
+        m_StandardDeviation();
+    }
+
+    template <typename real>
+    void Statistics<real>::m_complete()
+    {
+        // do minimum first
+        m_minimum();
+
+        // Separated to reduce loading
+        // time...
+        
+        // complete
+        m_Copy();
+        // Used on small number of samples...
+        m_BublleSort(); 
+        // Pending sort method for larger sets.... 
+        // requires testing size (>21)
+        m_Median();
+
+        // pending
+    }
+
 }
 
 #endif

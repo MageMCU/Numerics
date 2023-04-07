@@ -24,6 +24,40 @@
 
 #include "../TESTS/Common.h"
 
+void Statistics_T5_Queue()
+{
+
+    printTitle("Statistics T4 Median");
+
+    float tuples[]{3.2, 5.3, 7.0, 2.2, 9.8, 4.6, 0.5, 4.5, 7.4, 6.5};
+    int size = 10;
+
+    nmr::Statistics<float> stats = nmr::Statistics<float>(tuples, size);
+    nmr::RandomNumber<float> randomNumber = nmr::RandomNumber<float>((float)0, (float)10);
+    float randomNum;
+
+    // randomNumber.Random()
+    for (int i = 0; i < size; i++)
+    {
+        randomNum = randomNumber.Random();
+        stats.Queue(randomNum, i);
+        Serial.print(i);
+        Serial.print(" ");
+        Serial.println(String(stats.GetElement(i),2));
+    }
+    
+    Serial.print("Average: ");
+    Serial.println(String(stats.Average(),2));
+    Serial.print("Standard Deviation: ");
+    Serial.println(String(stats.StandardDeviation(),2));
+
+    // 
+    stats.QueueReset();
+    Serial.println("Queue Reset");
+    Serial.print("Standard Deviation: ");
+    Serial.println(String(stats.StandardDeviation(),2));
+}
+
 void Statistics_T4_Median()
 {
     printTitle("Statistics T4 Median");

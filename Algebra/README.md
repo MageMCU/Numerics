@@ -22,16 +22,16 @@
 + ***Point3.h***       
     - (depended on *Vector3.h*)
 + ***Quaternion.h***   
-    - (depended on *Matrix.h*)(Minor Bug Fix)
+    - (depended on *Matrix.h*)
 
 ***Presently under development***
 - ***Matrix2x2.h*** (In process 20230323)    
     - (depended on *Matrix.h*) 
-- ***Matrix3x3.h***      
+- ***Matrix3x3.h*** (pending)
     - (depended on *Matrix.h*) 
-- ***Matrix4x4.h***    
+- ***Matrix4x4.h*** (pending)
     - (depended on *Matrix.h*) 
-- ***Statistics.h*** (In process 20230322) 
+- ***Statistics.h*** (Updated 20230407) 
 
 ## ***src folder***
 
@@ -44,14 +44,14 @@
     - TestLinearMap.h 
     - TestMatrix.h
     - TestMatrix2x2.h (In process)
-    - TestMatrix3x3.h (new)
-    - TestMatrix4x4.h (new)
+    - TestMatrix3x3.h (pending)
+    - TestMatrix4x4.h (pending)
     - TestMiscMath.h
     - TestPoint2.h
     - TestPoint3.h
     - TestQuaternion.h
     - TestRandomNumber.h
-    - TestStatistics.h (In process)
+    - TestStatistics.h (working)
     - TestTimer.h  
     - TestVector2.h
     - TestVector3.h
