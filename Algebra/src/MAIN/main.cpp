@@ -59,8 +59,23 @@ void setup()
   // Matrix3x3 Test ----------------------- Working
   // Pendin
 
+  // Bitwise Tests ---------------------- working
+  Bitwise_T6_BytesWordOperations();
+  // Bitwise_T5_GetBitsValue();
+  // Bitwise_T4_SetBitsValue();
+  // Bitwise_T3_ClearBitNUmber();
+  // Bitwise_T2_SetBitNumber();
+  // Bitwise_T1_Contructor();
+
+  // Statistics Test ---------------------- Working
+  // Statistics_T5_Queue();
+  // Statistics_T4_Median();
+  // Statistics_T3_Standard_Deviation();
+  // Statistics_T2_Average();
+  // Statistics_T1_Constructor();
+
   // Matrix2x2 Test ----------------------- Completed
-  Matrix2x2_T12_Rotation();
+  // Matrix2x2_T12_Rotation();
   // Matrix2x2_T11_Identity();
   // Matrix2x2_T10_MatrixMatrixMultiplication();
   // Matrix2x2_T9_MatrixScalarMultiplication();
@@ -72,13 +87,6 @@ void setup()
   // Matrix2x2_T3_Determinate();
   // Matrix2x2_T2_Getters();
   // Matrix2x2_T1_Constructor();
-
-  // Statistics Test ---------------------- Working
-  // Statistics_T5_Queue();
-  // Statistics_T4_Median();
-  // Statistics_T3_Standard_Deviation();
-  // Statistics_T2_Average();
-  // Statistics_T1_Constructor();
 
   // RandomNumber Test -------------------- COMPLETED
   // Caught several bugs here 20230127 jc
@@ -98,13 +106,6 @@ void setup()
   // MiscMath_T3_Angle2Radian();
   // MiscMath_T2_AngleRadian();
   // MiscMath_T1_Map();
-
-  // Bitwise Tests ---------------------- COMPLETED
-  // Bitwise_T5_GetBitsValue();
-  // Bitwise_T4_SetBitsValue();
-  // Bitwise_T3_ClearBitNUmber();
-  // Bitwise_T2_SetBitNumber();
-  // Bitwise_T1_Contructor();
 
   // Quaternion Tests ---------------------- NEARLY COMPLETED
   // Quaternion_T9_Quaternion_to_Angle_Axis(); // Further Testing

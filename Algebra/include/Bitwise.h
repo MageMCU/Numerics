@@ -38,6 +38,19 @@ namespace nmr
         integer b_powerOfTwo(integer bitNumber);
         integer b_sumPowerOfTwo(integer bitNumber);
 
+        // Experimental - separate from bitwise
+        // Byte - Word Properties
+        // AVR-LSB Word Order bit15, bit14, ... , bit1, bit0.
+        uint16_t b_wordIN;
+        uint16_t b_wordOUT;
+        // AVR-LSB Byte Order bit7, bit6, ... , bit1, bit0.
+        uint8_t b_byteHi;
+        uint8_t b_byteLo;
+        // Byte - Word privatemethods
+        void b_setHiByte();
+        void b_setLoByte();
+        void b_glueBytes();
+
     public:
         // Constructor
         Bitwise();
@@ -54,6 +67,14 @@ namespace nmr
         integer GetBitsValue();
         void ClearAllBits();
         String PrintBinaryBits();
+
+        // Experimental - separate from bitwise
+        // Byte Word Operations - Experimental
+        void WordToBytes(uint16_t word);
+        uint8_t GetHiByte();
+        uint8_t GetLoByte();
+        uint16_t BytesToWord();
+        uint16_t BytesToWord(uint8_t hiByte, uint8_t loByte);
     };
 
     template <typename integer>
@@ -70,38 +91,6 @@ namespace nmr
         // Serial.print(b_numberOfBits);
         // Serial.print(" max size: ");
         // Serial.println(b_maxSize);
-    }
-
-    template <typename integer>
-    integer Bitwise<integer>::b_powerOfTwo(integer bitNumber)
-    {
-        integer value = (integer)1;
-        if (bitNumber >= (integer)0 && bitNumber < b_numberOfBits)
-        {
-            if (bitNumber == (integer)0)
-                return value;
-
-            for (int i = 0; i < (int)bitNumber; i++)
-            {
-                value *= (integer)2;
-            }
-        }
-        else
-        {
-            Serial.println("Error - bitNumber size");
-        }
-        return value;
-    }
-
-    template <typename integer>
-    integer Bitwise<integer>::b_sumPowerOfTwo(integer bitNumber)
-    {
-        integer sum = (integer)0;
-        for (int poT = 0; poT < (int)bitNumber; poT++)
-        {
-            sum += b_powerOfTwo(poT);
-        }
-        return sum;
     }
 
     template <typename integer>
@@ -172,6 +161,91 @@ namespace nmr
     void Bitwise<integer>::ClearAllBits()
     {
         b_bits = (integer)0;
+    }
+
+    template <typename integer>
+    void Bitwise<integer>::WordToBytes(uint16_t uint16)
+    {
+        b_wordIN = uint16;
+        b_setHiByte();
+        b_setLoByte();
+    }
+
+    template <typename integer>
+    uint8_t Bitwise<integer>::GetHiByte()
+    {
+        return b_byteHi;
+    }
+
+    template <typename integer>
+    uint8_t Bitwise<integer>::GetLoByte()
+    {
+        return b_byteLo;
+    }
+
+    template <typename integer>
+    uint16_t Bitwise<integer>::BytesToWord()
+    {
+        b_glueBytes();
+        return b_wordOUT;
+    }
+
+    template <typename integer>
+    uint16_t Bitwise<integer>::BytesToWord(uint8_t hiByte, uint8_t loByte)
+    {
+        return (uint16_t)((hiByte << 8) | (loByte & 0x00FF));
+    }
+
+    // PRIVATE METHODS
+
+    template <typename integer>
+    integer Bitwise<integer>::b_powerOfTwo(integer bitNumber)
+    {
+        integer value = (integer)1;
+        if (bitNumber >= (integer)0 && bitNumber < b_numberOfBits)
+        {
+            if (bitNumber == (integer)0)
+                return value;
+
+            for (int i = 0; i < (int)bitNumber; i++)
+            {
+                value *= (integer)2;
+            }
+        }
+        else
+        {
+            Serial.println("Error - bitNumber size");
+        }
+        return value;
+    }
+
+    template <typename integer>
+    integer Bitwise<integer>::b_sumPowerOfTwo(integer bitNumber)
+    {
+        integer sum = (integer)0;
+        for (int poT = 0; poT < (int)bitNumber; poT++)
+        {
+            sum += b_powerOfTwo(poT);
+        }
+        return sum;
+    }
+
+    template <typename integer>
+    void Bitwise<integer>::b_setHiByte()
+    {
+        b_byteHi = (uint8_t)(b_wordIN >> 8);
+    }
+
+    template <typename integer>
+    void Bitwise<integer>::b_setLoByte()
+    {
+        b_byteLo = (uint8_t)(b_wordIN & 0xff);
+    }
+
+    template <typename integer>
+    void Bitwise<integer>::b_glueBytes()
+    {
+        b_wordOUT = (uint16_t)((b_byteHi << 8) | (b_byteLo & 0x00FF));
     }
 
     template <typename integer>

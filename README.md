@@ -22,6 +22,7 @@
 - None except this Numerics repository is presently in development...
 
 ## In Development
+- Bitwise.h updated..., bytes, word operations. 20230420
 - Matrix3x3.h is now in develpment... 20230419
 - Matrix2x2.h is complete but Matrix.h may not fuction correctly... 20230419
 - Statistics.h updated 20230407...

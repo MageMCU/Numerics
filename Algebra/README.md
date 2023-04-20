@@ -5,7 +5,8 @@
 ## ***include folder***
 
 **Following classes are stand-alone**
-- **Bitwise.h**   
+- **Bitwise.h** 
+    - updated 20230420
 - **LinearMap.h**   
 - **Timer.h**     
 - **Vector2.h**    
@@ -14,24 +15,28 @@
 
 ***Followng classes are in an hierachical relationship***
 + ***Matrix.h***       
-    - (depended on *Point2.h* & *Point3.h*) 
+    - depended on *Point2.h* & *Point3.h*
 + ***MiscMath.h***     
-    - (depended on *Vector3.h*)
+    - depended on *Vector3.h*
 + ***Point2.h***       
-    - (depended on *Vector2.h*)
+    - depended on *Vector2.h*
 + ***Point3.h***       
-    - (depended on *Vector3.h*)
+    - depended on *Vector3.h*
 + ***Quaternion.h***   
-    - (depended on *Matrix.h*)
+    - depended on *Matrix.h*
 
 ***Presently under development***
-- ***Matrix2x2.h*** (Updated 20230419 - Mostly completed...)    
-    - (depended on *Matrix.h*) 
-- ***Matrix3x3.h*** (In process 20230419)
-    - (depended on *Matrix.h*) 
-- ***Matrix4x4.h*** (pending)
-    - (depended on *Matrix.h*) 
-- ***Statistics.h*** (Updated 20230407) 
+- ***Matrix2x2.h***  
+    - depended on *Matrix.h*
+    - updated 20230419 - Mostly completed... 
+- ***Matrix3x3.h***
+    - depended on *Matrix.h*
+    - in development 20230419
+- ***Matrix4x4.h***
+    - depended on *Matrix.h*
+    - development pending
+- ***Statistics.h*** 
+    - updated 20230407
 
 ## ***src folder***
 
@@ -39,19 +44,19 @@
     - main.cpp
 - TESTS folder
     - Common.h          
-        - (Used for all TESTS files mainly for Arduino's Serial.print...)
+        - Used for all TESTS files mainly as Arduino's Serial.print... Use as examples.
     - TestBitwise.h
     - TestLinearMap.h 
     - TestMatrix.h
-    - TestMatrix2x2.h (Completed)
-    - TestMatrix3x3.h (In Process)
-    - TestMatrix4x4.h (pending)
+    - TestMatrix2x2.h
+    - TestMatrix3x3.h
+    - TestMatrix4x4.h
     - TestMiscMath.h
     - TestPoint2.h
     - TestPoint3.h
     - TestQuaternion.h
     - TestRandomNumber.h
-    - TestStatistics.h (working)
+    - TestStatistics.h
     - TestTimer.h  
     - TestVector2.h
     - TestVector3.h
