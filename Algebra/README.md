@@ -25,9 +25,9 @@
     - (depended on *Matrix.h*)
 
 ***Presently under development***
-- ***Matrix2x2.h*** (In process 20230323)    
+- ***Matrix2x2.h*** (Updated 20230419 - Mostly completed...)    
     - (depended on *Matrix.h*) 
-- ***Matrix3x3.h*** (pending)
+- ***Matrix3x3.h*** (In process 20230419)
     - (depended on *Matrix.h*) 
 - ***Matrix4x4.h*** (pending)
     - (depended on *Matrix.h*) 
@@ -43,8 +43,8 @@
     - TestBitwise.h
     - TestLinearMap.h 
     - TestMatrix.h
-    - TestMatrix2x2.h (In process)
-    - TestMatrix3x3.h (pending)
+    - TestMatrix2x2.h (Completed)
+    - TestMatrix3x3.h (In Process)
     - TestMatrix4x4.h (pending)
     - TestMiscMath.h
     - TestPoint2.h
@@ -62,6 +62,5 @@
     - (Please review this document for platform configuration while testing the code.)
 
 ## ***Notes***
-
-- Under another development.... Having fun.
+- See comments in Matrix.h - not working correctly...
 

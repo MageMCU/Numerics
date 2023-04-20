@@ -24,6 +24,28 @@
 
 #include "../TESTS/Common.h"
 
+void Matrix_T9_MatrixMatrixMultiplication()
+{
+    printTitle("Matrix T8 Matrix Matrix Multiplication");
+
+    float array1[] = {1, 2, 3, 4};
+    
+    nmr::Matrix<float> A(array1, nmr::a2x2);
+    printMatrix("A", A);
+
+    nmr::Matrix<float> I;
+    printMatrix("I", I);
+
+    nmr::Matrix<float> C = A * I;
+    printMatrix("A * I = C", C);
+    
+    nmr::Matrix<float> B(array1, nmr::a2x2);
+    printMatrix("B", B);
+
+    C = A * B;
+    printMatrix("A * B = C", C);
+}
+
 void Matrix_T8_MatrixVectorMultiplication()
 {
     printTitle("Matrix T8 Matrix Vector Multiplication");

@@ -200,13 +200,13 @@ void printMatrix2x2(String s, nmr::Matrix2x2<real> M)
 {
     Serial.println(s);
 
-    Serial.print(String(M.E11(), 2));
+    Serial.print(String(M.E00(), 2));
     Serial.print(" ");
-    Serial.println(String(M.E12(), 2));
+    Serial.println(String(M.E01(), 2));
 
-    Serial.print(String(M.E21(), 2));
+    Serial.print(String(M.E10(), 2));
     Serial.print(" ");
-    Serial.println(String(M.E22(), 2));
+    Serial.println(String(M.E11(), 2));
 }
 
 template <typename real>

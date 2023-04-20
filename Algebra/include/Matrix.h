@@ -206,6 +206,8 @@ namespace nmr
         return Determinant() != (real)0;
     }
 
+    // ----------------------------------------------------------- FIXME
+    // Getting bad monitor data............... CRASH ..............DO NOT USE
     template <typename real>
     real Matrix<real>::Determinant()
     {
@@ -371,6 +373,8 @@ namespace nmr
     template <typename real>
     real Matrix<real>::_det(real aa, real ab, real ba, real bb)
     {
+        // -------------------------------------- NEED TO VERIFY
+        // SOURCE:
         // row-major order
         real a = aa * bb;
         // debug

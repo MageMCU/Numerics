@@ -30,3 +30,4 @@
 <p>20230322 - Under development - Statistics.h header and matrix headers...</p>
 <p>20230323 - In process - Matrix2x2.h header...</p>
 <p>20230407 - Updated Statistics.h header...</p>
+<p>20230419 - Updated Matrix2x2.h header..., mostly completed...</p>
