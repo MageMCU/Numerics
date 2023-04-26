@@ -6,7 +6,7 @@
 
 **Following classes are stand-alone**
 - **Bitwise.h** 
-    - updated 20230420
+    - removed operations meant for BusI2C.h 20230425
 - **LinearMap.h**   
 - **Timer.h**     
 - **Vector2.h**    
