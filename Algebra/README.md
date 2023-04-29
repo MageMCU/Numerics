@@ -33,7 +33,7 @@
 - ***Matrix3x3.h***
     - depended on *Matrix.h*
     - depended on *RandomNumber.h*
-    - working 20230428 - Mostly completed...
+    - working 20230429 - Mostly completed...
 - ***Matrix4x4.h***
     - depended on *Matrix.h*
     - pending - 20230428
