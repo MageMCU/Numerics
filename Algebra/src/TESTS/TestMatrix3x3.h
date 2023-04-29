@@ -70,10 +70,6 @@ void Matrix3x3_T6_Adjoint()
     printMatrix3x3("M(array): ", M);
     M = M.Adjoint();
     printMatrix3x3("M.Adjoint(): ", M);
-    // Verified Output
-    // 2.00 1.00 -2.00 
-    // -7.00 4.00 2.00 
-    // 4.00 -3.00 1.00 
 }
 
 void Matrix3x3_T5_Transpose()
