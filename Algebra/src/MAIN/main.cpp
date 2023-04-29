@@ -57,15 +57,21 @@ void setup()
   // --------------------------------------
 
   // Matrix3x3 Test ----------------------- Working
-  // Pendin
+  Matrix3x3_T8_Solve(); // Includes Alternate Solve() called Cramer()...
+  // Matrix3x3_T7_Inverse(); 
+  // Matrix3x3_T6_Adjoint();
+  // Matrix3x3_T5_Transpose();
+  // Matrix3x3_T4_Invertible();
+  // Matrix3x3_T3_Determinate();
+  // Matrix3x3_T2_Access();
+  // Matrix3x3_T1_Constructor();
 
-  // Bitwise Tests ---------------------- working
-  Bitwise_T6_BytesWordOperations();
+  // Bitwise Tests ----------------------- Completed
   // Bitwise_T5_GetBitsValue();
   // Bitwise_T4_SetBitsValue();
   // Bitwise_T3_ClearBitNUmber();
   // Bitwise_T2_SetBitNumber();
-  // Bitwise_T1_Contructor();
+  // Bitwise_T1_Constructor();
 
   // Statistics Test ---------------------- Working
   // Statistics_T5_Queue();
@@ -118,7 +124,7 @@ void setup()
   // Quaternion_T2_NormSquared();
   // Quaternion_T1_Constructor();
 
-  // Matrix Tests -------------------------- COMPLETED
+  // Matrix Tests -------------------------- UNSTABLE - Working
   // Matrix_T9_MatrixMatrixMultiplication(); ------------------- FIXME
   // Matrix_T8_MatrixVectorMultiplication();
   // Matrix_T7_MatrixScalarMultiplication();

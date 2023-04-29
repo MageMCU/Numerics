@@ -24,34 +24,6 @@
 
 #include "../TESTS/Common.h"
 
-void Bitwise_T6_BytesWordOperations()
-{
-    printTitle("Bitwise T6 Bytes Word Operations");
-
-    nmr::Bitwise<int> bw;
-    uint16_t word = 5678;
-
-    bw.WordToBytes(word);
-    Serial.print("word: ");
-    Serial.println(word);
-
-    uint8_t hi = bw.GetHiByte();
-    Serial.print("hi-byte: ");
-    Serial.println(hi);
-
-    uint8_t lo = bw.GetLoByte();
-    Serial.print("lo-byte: ");
-    Serial.println(lo);
-
-    word = bw.BytesToWord();
-    Serial.print("combine implicitly to word: ");
-    Serial.println(word);
-
-    word = bw.BytesToWord(hi, lo);
-    Serial.print("combine explicitly to word: ");
-    Serial.println(word);
-}
-
 void Bitwise_T5_GetBitsValue()
 {
     printTitle("Bitwise T5 GetBitsValue");
@@ -166,7 +138,7 @@ void Bitwise_T2_SetBitNumber()
     Serial.println(bw.PrintBinaryBits());
 }
 
-void Bitwise_T1_Contructor()
+void Bitwise_T1_Constructor()
 {
     printTitle("Bitwise T1 Constructor");
     // Constructor

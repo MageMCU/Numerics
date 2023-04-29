@@ -35,16 +35,13 @@ namespace nmr
     class Matrix2x2 : Matrix<real>
     {
     private:
+        // SIZE: 2x2 = 4
         real m_tuples[4];
-        int m_commonNum;
 
         // nmr::Matrix<real> m_2x2;
         Matrix<real> m_getMatrix();
         void m_identity();
-        // Temp Place - will move to Matrix.h
-        // Vector2<real> m_Ax(real A[], real x[], int NumRows, int NumCommon, int NumCols);
-        // Matrix2x2<real> m_AB(real A[], real B[], int NumRows, int NumCommon, int NumCols);
-        // void m_AB(real A[], real B[], real C[], int NumRows, int NumCommon, int NumCols);
+        bool m_limits(int index);
 
     public:
         Matrix2x2();
@@ -65,19 +62,22 @@ namespace nmr
         void SetElement(int index, real value);
 
         // METHODS
-        bool Invertible();
         real Determinant();
+        bool Invertible();
         Matrix2x2<real> Transpose();
         Matrix2x2<real> Adjoint();
         Matrix2x2<real> Inverse();
         Vector2<real> Solve(Vector2<real> b);
         Matrix2x2<real> Rotation(real angleRadian);
 
-        // OPERATORS - pending - FIXME
+        // OPERATORS
         Matrix2x2<real> operator-();
         Matrix2x2<real> operator*(real s);
         Vector2<real> operator*(Vector2<real> v);
         Matrix2x2<real> operator*(Matrix2x2<real> M);
+
+        // String
+        //
     };
 
     template <typename real>
@@ -85,7 +85,6 @@ namespace nmr
     {
         // Identity
         m_identity();
-        m_commonNum = 2;
     }
 
     template <typename real>
@@ -96,7 +95,6 @@ namespace nmr
         m_tuples[1] = e12;
         m_tuples[2] = e21;
         m_tuples[3] = e22;
-        m_commonNum = 2;
     }
 
     template <typename real>
@@ -107,7 +105,6 @@ namespace nmr
         m_tuples[1] = tuples[1];
         m_tuples[2] = tuples[2];
         m_tuples[3] = tuples[3];
-        m_commonNum = 2;
     }
 
     template <typename real>
@@ -137,7 +134,7 @@ namespace nmr
     template <typename real>
     real Matrix2x2<real>::GetElement(int index)
     {
-        if (index >= 0 && index < 4)
+        if (m_limits(index))
         {
             return m_tuples[index];
         }
@@ -148,7 +145,7 @@ namespace nmr
     real Matrix2x2<real>::GetElement(real row, real col)
     {
         int index = GetIndex(row, col);
-        if (index >= 0 && index < 4)
+        if (m_limits(index))
         {
             return m_tuples[index];
         }
@@ -165,13 +162,19 @@ namespace nmr
     template <typename real>
     void Matrix2x2<real>::SetElement(int index, real value)
     {
-        if (index >= 0 && index < 4)
+        if (m_limits(index))
         {
             m_tuples[index] = value;
         }
     }
 
     // METHODS
+
+    template <typename real>
+    real Matrix2x2<real>::Determinant()
+    {
+        return (E00() * E11()) - (E01() * E10());
+    }
 
     template <typename real>
     bool Matrix2x2<real>::Invertible()
@@ -182,12 +185,6 @@ namespace nmr
         if (abs(det) > (real)__FLT_EPSILON__)
             return true;
         return false;
-    }
-
-    template <typename real>
-    real Matrix2x2<real>::Determinant()
-    {
-        return (E00() * E11()) - (E01() * E10());
     }
 
     template <typename real>
@@ -292,175 +289,6 @@ namespace nmr
     }
 
     // PRIVATE
-    /* Experimental
-    template <typename real>
-    Vector2<real> Matrix2x2<real>::m_Ax(real A[], real x[], int NumRows, int NumCommon, int NumCols)
-    {
-        // Test the following conditions
-        // (1) A(2x2)(rows)=2 * B(2x2)(cols)=2 where A(cols) & B(rows) = 2... DO NOT USE HERE
-        // (2) A(2x2)(rows)=2 * v(2x1)(col)=1 where A(cols) & B(rows) = 2
-        // Minimum Size (2, 2, 1)
-
-        int arraySize = NumRows * NumCols;
-        real vector[arraySize];
-        int rIndex;
-        int aIndex;
-        int bIndex;
-
-        for (int r = 0; r < NumRows; ++r)
-        {
-            for (int c = 0; c < NumCols; ++c)
-            {
-                rIndex = r * NumCommon + c;
-                // Convert from col-vector to row-vector
-                // We want the indices in numerical order...
-                if (NumCols == 1)
-                    rIndex = c * NumCommon + r;
-                vector[rIndex] = (real)0;
-                for (int i = 0; i < NumCommon; ++i)
-                {
-                    aIndex = r * NumCommon + i;
-                    bIndex = i * NumCommon + c;
-                    // Convert from col-vector to row-vector
-                    // We want the indices in numerical order...
-                    if (NumCols == 1)
-                        bIndex = c * NumCommon + i;
-                    vector[rIndex] += A[aIndex] * x[bIndex];
-                }
-            }
-        }
-        Vector2<real> b(vector);
-        return b;
-    }
-    */
-
-   /* Experimental
-    template <typename real>
-    Matrix2x2<real> Matrix2x2<real>::m_AB(real A[],
-                                          real B[],
-                                          int NumRows,
-                                          int NumCommon,
-                                          int NumCols)
-    {
-        // Test the following conditions
-        // (1) A(2x2)(rows)=2 * B(2x2)(cols)=2 where A(cols) & B(rows) = 2
-        // (2) A(2x2)(rows)=2 * v(2x1)(col)=1 where A(cols) & B(rows) = 2 ... DO NOT USE HERE
-        // Minimum Size (2, 2, 2)
-
-        int arraySize = NumRows * NumCols;
-        real matrix[arraySize];
-        int rIndex;
-        int aIndex;
-        int bIndex;
-
-        for (int r = 0; r < NumRows; ++r)
-        {
-            for (int c = 0; c < NumCols; ++c)
-            {
-                rIndex = r * NumCommon + c;
-                // Convert from col-vector to row-vector
-                // We want the indices in numerical order...
-                if (NumCols == 1)
-                    rIndex = c * NumCommon + r;
-                matrix[rIndex] = (real)0;
-                for (int i = 0; i < NumCommon; ++i)
-                {
-                    aIndex = r * NumCommon + i;
-                    bIndex = i * NumCommon + c;
-                    // Convert from col-vector to row-vector
-                    // We want the indices in numerical order...
-                    if (NumCols == 1)
-                        bIndex = c * NumCommon + i;
-                    matrix[rIndex] += A[aIndex] * B[bIndex];
-                }
-            }
-        }
-        Matrix2x2<real> R(matrix);
-        return R;
-
-        // idea taken from GTE
-        // Test the following conditions
-        // (1) A(2x2)(rows)=2 * B(2x2)(cols)=2 where A(cols) & B(rows) = 2
-        // (2) A(2x2)(rows)=2 * v(2x1)(col)=1 where A(cols) & B(rows) = 2
-        // int NumRows = 2;
-        // int NumCols = 2; // or 1 as indicated above...
-        // int NumCommon = 2;
-        // int rIndex;
-        // int aIndex;
-        // int bIndex;
-
-        // for (int r = 0; r < NumRows; ++r)
-        // {
-        //     for (int c = 0; c < NumCols; ++c)
-        //     {
-        //         rIndex = r * NumCommon + c;
-        //         // Convert from col-vector to row-vector
-        //         // We want the indices in numerical order...
-        //         if (NumCols == 1)
-        //             rIndex = c * NumCommon + r;
-        //         for (int i = 0; i < NumCommon; ++i)
-        //         {
-        //             aIndex = r * NumCommon + i;
-        //             bIndex = i * NumCommon + c;
-        //         // Convert from col-vector to row-vector
-        //         // We want the indices in numerical order...
-        //             if (NumCols == 1)
-        //                 bIndex = c * NumCommon + i;
-        //             // result(r, c) += A(r, i) * B(i, c); DO NOT USE
-
-        //             // Debug
-        //             cout << " R:(" << r << ", " << c << ")="
-        //             << rIndex << " A:(" << r << ", " << i
-        //             << ")=" << aIndex << " B:(" << i << ", "
-        //             << c << ")=" << bIndex << endl;
-        //         }
-        //     }
-        // }
-    }
-    */
-
-    /* Experimental
-    template <typename real>
-    void Matrix2x2<real>::m_AB(real A[],
-                               real B[],
-                               real C[],
-                               int NumRows,
-                               int NumCommon,
-                               int NumCols)
-    {
-        // Test the following conditions
-        // (1) A(2x2)(rows)=2 * B(2x2)(cols)=2 where A(cols) & B(rows) = 2
-        // (2) A(2x2)(rows)=2 * v(2x1)(col)=1 where A(cols) & B(rows) = 2 ... DO NOT USE HERE
-        // Minimum Size (2, 2, 2)
-
-        int rIndex;
-        int aIndex;
-        int bIndex;
-
-        for (int r = 0; r < NumRows; ++r)
-        {
-            for (int c = 0; c < NumCols; ++c)
-            {
-                rIndex = r * NumCommon + c;
-                // Convert from col-vector to row-vector
-                // We want the indices in numerical order...
-                if (NumCols == 1)
-                    rIndex = c * NumCommon + r;
-                C[rIndex] = (real)0;
-                for (int i = 0; i < NumCommon; ++i)
-                {
-                    aIndex = r * NumCommon + i;
-                    bIndex = i * NumCommon + c;
-                    // Convert from col-vector to row-vector
-                    // We want the indices in numerical order...
-                    if (NumCols == 1)
-                        bIndex = c * NumCommon + i;
-                    C[rIndex] += A[aIndex] * B[bIndex];
-                }
-            }
-        }
-    }
-    */
 
     template <typename real>
     Matrix<real> Matrix2x2<real>::m_getMatrix()
@@ -483,6 +311,13 @@ namespace nmr
         m_tuples[3] = (real)1;
     }
 
+    template <typename real>
+    bool Matrix2x2<real>::m_limits(int index)
+    {
+        if (index >= 0 && index < 4)
+            return true;
+        return false;
+    }
 }
 
 #endif

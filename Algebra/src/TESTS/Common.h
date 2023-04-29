@@ -22,7 +22,7 @@
 #ifndef Numerics_Test_Common_h
 #define Numerics_Test_Common_h
 
-#include "Arduino.h"
+#include <Arduino.h>
 
 #include "Bitwise.h"
 #include "LinearMap.h"
@@ -189,6 +189,21 @@ void printMatrix(String s, nmr::Matrix<real> M)
         for (int j = 0; j < 4; j++)
         {
             Serial.print(M.Element(i, j));
+            Serial.print(" ");
+        }
+        Serial.println("");
+    }
+}
+
+template <typename real>
+void printMatrix3x3(String s, nmr::Matrix3x3<real> M)
+{
+    Serial.println(s);
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            Serial.print(M.GetElement(i, j));
             Serial.print(" ");
         }
         Serial.println("");
