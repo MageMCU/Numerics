@@ -16,6 +16,7 @@
 ***Followng classes are in an hierachical relationship***
 + ***Matrix.h***       
     - depended on *Point2.h* & *Point3.h*
+    - Unstable - PLEASE DO NOT USE at this time... 20230428
 + ***MiscMath.h***     
     - depended on *Vector3.h*
 + ***Point2.h***       
@@ -31,10 +32,11 @@
     - updated 20230419 - Mostly completed... 
 - ***Matrix3x3.h***
     - depended on *Matrix.h*
-    - in development 20230419
+    - depended on *RandomNumber.h*
+    - working 20230428 - Mostly completed...
 - ***Matrix4x4.h***
     - depended on *Matrix.h*
-    - development pending
+    - pending - 20230428
 - ***Statistics.h*** 
     - updated 20230407
 

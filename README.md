@@ -22,6 +22,7 @@
 - None except this Numerics repository is presently in development...
 
 ## In Development
+- Matrix3x3.h updated - Mostly completed - 20230428
 - Bitwise.h updated..., bytes, word operations... Removed and **MOVED TO BusI2C.h 20230425**
     - Sorry - was initially meant to be added with BusI2C.h - again late nights...
 - Matrix3x3.h is now in develpment... 20230419
