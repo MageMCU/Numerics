@@ -42,7 +42,7 @@ void Matrix3x3_T8_Solve()
     nmr::Vector3<float> x = Ainv.Solve(b);
     printVector3("*Ainv.Solve(b): ", x);
 
-    // ALternate Solution
+    // Alternate Solution
     x = A.Cramer(b);
     printVector3("*A.Cramer(b): ", x);
 
