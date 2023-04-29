@@ -57,7 +57,13 @@ void setup()
   // --------------------------------------
 
   // Matrix3x3 Test ----------------------- Working
-  Matrix3x3_T8_Solve(); // Includes Alternate Solve() called Cramer()...
+  Matrix3x3_T13_Rotation();
+  // Matrix3x3_T12_Identity();
+  // Matrix3x3_T11_MatrixMatrixMultiplication();
+  // Matrix3x3_T11_MatrixVectorMultiplication();
+  // Matrix3x3_T10_MatrixScalarMultiplication();
+  // Matrix3x3_T9_UnitaryOperation();
+  // Matrix3x3_T8_Solve(); // Includes Alternate Solve() called Cramer()...
   // Matrix3x3_T7_Inverse(); 
   // Matrix3x3_T6_Adjoint();
   // Matrix3x3_T5_Transpose();
@@ -81,9 +87,10 @@ void setup()
   // Statistics_T1_Constructor();
 
   // Matrix2x2 Test ----------------------- Completed
-  // Matrix2x2_T12_Rotation();
-  // Matrix2x2_T11_Identity();
-  // Matrix2x2_T10_MatrixMatrixMultiplication();
+  // Matrix2x2_T13_Rotation();
+  // Matrix2x2_T12_Identity();
+  // Matrix2x2_T11_MatrixMatrixMultiplication();
+  // Matrix2x2_T10_MatrixVectorMultiplication(); // Added 20230429
   // Matrix2x2_T9_MatrixScalarMultiplication();
   // Matrix2x2_T8_UnitaryOperation();
   // Matrix2x2_T7_Solve();

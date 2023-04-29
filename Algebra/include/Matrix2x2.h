@@ -230,6 +230,7 @@ namespace nmr
     template <typename real>
     Matrix2x2<real> Matrix2x2<real>::Rotation(real angleRadian)
     {
+        // INCLUDE BOOLEAN OPTIONS for CW CCW ---------- FIXME
         real cs = (real) cos(angleRadian);
         real sn = (real) sin(angleRadian);
         real r00 = cs;

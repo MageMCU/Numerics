@@ -24,9 +24,9 @@
 
 #include "../TESTS/Common.h"
 
-void Matrix2x2_T12_Rotation()
+void Matrix2x2_T13_Rotation()
 {
-    printTitle("Matrix2x2 T12 Rotation");
+    printTitle("Matrix2x2 T13 Rotation");
     
     // House centered at the origin (0, 0)
     //               *
@@ -58,9 +58,9 @@ void Matrix2x2_T12_Rotation()
     // Rotates CCW around the origin (0, 0).
 }
 
-void Matrix2x2_T11_Identity()
+void Matrix2x2_T12_Identity()
 {
-    printTitle("Matrix2x2 T11 Identity");
+    printTitle("Matrix2x2 T12 Identity");
     
     nmr::Matrix2x2<float> M1((float)3, (float)2, (float)2, (float)4);
     printMatrix2x2("M1 ", M1);
@@ -75,9 +75,9 @@ void Matrix2x2_T11_Identity()
     
 }
 
-void Matrix2x2_T10_MatrixMatrixMultiplication()
+void Matrix2x2_T11_MatrixMatrixMultiplication()
 {
-    printTitle("Matrix2x2 T10 operator*(Matrix2x2 M)");
+    printTitle("Matrix2x2 T11 operator*(Matrix2x2 M)");
     
     nmr::Matrix2x2<float> M1((float)3, (float)2, (float)2, (float)4);
     printMatrix2x2("M1 ", M1);
@@ -94,6 +94,17 @@ void Matrix2x2_T10_MatrixMatrixMultiplication()
     printSubTitle("Non-communitive");
     nmr::Matrix2x2<float> M4 = M2 * M1;
     printMatrix2x2("M2 * M1 = M4: ", M4);
+}
+
+void Matrix2x2_T10_MatrixVectorMultiplication()
+{
+    printTitle("Matrix2x2 T10 Matric Vector Multiplication");
+    
+    nmr::Matrix2x2<float> M((float)3, (float)2, (float)2, (float)4);
+    printMatrix2x2("Original M: ", M);
+    nmr::Vector2<float> v(1, 1);
+    printVector2("v(1, 1): ", v);
+    printVector2("M*v: ", M*v);
 }
 
 void Matrix2x2_T9_MatrixScalarMultiplication()

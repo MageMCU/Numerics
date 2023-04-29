@@ -73,6 +73,7 @@ namespace nmr
         Vector3<real> Solve(Vector3<real> b);
         // experimental - under development - DO NOT USE
         Vector3<real> Elimination(Vector3<real> b);
+        Matrix3x3<real> Rotation(real xAngleRadian, real yAngleRadian, real zAngleRadian);
 
         // OPERATORS
         Matrix3x3<real> operator-();
@@ -344,7 +345,7 @@ namespace nmr
                     }
 
                     //(my old C# code)
-                    // Check indices 
+                    // Check indices
                     // if (row1 != row2)
                     // {
                     //     // Swap rows
@@ -359,6 +360,61 @@ namespace nmr
         }
     }
 
+    template <typename real>
+    Matrix3x3<real> Matrix3x3<real>::Rotation(real xAngleRadian,
+                                              real yAngleRadian,
+                                              real zAngleRadian)
+    {
+        // XYZ Order
+        // HAS NOT BEEN TESTED ---------------------------- FIXME
+        // INCLUDE BOOLEAN OPTIONS for CW CCW
+
+        // X
+        Matrix3x3<real> xM; // Identity
+        // 0 1 2     1   0   0
+        // 3 4 5  =  0  cs -sn
+        // 6 7 8     0  sn  cs
+        real cs = (real)cos(xAngleRadian);
+        real sn = (real)sin(xAngleRadian);
+        xM.SetElement(4, cs);
+        xM.SetElement(5, -sn);
+        xM.SetElement(7, sn);
+        xM.SetElement(8, cs);
+
+        // Y
+        Matrix3x3<real> yM; // Identity
+        // 0 1 2     cs   0   sn
+        // 3 4 5  =   0   1  -sn
+        // 6 7 8    -sn   0   cs
+        cs = (real)cos(yAngleRadian);
+        sn = (real)sin(yAngleRadian);
+        yM.SetElement(0, cs);
+        yM.SetElement(2, sn);
+        yM.SetElement(6, -sn);
+        yM.SetElement(8, cs);
+
+        // Z
+        Matrix3x3<real> zM; // Identity
+        // 0 1 2     cs -sn   0
+        // 3 4 5  =  sn  cs   0
+        // 6 7 8     0    0   1
+        cs = (real)cos(zAngleRadian);
+        sn = (real)sin(zAngleRadian);
+        zM.SetElement(0, cs);
+        zM.SetElement(1, -sn);
+        zM.SetElement(3, sn);
+        zM.SetElement(4, cs);
+
+        // Multiply all matrices... XYZ order ??? ---- FIXME
+        // Review and Test matrices order []
+        Matrix3x3<real> R = zM * yM;
+        R = R * xM;
+
+        // Note: When comparing this with the quaternion.h class, 
+        // one might see that rotation() is more math intensive...
+
+        return R;
+    }
     // OPERATORS
 
     template <typename real>
@@ -397,7 +453,7 @@ namespace nmr
             tuples[r] = (real)0;
             for (int c = 0; c < 3; c++)
             {
-                idx - GetIndex(r, c);
+                idx = GetIndex(r, c);
                 tuples[r] += m_tuples[idx] * v.Element(c);
             }
         }
@@ -423,7 +479,7 @@ namespace nmr
                 {
                     mIdx = GetIndex(r, k);
                     eIdx = GetIndex(k, c);
-                    tuples[tIdx] += m_tuples[mIdx] * M.Element(eIdx);
+                    tuples[tIdx] += m_tuples[mIdx] * M.GetElement(eIdx);
                 }
             }
         }
