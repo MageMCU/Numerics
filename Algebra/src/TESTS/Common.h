@@ -45,7 +45,7 @@ template <typename real>
 void printResult(String s, real result)
 {
     Serial.print(s);
-    Serial.println(String(result, 5));
+    Serial.println(String(result, 2));
 }
 
 template <typename real>

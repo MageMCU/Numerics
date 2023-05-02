@@ -31,8 +31,7 @@ namespace nmr
     {
     private:
         real *m_ptrTuples;
-        real *m_ptrSorted;
-        real *m_ptrRotator;
+        // removed duplications
         int m_tuplesSize;
 
         real m_mean;
@@ -44,22 +43,24 @@ namespace nmr
         void m_Mean();
         void m_Variance();
         void m_StandardDeviation();
-        void m_BublleSort();
-        void m_Swap(int index);
-        void m_Copy();
+        void m_Bubblesort();
+        int m_Partitian(int lo, int hi);
+        void m_Quicksort();
+        void m_Swap(int idx1, int idx2);
+        // void m_Copy();
         void m_Median();
         bool m_Odd(int value);
         bool m_Limits(int index);
 
         // Envelopes
-        void m_minimum();
-        void m_complete();
+        void m_CalcInitData();
+        void m_CalcSortData(int size);
 
     public:
         // Constructor
         Statistics() = default;
         Statistics(real *tuples, int size);
-        ~Statistics() { delete[] m_ptrSorted; }
+        ~Statistics() = default;
 
         // Methods
         int GetTuplesSize();
@@ -77,20 +78,13 @@ namespace nmr
     template <typename real>
     Statistics<real>::Statistics(real *tuples, int size)
     {
-        // Only viable contructor
-        // Under development
-
         // Variables
         m_ptrTuples = tuples;
         m_tuplesSize = size;
-        // Need a sorted array - must be deleted
-        m_ptrSorted = new real[size];
 
         // Envelope All results
-        m_complete();
-
-        // Linear Regression
-        // Pending
+        m_CalcInitData();
+        m_CalcSortData(size);
     }
 
     template <typename real>
@@ -128,17 +122,20 @@ namespace nmr
     template <typename real>
     void Statistics<real>::Queue(real value, int index)
     {
+        // experimental
+        // purpose... See Statistics_T5_Queue()
         m_ptrTuples[index] = value;
 
         // Envelope
-        m_minimum();
+        m_CalcInitData();
+        // m_CalcSortData() not used here
     }
 
     template <typename real>
     void Statistics<real>::QueueReset()
     {
-        // Used to increase the standard 
-        // deviation by inserting an offset 
+        // Used to increase the standard
+        // deviation by inserting an offset
         // at the last index of the set....
         //
         // Needed to unstablize older set for testing
@@ -148,14 +145,15 @@ namespace nmr
         m_ptrTuples[m_tuplesSize - 1] = offset;
 
         // Envelope
-        m_minimum();
+        m_CalcInitData();
+        // m_CalcSortData() not used here
     }
 
     template <typename real>
     real Statistics<real>::GetSorted(int index)
     {
         if (m_Limits(index))
-            return m_ptrSorted[index];
+            return m_ptrTuples[index];
         return NAN;
     }
 
@@ -191,39 +189,76 @@ namespace nmr
         m_standardDeviation = sqrt((real)m_variance);
     }
 
-    // OK to use for small number of samples.... FIXME
-    // Uses separate array... under development.
-    // Code here working as expected...O(n*n)
     template <typename real>
-    void Statistics<real>::m_BublleSort()
+    void Statistics<real>::m_Bubblesort()
     {
-        for (int i = 0; i < m_tuplesSize - 1; i++)
+        for (int i = 0; i < (m_tuplesSize - 1); i++)
         {
-            for (int j = 0; j < m_tuplesSize - i - 1; j++)
+            for (int j = 0; j < (m_tuplesSize - i - 1); j++)
             {
-                if (m_ptrSorted[j] > m_ptrSorted[j + 1])
-                    m_Swap(j);
+                if (m_ptrTuples[j] > m_ptrTuples[j + 1])
+                    m_Swap(j, (j + 1));
             }
         }
     }
 
     template <typename real>
-    void Statistics<real>::m_Swap(int index)
+    int Statistics<real>::m_Partitian(int lo, int hi)
     {
-        real temp = m_ptrSorted[index];
-        m_ptrSorted[index] = m_ptrSorted[index + 1];
-        m_ptrSorted[index + 1] = temp;
+        real x = m_ptrTuples[hi];
+        int i = (lo - 1);
+        for (int j = lo; j <= (hi - 1); j++)
+        {
+            if (m_ptrTuples[j] <= x)
+            {
+                i++;
+                m_Swap(i, j);
+            }
+        }
+        m_Swap(i + 1, hi);
+        return (i + 1);
     }
 
     template <typename real>
-    void Statistics<real>::m_Copy()
+    void Statistics<real>::m_Quicksort()
     {
-        for (int i = 0; i < m_tuplesSize; i++)
+        int n = m_tuplesSize;
+        int hi = n - 1;
+        int lo = 0;
+        int p;
+        int stack[n];
+        int top = -1;
+
+        stack[++top] = lo;
+        stack[++top] = hi;
+        
+        while (top >= 0)
         {
-            m_ptrSorted[i] = m_ptrTuples[i];
-            // Debug
-            // Serial.println(String(m_ptrSorted[i], 2));
+            hi = stack[top--];
+            lo = stack[top--];
+            
+            p = m_Partitian(lo, hi);
+            
+            if ((p - 1) > lo)
+            {
+                stack[++top] = lo;
+                stack[++top] = p - 1;
+            }
+            
+            if ((p + 1) < hi)
+            {
+                stack[++top] = p + 1;
+                stack[++top] = hi;
+            }
         }
+    }
+
+    template <typename real>
+    void Statistics<real>::m_Swap(int idx1, int idx2)
+    {
+        real temp = m_ptrTuples[idx1];
+        m_ptrTuples[idx1] = m_ptrTuples[idx2];
+        m_ptrTuples[idx2] = temp;
     }
 
     template <typename real>
@@ -234,14 +269,15 @@ namespace nmr
         if (m_Odd(m_tuplesSize))
         {
             // ODD: math includes the zero index
-            index = ((m_tuplesSize + 1) / 2) - 1;
-            median = m_ptrSorted[index];
+            // index = ((m_tuplesSize + 1) / 2) - 1;
+            index = ((m_tuplesSize) / 2); // Same as above...
+            median = /*m_ptrSorted*/ m_ptrTuples[index];
         }
         else
         {
             // EVEN: math includes the zero index
-            index = (m_tuplesSize / 2) - 1;
-            median = (m_ptrSorted[index] + m_ptrSorted[index + 1]) * (real)0.5;
+            index = (m_tuplesSize / 2) - 1; // confirmed jc
+            median = (/*m_ptrSorted*/ m_ptrTuples[index] + /*m_ptrSorted*/ m_ptrTuples[index + 1]) * (real)0.5;
         }
 
         m_median = median;
@@ -264,35 +300,27 @@ namespace nmr
     }
 
     template <typename real>
-    void Statistics<real>::m_minimum()
+    void Statistics<real>::m_CalcInitData()
     {
-        // Minimum
-        // Average
+        // Using unsorted data
         m_Mean();
-        // Variance
         m_Variance();
-        // Standard Deviation
         m_StandardDeviation();
     }
 
     template <typename real>
-    void Statistics<real>::m_complete()
+    void Statistics<real>::m_CalcSortData(int size)
     {
-        // do minimum first
-        m_minimum();
+        // Check data size
+        if (size >= 0 && size < 21)
+            m_Bubblesort();
+        else
+            m_Quicksort();
 
-        // Separated to reduce loading
-        // time...
-        
-        // complete
-        m_Copy();
-        // Used on small number of samples...
-        m_BublleSort(); 
-        // Pending sort method for larger sets.... 
-        // requires testing size (>21)
-        m_Median();
+        // Might try Merge Sort..
 
-        // pending
+        // Requires Sort
+        m_Median(); 
     }
 
 }

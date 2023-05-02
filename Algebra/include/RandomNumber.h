@@ -106,9 +106,12 @@ namespace nmr
     }
 
     template <typename real>
-    void RandomNumber<real>::m_seed()
+    void RandomNumber<real>::m_seed()   
     {
-        randomSeed(millis());
+        unsigned long seed = (unsigned long)analogRead(A0);
+        seed *= (unsigned long)analogRead(A1);
+        seed *= millis();
+        randomSeed(seed);
     }
 }
 
