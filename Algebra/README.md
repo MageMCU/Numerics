@@ -66,7 +66,8 @@
 
 ## ***root folder***
 
-- platformio.ini        
+- platformio.ini
+    - Added additional notes... 20230501
     - (Please review this document for platform configuration while testing the code.)
 
 ## ***Notes***
