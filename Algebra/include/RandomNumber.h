@@ -109,8 +109,8 @@ namespace nmr
     void RandomNumber<real>::m_seed()   
     {
         unsigned long seed = (unsigned long)analogRead(A0);
-        seed *= (unsigned long)analogRead(A1);
-        seed *= millis();
+        seed += (unsigned long)analogRead(A1);
+        seed += micros();
         randomSeed(seed);
     }
 }

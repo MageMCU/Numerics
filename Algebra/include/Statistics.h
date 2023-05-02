@@ -30,8 +30,9 @@ namespace nmr
     class Statistics
     {
     private:
-        real *m_ptrTuples;
-        // removed duplications
+        real *m_ptrTuplesX;
+        // Experimental
+        real *m_ptrTuplesY;
         int m_tuplesSize;
 
         real m_mean;
@@ -79,7 +80,8 @@ namespace nmr
     Statistics<real>::Statistics(real *tuples, int size)
     {
         // Variables
-        m_ptrTuples = tuples;
+        m_ptrTuplesX = tuples;
+        m_ptrTuplesY = nullptr;
         m_tuplesSize = size;
 
         // Envelope All results
@@ -97,7 +99,7 @@ namespace nmr
     real Statistics<real>::GetElement(int index)
     {
         if (m_Limits(index))
-            return m_ptrTuples[index];
+            return m_ptrTuplesX[index];
         return NAN;
     }
 
@@ -124,7 +126,7 @@ namespace nmr
     {
         // experimental
         // purpose... See Statistics_T5_Queue()
-        m_ptrTuples[index] = value;
+        m_ptrTuplesX[index] = value;
 
         // Envelope
         m_CalcInitData();
@@ -142,7 +144,7 @@ namespace nmr
         // a newly queued set..., otherwise the older
         // stable set would give a false test....
         real offset = m_mean + (real)10000;
-        m_ptrTuples[m_tuplesSize - 1] = offset;
+        m_ptrTuplesX[m_tuplesSize - 1] = offset;
 
         // Envelope
         m_CalcInitData();
@@ -153,7 +155,7 @@ namespace nmr
     real Statistics<real>::GetSorted(int index)
     {
         if (m_Limits(index))
-            return m_ptrTuples[index];
+            return m_ptrTuplesX[index];
         return NAN;
     }
 
@@ -165,7 +167,7 @@ namespace nmr
         real sum = (real)0;
         for (int i = 0; i < m_tuplesSize; i++)
         {
-            sum += m_ptrTuples[i];
+            sum += m_ptrTuplesX[i];
         }
         m_mean = sum / (real)m_tuplesSize;
     }
@@ -177,7 +179,7 @@ namespace nmr
         real sum = (real)0;
         for (int i = 0; i < m_tuplesSize; i++)
         {
-            temp = m_ptrTuples[i] - m_mean;
+            temp = m_ptrTuplesX[i] - m_mean;
             sum += temp * temp;
         }
         m_variance = sum / ((real)m_tuplesSize - (real)1);
@@ -196,7 +198,7 @@ namespace nmr
         {
             for (int j = 0; j < (m_tuplesSize - i - 1); j++)
             {
-                if (m_ptrTuples[j] > m_ptrTuples[j + 1])
+                if (m_ptrTuplesX[j] > m_ptrTuplesX[j + 1])
                     m_Swap(j, (j + 1));
             }
         }
@@ -205,11 +207,11 @@ namespace nmr
     template <typename real>
     int Statistics<real>::m_Partitian(int lo, int hi)
     {
-        real x = m_ptrTuples[hi];
+        real x = m_ptrTuplesX[hi];
         int i = (lo - 1);
         for (int j = lo; j <= (hi - 1); j++)
         {
-            if (m_ptrTuples[j] <= x)
+            if (m_ptrTuplesX[j] <= x)
             {
                 i++;
                 m_Swap(i, j);
@@ -256,9 +258,9 @@ namespace nmr
     template <typename real>
     void Statistics<real>::m_Swap(int idx1, int idx2)
     {
-        real temp = m_ptrTuples[idx1];
-        m_ptrTuples[idx1] = m_ptrTuples[idx2];
-        m_ptrTuples[idx2] = temp;
+        real temp = m_ptrTuplesX[idx1];
+        m_ptrTuplesX[idx1] = m_ptrTuplesX[idx2];
+        m_ptrTuplesX[idx2] = temp;
     }
 
     template <typename real>
@@ -271,13 +273,13 @@ namespace nmr
             // ODD: math includes the zero index
             // index = ((m_tuplesSize + 1) / 2) - 1;
             index = ((m_tuplesSize) / 2); // Same as above...
-            median = /*m_ptrSorted*/ m_ptrTuples[index];
+            median = /*m_ptrSorted*/ m_ptrTuplesX[index];
         }
         else
         {
             // EVEN: math includes the zero index
             index = (m_tuplesSize / 2) - 1; // confirmed jc
-            median = (/*m_ptrSorted*/ m_ptrTuples[index] + /*m_ptrSorted*/ m_ptrTuples[index + 1]) * (real)0.5;
+            median = (/*m_ptrSorted*/ m_ptrTuplesX[index] + /*m_ptrSorted*/ m_ptrTuplesX[index + 1]) * (real)0.5;
         }
 
         m_median = median;

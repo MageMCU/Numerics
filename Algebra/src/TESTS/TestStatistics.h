@@ -63,23 +63,26 @@ void Statistics_T4_Median()
 
     float tuples[200];
     int size = 200;
-    nmr::RandomNumber<float> rnd = nmr::RandomNumber<float>(-99999.9, 99999.9);
+    nmr::RandomNumber<float> rnd = nmr::RandomNumber<float>(-1.9, 2.3);
 
     for (int i = 0; i < size; i++)
     {
         // CAUTION: assigning random numbers...
         tuples[i] = rnd.Random();
         // DEBUG - Original ORDER
-        // Serial.print(String(i));
-        // Serial.print(" ");
-        // Serial.println(String(tuples[i], 2));
+        Serial.print(String(i));
+        Serial.print(" ");
+        Serial.println(String(tuples[i], 2));
     }
 
     // ok
     nmr::Statistics<float> stats = nmr::Statistics<float>(tuples, size);
 
-    // Our star of the show...
+    printResult("Average: ", stats.Average());
+    printResult("Standard Deviation: ", stats.StandardDeviation());
     printResult("Median: ", stats.Median());
+    printResult("Min Value: ", stats.GetElement(0));
+    printResult("Max Value: ", stats.GetElement(size - 1));
 
     // Debug- Sorted data taken from the class
     // Serial.println("--------------------");

@@ -22,7 +22,9 @@
 - None except this Numerics repository is presently in development...
 
 ## In Development
-- RandomNumber.h improved seed() initialization... 20230501
+- Matric4x4 working...
+- Matrix3x3 completed 20340502
+- RandomNumber.h improved seed() initialization... 20230502
 - Statistics.h update with Bubblesort() at data less than 21 and Quicksort() at data greater than or equal 21... 20230501
 - Matrix3x3.h updated again - Mostly completed - 20230429
 - Bitwise.h updated..., bytes, word operations... Removed and **MOVED TO BusI2C.h 20230425**

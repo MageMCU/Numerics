@@ -71,8 +71,6 @@ namespace nmr
         Matrix3x3<real> Inverse();
         Vector3<real> Cramer(Vector3<real> b);
         Vector3<real> Solve(Vector3<real> b);
-        // experimental - under development - DO NOT USE
-        Vector3<real> Elimination(Vector3<real> b);
         Matrix3x3<real> Rotation(real xAngleRadian, real yAngleRadian, real zAngleRadian);
 
         // OPERATORS
@@ -269,95 +267,6 @@ namespace nmr
         // Construct
         Vector3<real> vertex(tuples);
         return vertex;
-    }
-
-    // Gaussian Elimination and the LU Decomposition (triangulation)
-    //
-    // Proposition 1.7.1 If <Ax = b> is obtained from Ax = b by an elementary
-    // operation of type 1, 2, or 3, then the systems Ax = b and <Ax = b> are
-    // equivalent.
-    //
-    // Elementary Operations
-    // 1.Add a multiple of one equation to another equation.
-    // 2.Interchange two equations.
-    // 3.Multiply an equation by a nonzero constant.
-    //
-    // Source: David S. Watkins, Fundamentals of Matrix Computations, 2nd ed.
-    // (ISBN 0-471-21394-2, John Wiley & Sons, Inc., New York, 2002) 70.
-    //
-    // Basically The original Matrix A and the vector b has undergone row
-    // exchanges for solving x which the LU matrices are not significant...
-    //
-    // The code below was developed using the source:
-    // Steven J. Leon, Linear Algebra with Applications, 8th ed.(Pearson
-    // Education, Inc, 2010) chapters 1 and 7.
-    //
-    // Future development. Will expand using the first Watkins source...
-    template <typename real>
-    Vector3<real> Matrix3x3<real>::Elimination(Vector3<real> b)
-    {
-        int size = 3;
-        int row1;
-        int row2;
-
-        real max;
-        real temp;
-        real _intermediate;
-        real _yTemp;
-
-        int maxIdx = 0;
-        int maxComIdx = 0;
-
-        Matrix3x3<real> L;
-        Vector3<real> y; // b???
-        Vector3<real> x;
-
-        if (Invertible())
-        {
-            for (int i = 0; i < (size - 1); i++)
-            {
-                maxIdx = i * 3 + i;
-                // max = System.Math.Abs(A[i, i]);
-                max = m_abs(m_tuples[maxIdx]);
-                Serial.println(max);
-                row1 = i;
-                row2 = i;
-                // Compare ABS[columen ji] to ABS[diagonal ii]
-                for (int j = (i + 1); j < size; j++)
-                {
-                    maxComIdx = j * 3 + i;
-                    if (max < m_abs(m_tuples[maxComIdx]))
-                    {
-                        max = m_abs(m_tuples[maxComIdx]);
-                        row2 = j;
-                    }
-
-                    // (my old C# code)
-                    // if (max < Mathf.Abs(A[j, i]))
-                    // {
-                    //     max = Mathf.Abs(A[j, i]);
-                    //     row2 = j;
-                    // }
-
-                    if (row1 != row2)
-                    {
-                        // Swap rows
-                    }
-
-                    //(my old C# code)
-                    // Check indices
-                    // if (row1 != row2)
-                    // {
-                    //     // Swap rows
-                    //     SWAP(row1, row2, ref A);
-                    //     // Swap b
-                    //     temp = b[row1];
-                    //     b[row1] = b[row2];
-                    //     b[row2] = temp;
-                    // }
-                }
-            }
-        }
     }
 
     template <typename real>

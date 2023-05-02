@@ -56,10 +56,11 @@ void setup()
   // TESTING IN PROGRESS
   // --------------------------------------
 
-  // Matrix3x3 Test ----------------------- Working
-  // Matrix3x3_T13_Rotation();
-  // Matrix3x3_T12_Identity();
-  // Matrix3x3_T11_MatrixMatrixMultiplication();
+  // Matrix3x3 Test ----------------------- COMPLETED
+  Matrix3x3_Find_Invertible_Matrix(); // Gives Ax = b 
+  // Matrix3x3_T14_Rotation(); 
+  // Matrix3x3_T13_Identity();
+  // Matrix3x3_T12_MatrixMatrixMultiplication();
   // Matrix3x3_T11_MatrixVectorMultiplication();
   // Matrix3x3_T10_MatrixScalarMultiplication();
   // Matrix3x3_T9_UnitaryOperation();
@@ -72,21 +73,21 @@ void setup()
   // Matrix3x3_T2_Access();
   // Matrix3x3_T1_Constructor();
 
-  // Bitwise Tests ----------------------- Completed
+  // Bitwise Tests ----------------------- COMPLETED
   // Bitwise_T5_GetBitsValue();
   // Bitwise_T4_SetBitsValue();
   // Bitwise_T3_ClearBitNUmber();
   // Bitwise_T2_SetBitNumber();
   // Bitwise_T1_Constructor();
 
-  // Statistics Test ---------------------- Working
+  // Statistics Test ---------------------- Size constraints
   // Statistics_T5_Queue();
-  Statistics_T4_Median(); // Sort: Bubblesort() & Quicksort()
+  // Statistics_T4_Median(); // Sort: Bubblesort() & Quicksort()
   // Statistics_T3_Standard_Deviation();
   // Statistics_T2_Average();
   // Statistics_T1_Constructor();
 
-  // Matrix2x2 Test ----------------------- Completed
+  // Matrix2x2 Test ----------------------- COMPLETED
   // Matrix2x2_T13_Rotation();
   // Matrix2x2_T12_Identity();
   // Matrix2x2_T11_MatrixMatrixMultiplication();

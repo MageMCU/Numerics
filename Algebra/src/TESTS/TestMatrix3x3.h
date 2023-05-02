@@ -24,9 +24,73 @@
 
 #include "../TESTS/Common.h"
 
-void Matrix3x3_T13_Rotation()
+void Matrix3x3_Find_Invertible_Matrix()
 {
-    printTitle("Matrix3x3 T13 Rotation");
+    printTitle("Matrix3x3 Find Invertiable Matrix");
+    printSubTitle("Learning tool for parents & teachers...");
+
+    // Updated seed for repeating different
+    // values...
+    unsigned long seed = analogRead(A0);
+    seed += analogRead(A1);
+    seed += micros();
+    randomSeed(seed);
+
+    // Random integers for Matrix A
+    float aM[9];
+    for (int i = 0; i < 9; i++)
+    {
+        // Skip any zeros
+        do
+        {
+            aM[i] = random(18) - 9;
+        } while (aM[i] == (float)0);
+    }
+
+    // Matrix A
+    nmr::Matrix3x3<float> A(aM);
+    printMatrix3x3("A(aM): ", A);
+
+    // Inverse of Matrix A
+    nmr::Matrix3x3<float> Ainv = A.Inverse();
+    printMatrix3x3("Ainv: ", Ainv);
+
+    // Ramdom integers for Vector x
+    float aV[3];
+    for (int i = 0; i < 3; i++)
+    {
+        // Skip any zeros
+        do
+        {
+            aV[i] = random(10) - 5;
+        } while (aV[i] == (float)0);
+    }
+
+    // Vector x
+    nmr::Vector3<float> x(aV);
+    printVector3("x(aV): ", x);
+
+    // Calculate Vector b
+    nmr::Vector3<float> b = A * x;
+    printVector3("b = A * x: ", b);
+
+
+    // Compare, Solve and Check
+    if (A.Invertible())
+    {
+        Serial.println("Invertible");
+
+        x = Ainv.Solve(b);
+        printVector3("x = Ainv.Solve(b): ", x);
+
+        x = A.Cramer(b);
+        printVector3("x = A.Cramer(b): ", x);
+    }
+}
+
+void Matrix3x3_T14_Rotation()
+{
+    printTitle("Matrix3x3 T14 Rotation");
 
     // In Development --------------------- FIXME
     // working one-direction only (CCW)
@@ -37,11 +101,11 @@ void Matrix3x3_T13_Rotation()
 
     // CAUTION: DO NOT USE ALL AT ONCE... STACK-HEAP COLLISION
     // Could multiply same matrix instead of all five...
-    
+
     // Rotate about x-axis (radian measure)
     // nmr::Matrix3x3<float> Rx = A.Rotation(radian, 0, 0);
     // printMatrix3x3("Rx ", Rx);
-    
+
     // Rotate about y-axis (radian measure)
     // nmr::Matrix3x3<float> Ry = A.Rotation(0, radian, 0);
     // printMatrix3x3("Ry ", Ry);
@@ -57,9 +121,9 @@ void Matrix3x3_T13_Rotation()
     printMatrix3x3("ALL ", ALL);
 }
 
-void Matrix3x3_T12_Identity()
+void Matrix3x3_T13_Identity()
 {
-    printTitle("Matrix3x3 T12 Identity");
+    printTitle("Matrix3x3 T13 Identity");
 
     float array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     nmr::Matrix3x3<float> M(array);
@@ -74,9 +138,9 @@ void Matrix3x3_T12_Identity()
     printMatrix3x3("M1 = M * I ", M1);
 }
 
-void Matrix3x3_T11_MatrixMatrixMultiplication()
+void Matrix3x3_T12_MatrixMatrixMultiplication()
 {
-    printTitle("Matrix3x3 T11 Matrix Matrix Multiplication");
+    printTitle("Matrix3x3 T12 Matrix Matrix Multiplication");
 
     float array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
     nmr::Matrix3x3<float> M(array);
