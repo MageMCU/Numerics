@@ -12,6 +12,7 @@
 - **Vector2.h**    
 - **Vector3.h**    
 - **RandomNumber.h**   
+    - improved the seed() initialization... 20230501
 
 ***Followng classes are in an hierachical relationship***
 + ***Matrix.h***       
@@ -38,7 +39,7 @@
     - depended on *Matrix.h*
     - pending - 20230428
 - ***Statistics.h*** 
-    - updated 20230407
+    - updated 20230501 - Completed two sort methods: Bubblesort() and Quicksort() usage depending on the data size...
 
 ## ***src folder***
 
