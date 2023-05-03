@@ -19,19 +19,10 @@
 - **Visual Studio Code** is a streamlined code editor and it runs on macOS, Linux, and Windows. The best thing about VSCode, it is free.
 
 ## Issues
-- None except this Numerics repository is presently in development...
+- Will review entire package over time... Please note that the herachical relationships have changed to include quaternion.h into matrices... Take one example at a time when testing each class...
 
 ## In Development
-- Matrix4x4 working...
-- Matrix3x3 completed 20340502
-- RandomNumber.h improved seed() initialization... 20230502
-- Statistics.h update with Bubblesort() at data less than 21 and Quicksort() at data greater than or equal 21... 20230501
-- Matrix3x3.h updated again - Mostly completed - 20230429
-- Bitwise.h updated..., bytes, word operations... Removed and **MOVED TO BusI2C.h 20230425**
-    - Sorry - was initially meant to be added with BusI2C.h - again late nights...
-- Matrix3x3.h is now in develpment... 20230419
-- Matrix2x2.h is complete but Matrix.h may not fuction correctly... 20230419
-- Statistics.h updated 20230407...
+- On Hold until review is finished...
 
 ## Disclaimer and Terms
 - Please follow the ***Disclaimer*** and ***Terms*** in the ***Numerics*** Repository.

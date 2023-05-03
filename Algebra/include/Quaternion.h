@@ -27,12 +27,14 @@
 #define Numerics_Quaternion_h
 
 #include "Arduino.h"
-#include "Matrix.h"
+#include "Point2.h"
+#include "Point3.h"
+#include "RandomNumber.h"
 
 namespace nmr
 {
     template <typename real>
-    class Quaternion: Matrix<real>
+    class Quaternion : Point2<real> /* inherits Vector2 */, Point3<real> /* inherits Vector3 */, RandomNumber<real> // Matrix<real>
     {
     private:
         // PRIVATE MEMBERS

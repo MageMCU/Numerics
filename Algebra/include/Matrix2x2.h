@@ -23,10 +23,6 @@
 #define Numerics_Matrix2x2_h
 
 #include "Arduino.h"
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Point2.h"
-#include "Point3.h"
 #include "Matrix.h"
 
 namespace nmr

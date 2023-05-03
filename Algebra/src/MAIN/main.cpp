@@ -56,8 +56,12 @@ void setup()
   // TESTING IN PROGRESS
   // --------------------------------------
 
+  // Matrix4x4 Test ----------------------- working
+  // Matrix4x4_T2_Translation();
+  Matrix4x4_T1_Constructor();
+
   // Matrix3x3 Test ----------------------- COMPLETED
-  Matrix3x3_Find_Invertible_Matrix(); // Gives Ax = b 
+  // Matrix3x3_Find_Invertible_Matrix(); // Gives Ax = b 
   // Matrix3x3_T14_Rotation(); 
   // Matrix3x3_T13_Identity();
   // Matrix3x3_T12_MatrixMatrixMultiplication();
@@ -131,17 +135,6 @@ void setup()
   // Quaternion_T3_Norm();
   // Quaternion_T2_NormSquared();
   // Quaternion_T1_Constructor();
-
-  // Matrix Tests -------------------------- UNSTABLE - Working
-  // Matrix_T9_MatrixMatrixMultiplication(); ------------------- FIXME
-  // Matrix_T8_MatrixVectorMultiplication();
-  // Matrix_T7_MatrixScalarMultiplication();
-  // Matrix_T6_Negate();
-  // Matrix_T5_Transpose();
-  // Matrix_T4_Determinant_IsInvertible();
-  // Matrix_T3_GetMatrix();
-  // Matrix_T2_Getters_NoSetters();
-  // Matrix_T1_Constructor();
 
   // Point3 Tests -------------------------- COMPLETED
   // Point3_T4_PointFromPointVectorAddition();

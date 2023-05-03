@@ -22,6 +22,8 @@
 #ifndef Numerics_Linear_Map_h
 #define Numerics_Linear_Map_h
 
+#include <Arduino.h>
+
 namespace nmr
 {
     // typename T can be either a real or an integer

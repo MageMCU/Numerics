@@ -23,16 +23,12 @@
 #define Numerics_Matrix3x3_h
 
 #include "Arduino.h"
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Point2.h"
-#include "Point3.h"
-#include "Matrix.h"
+#include "Matrix2x2.h"
 
 namespace nmr
 {
     template <typename real>
-    class Matrix3x3 : Matrix<real>
+    class Matrix3x3 : Matrix2x2<real>
     {
     private:
         // SIZE: 3x3 = 9
@@ -51,7 +47,6 @@ namespace nmr
     public:
         Matrix3x3();
         Matrix3x3(const real tuples[]);
-        // Matrix3x3(Vector3<real> col_1, Vector3<real> col_2, Vector3<real> col_3);
         Matrix3x3(real minRandom, real maxRandom);
         ~Matrix3x3() = default;
 

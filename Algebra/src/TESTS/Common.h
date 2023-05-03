@@ -196,6 +196,21 @@ void printMatrix(String s, nmr::Matrix<real> M)
 }
 
 template <typename real>
+void printMatrix4x4(String s, nmr::Matrix4x4<real> M)
+{
+    Serial.println(s);
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            Serial.print(M.GetElement(i, j));
+            Serial.print(" ");
+        }
+        Serial.println("");
+    }
+}
+
+template <typename real>
 void printMatrix3x3(String s, nmr::Matrix3x3<real> M)
 {
     Serial.println(s);

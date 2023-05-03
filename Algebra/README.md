@@ -6,40 +6,22 @@
 
 **Following classes are stand-alone**
 - **Bitwise.h** 
-    - removed operations meant for BusI2C.h 20230425
 - **LinearMap.h**   
 - **Timer.h**     
 - **Vector2.h**    
 - **Vector3.h**    
-- **RandomNumber.h**   
-    - improved the seed() initialization... 20230501
+- **RandomNumber.h**  
+- **Statistics.h** 
+- **MiscMath.h**
 
-***Followng classes are in an hierachical relationship***
-+ ***Matrix.h***       
-    - depended on *Point2.h* & *Point3.h*
-    - Unstable - PLEASE DO NOT USE at this time... 20230428
-+ ***MiscMath.h***     
-    - depended on *Vector3.h*
-+ ***Point2.h***       
-    - depended on *Vector2.h*
-+ ***Point3.h***       
-    - depended on *Vector3.h*
-+ ***Quaternion.h***   
-    - depended on *Matrix.h*
-
-***Presently under development***
-- ***Matrix2x2.h***  
-    - depended on *Matrix.h*
-    - updated 20230419 - Mostly completed... 
-- ***Matrix3x3.h***
-    - depended on *Matrix.h*
-    - depended on *RandomNumber.h*
-    - working 20230429 - Mostly completed...
-- ***Matrix4x4.h***
-    - depended on *Matrix.h*
-    - pending - 20230428
-- ***Statistics.h*** 
-    - updated 20230501 - Completed two sort methods: Bubblesort() and Quicksort() usage depending on the data size...
+***Herachical relationships have changed to include quaternion.h into matrices***
++ **Point2.h**
++ **Point3.h**  
++ **Quaternion.h** 
++ **Matrix.h**   
++ **Matrix2x2.h**  .. 
++ **Matrix3x3.h**.
++ **Matrix4x4.h**
 
 ## ***src folder***
 
