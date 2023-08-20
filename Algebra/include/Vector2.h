@@ -61,7 +61,9 @@ namespace nmr
         real Dot(Vector2<real> v);
         real Angle(Vector2<real> v);
         Vector2<real> Perp();
-        real PerpDot(Vector2<real> v);
+        Vector2<real> UnitPerp();
+        real DotPerp(Vector2<real> v);
+        real ZComp(Vector2<real> v);
         Vector2<real> ProjV(Vector2<real> v);
 
         // OPERATORS
@@ -187,23 +189,84 @@ namespace nmr
     template <typename real>
     Vector2<real> Vector2<real>::Perp()
     {
-        // Perpendicular Operation
-        real x = m_y * (real)-1; // -y
-        real y = m_x;            // x
+        // BUGFIX
+        // Notes - This can be a little tricky.
+        // (1) 90 degrees CW (x, y) = Perp(y, -x) LHR
+        // (x, y) * | 0  -1| = (y, -x)
+        //          | 1   0|
+        // (2) 90 degrees CCW (x, y) = Perp(-y, x) RHR*
+        // (x, y) * |  0  1| = (-y, x)
+        //          | -1  0|
+        // * Right-handed rule
+        // Rule: The z-component of the Cross-product
+        //       SHOULD equal the DotPerp-product...
+        //       Change 2-component to 3-component 
+        //       vectors by adding zeros.
+        // (x1, y1, 0) Cross (x2, y2, 0) = z(X1Y2 - Y1X2)
+        // This could be used as the DotPerp...
 
         // Constructed
-        Vector2<real> vector(x, y);
+        // WAS: Vector2<real> vector(m_y, -m_x);
+        Vector2<real> vector(-m_y, m_x);
         return vector;
     }
 
     template <typename real>
-    real Vector2<real>::PerpDot(Vector2<real> v)
+    Vector2<real> Vector2<real>::UnitPerp()
     {
+        // Constructed
+        Vector2<real> vector = Perp();
+        return vector.Normalize();
+    }
+
+    template <typename real>
+    real Vector2<real>::DotPerp(Vector2<real> v)
+    {
+        // BUGFIX
+        // Notes - This can be a little tricky.
+        // (1) 90 degrees CW (x, y) = Perp(y, -x) LHR
+        // (x, y) * | 0  -1| = (y, -x)
+        //          | 1   0|
+        // (2) 90 degrees CCW (x, y) = Perp(-y, x) RHR*
+        // (x, y) * |  0  1| = (-y, x)
+        //          | -1  0|
+        // * Right-handed rule
+        // Rule: The z-component of the Cross-product
+        //       SHOULD equal the DotPerp-product...
+        //       Change 2-component to 3-component 
+        //       vectors by adding zeros.
+        // (x1, y1, 0) Cross (x2, y2, 0) = x0, y0, z(X1Y2 - Y1X2)
+        // This could be used as the DotPerp...
+        
         // Perpendicular Vector
         Vector2<real> u = Perp();
         // Dot Product
         float value = u * v;
+
         return value;
+    }
+
+    template <typename real>
+    real Vector2<real>::ZComp(Vector2<real> v)
+    {
+        // BUGFIX
+        // Notes - This can be a little tricky.
+        // (1) 90 degrees CW (x, y) = Perp(y, -x) LHR
+        // (x, y) * | 0  -1| = (y, -x)
+        //          | 1   0|
+        // (2) 90 degrees CCW (x, y) = Perp(-y, x) RHR*
+        // (x, y) * |  0  1| = (-y, x)
+        //          | -1  0|
+        // * Right-handed rule
+        // Rule: The z-component of the Cross-product
+        //       SHOULD equal the DotPerp-product...
+        //       Change 2-component to 3-component 
+        //       vectors by adding zeros.
+        // (x1, y1, 0) Cross (x2, y2, 0) = x0, y0, z(X1Y2 - Y1X2)
+        // This could be used as the DotPerp...
+
+        // z-component
+        return (m_x * v.y()) - (m_y * v.x());
     }
 
     template <typename real>

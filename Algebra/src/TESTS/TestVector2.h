@@ -136,9 +136,9 @@ void Vector2_T9_ProjV()
     Serial.println(dot);
 }
 
-void Vector2_T8_PerpDot()
+void Vector2_T8_A_ZComp()
 {
-    printTitle("Vector2 Perpendicular Dot Product");
+    printTitle("Vector2 z-component of a cross prosuct");
 
     nmr::Vector2<float> v1(1, 2);
     printVector2("v1", v1);
@@ -146,9 +146,24 @@ void Vector2_T8_PerpDot()
     nmr::Vector2<float> v2(3, 4);
     printVector2("v2", v2);
 
-    float perpDot = v1.PerpDot(v2);
-    Serial.print("perpDot = v1.PerpDot(v2) ");
-    Serial.println(perpDot);
+    float ZComp = v1.ZComp(v2);
+    Serial.print("ZComp = v1.ZComp(v2) ");
+    Serial.println(ZComp);
+}
+
+void Vector2_T8_DotPerp()
+{
+    printTitle("Vector2 Dot-Perpendicular Product");
+
+    nmr::Vector2<float> v1(1, 2);
+    printVector2("v1", v1);
+
+    nmr::Vector2<float> v2(3, 4);
+    printVector2("v2", v2);
+
+    float DotPerp = v1.DotPerp(v2);
+    Serial.print("DotPerp = v1.DotPerp(v2) ");
+    Serial.println(DotPerp);
 
     nmr::Vector3<float> v3(1, 2, 0);
     printVector3("v3", v3);
@@ -161,10 +176,38 @@ void Vector2_T8_PerpDot()
     Serial.print("zComponent = v5.z() ");
     Serial.println(zComponent);
 
-    printSubTitle("Notice PerpDot and zComponent are equal...");
+    printSubTitle("Notice PerpDot and zComponent must be equal...");
 }
 
-void Vector2_T7_Perp()
+void Vector2_T7_A_UnitPerp()
+{
+    printTitle("Vector2 Unit-Perpendicular");
+
+    nmr::Vector2<float> v1(1, 2);
+    printVector2("v1", v1);
+
+    nmr::Vector2<float> v2 = v1.Perp();
+    printVector2("v2 = v1.Perp()", v2);
+
+    float mag = v2.Magnitude();
+    Serial.print("mag = v1 * v2 = ");
+    Serial.println(mag);
+
+    // Comparison with Perp()
+    nmr::Vector2<float> v3 = v1.UnitPerp();
+    printVector2("v3 = v1.UnitPerp()", v3);
+
+    printSubTitle("The dot product of perpendicular vectors ought to be zero...");
+    float dot = v1 * v2;
+    Serial.print("dot = v1 * v2 = ");
+    Serial.println(dot);
+    // zero result
+    dot = v1 * v3;
+    Serial.print("dot = v1 * v3 = ");
+    Serial.println(dot);
+}
+
+void Vector2_T7_Perp() // ----------------------- BUGFIX ok
 {
     printTitle("Vector2 Perpendicular");
 

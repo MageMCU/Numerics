@@ -8,7 +8,8 @@
 - **Bitwise.h** 
 - **LinearMap.h**   
 - **Timer.h**     
-- **Vector2.h**    
+- **Vector2.h** 
+    - Reviewed 20230820 - bugfix: Perp()
 - **Vector3.h**    
 - **RandomNumber.h**  
 - **Statistics.h** 
@@ -43,7 +44,8 @@
     - TestRandomNumber.h
     - TestStatistics.h
     - TestTimer.h  
-    - TestVector2.h
+    - TestVector2.h 
+        - 20230820 - bugfix, Additional tests...
     - TestVector3.h
 
 ## ***root folder***

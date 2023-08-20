@@ -58,7 +58,7 @@ void setup()
 
   // Matrix4x4 Test ----------------------- working
   // Matrix4x4_T2_Translation();
-  Matrix4x4_T1_Constructor();
+  // Matrix4x4_T1_Constructor();
 
   // Matrix3x3 Test ----------------------- COMPLETED
   // Matrix3x3_Find_Invertible_Matrix(); // Gives Ax = b 
@@ -173,7 +173,9 @@ void setup()
   // Vector2_T11_VectorScalarProduct();
   // Vector2_T10_NegateVector();
   // Vector2_T9_ProjV();
-  // Vector2_T8_PerpDot();
+  Vector2_T8_A_ZComp();
+  Vector2_T8_DotPerp();
+  // Vector2_T7_A_UnitPerp(); // New
   // Vector2_T7_Perp();
   // Vector2_T6_Angle();
   // Vector2_T5_Dot_Product();
