@@ -11,7 +11,7 @@
 - **Vector2.h** 
     - Reviewed 20230820 - bugfix: Perp()
 - **Vector3.h**    
-    - Review 20230827 - fixes...
+    - Reviewed 20230827 - fixes...
 - **RandomNumber.h**  
 - **Statistics.h** 
 - **MiscMath.h**
