@@ -63,6 +63,7 @@ namespace nmr
         Vector3<real> Normalize();
         real Dot(Vector3<real> v);
         Vector3<real> Cross(Vector3<real> v);
+        Vector3<real> UnitCross(Vector3<real> v);
         real Angle(Vector3<real> v);
         Vector3<real> ProjV(Vector3<real> v);
 
@@ -211,11 +212,22 @@ namespace nmr
     }
 
     template <typename real>
+    Vector3<real> Vector3<real>::UnitCross(Vector3<real> v)
+    {
+        Vector3<real> cross = Cross(v);
+        return cross.Normalize();
+    }
+
+    template <typename real>
     real Vector3<real>::Angle(Vector3<real> v)
     {
         // Angle between 3D vecotrs
         Vector3<real> u = GetVector();
         // ref: [ELA] by Shields, 1980. p.213.
+        // The returned value is in the range [0, pi] 
+        // radians. A domain error occurs for arguments 
+        // not in the range [-1, +1]. Therefore the vectors
+        // must be normalized...
         return acos((real)(u.Normalize() * v.Normalize()));
     }
 

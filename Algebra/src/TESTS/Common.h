@@ -72,7 +72,7 @@ void printAngle(String s, int deg, real x, real y, real result)
     Serial.print(s);
     Serial.print(" deg: ");
     Serial.print(deg);
-    Serial.print(" dv(");
+    Serial.print(" v(");
     Serial.print(x);
     Serial.print(", ");
     Serial.print(y);

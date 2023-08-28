@@ -31,14 +31,14 @@ void Vector3_T15_COPY()
     nmr::Vector3<float> v1(1, 2, 3);
     printVector3("v1", v1);
 
-    printSubTitle("This does not always work unless using an operator=");
+    printSubTitle("v2 = v1; does not always work unless using an operator=");
     nmr::Vector3<float> v2 = v1;
-    printVector3("v2", v2);
+    printVector3("v2 = v1", v2);
 }
 
 void Vector3_T14_CrossProduct()
 {
-    printTitle("Vector2 Dot Product");
+    printTitle("Vector3 Cross Product");
 
     nmr::Vector3<float> v1(1, 2, 3);
     printVector3("v1", v1);
@@ -49,7 +49,7 @@ void Vector3_T14_CrossProduct()
     nmr::Vector3<float> v3 = v1 ^ v2;
     printVector3("v3 = v1 ^ v2", v3);
 
-    printSubTitle("Test for the perpendicularity");
+    printSubTitle("Test for perpendicularity");
 
     float dot1 = v1 * v3;
     Serial.print("dot1 = v1 * v3 ");
@@ -62,7 +62,7 @@ void Vector3_T14_CrossProduct()
 
 void Vector3_T13_DotProduct()
 {
-    printTitle("Vector2 Dot Product");
+    printTitle("Vector3 Dot Product");
 
     nmr::Vector3<float> v1(1, 2, 3);
     printVector3("v1", v1);
@@ -77,7 +77,7 @@ void Vector3_T13_DotProduct()
 
 void Vector3_T12_VectorVectorSubtraction()
 {
-    printTitle("Vector2 Vector Vector Subtraction");
+    printTitle("Vector3 Vector Vector Subtraction");
 
     nmr::Vector3<float> v1(1, 2, 3);
     printVector3("v1", v1);
@@ -111,6 +111,7 @@ void Vector3_T10_VectorScalarProduct()
     printVector3("v1", v1);
 
     float scalar = 3;
+    printResult("scalar: ", scalar);
 
     nmr::Vector3<float> v2 = v1 * scalar;
     printVector3("v2 = v1 * scalar", v2);
@@ -163,15 +164,38 @@ void Vector3_T7_Angle()
 {
     printTitle("Vector3 Angle");
 
+    nmr::Vector3<float> v1(1, 0, 0);
+    printVector3("v1", v1);
+
+    nmr::Vector3<float> v2(0, 0, -1);
+    printVector3("v2", v2);
+
+    float angle = v1.Angle(v2) * RAD_TO_DEG;
+    Serial.print("angle = v1.Angle(v2) * RAD_TO_DEG ");
+    Serial.println(angle);
+}
+
+void Vector3_T6_A_UnitCross_Product()
+{
+    printTitle("Vector3 UnitCross Product");
+
     nmr::Vector3<float> v1(1, 2, 3);
     printVector3("v1", v1);
 
     nmr::Vector3<float> v2(4, 5, 6);
     printVector3("v2", v2);
 
-    float angle = v1.Angle(v2) * RAD_TO_DEG;
-    Serial.print("angle = v1.Angle(v2) * RAD_TO_DEG ");
-    Serial.println(angle);
+    nmr::Vector3<float> v3 = v1.Cross(v2);
+    printVector3("v3 = v1.Cross(v2)", v3);
+
+    nmr::Vector3<float> v4 = v1.UnitCross(v2);
+    printVector3("v4 = v1.UnitCross(v2)", v4);
+
+    nmr::Vector3<float> v5 = v3.Normalize();
+    printVector3("v5 = v3.Normalize()", v5);
+
+    float mag = v5.Magnitude();
+    printResult("v5.Magnitude() ", mag);
 }
 
 void Vector3_T6_Cross_Product()
@@ -214,18 +238,18 @@ void Vector3_T4_UnitVector_Normalize()
 {
     printTitle("Vector3 UnitVector & Normalize");
 
-    nmr::Vector2<float> v1(1, 2);
-    printVector2("v1", v1);
+    nmr::Vector3<float> v1(1, 2, 3);
+    printVector3("v1", v1);
 
-    nmr::Vector2<float> v2 = v1.UnitVector();
-    printVector2("v2 = v1.UnitVector", v2);
+    nmr::Vector3<float> v2 = v1.UnitVector();
+    printVector3("v2 = v1.UnitVector", v2);
 
     float magnitude = v2.Magnitude();
     Serial.print("magnitude = v2.Magnitude ");
     Serial.println(magnitude);
 
-    nmr::Vector2<float> v3 = v1.Normalize();
-    printVector2("v3 = v1.Normalize", v3);
+    nmr::Vector3<float> v3 = v1.Normalize();
+    printVector3("v3 = v1.Normalize", v3);
 
     float distance = v3.Distance();
     Serial.print("distance = v3.Distance ");
@@ -267,7 +291,7 @@ void Vector3_T1_Constructor()
     printVector3("Vector3<float> v1", v1);
 
     nmr::Vector3<float> v2(1, 2, 3);
-    printVector3("Vector3<float> v2(1, 2)", v2);
+    printVector3("Vector3<float> v2(1, 2, 3)", v2);
 
     printSubTitle("float array[] = {4, 5, 6};");
     float array[] = {4, 5, 6};

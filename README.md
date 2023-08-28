@@ -20,6 +20,7 @@
 
 ## Issues
 - Will review entire package over time... Please note that the herachical relationships have changed to include quaternion.h into matrices... Take one example at a time when testing each class...
+- See ***Map Numerics.pdf*** in the Article and CSV-Data folder.
 
 ## In Development
 - On Hold until review is finished...

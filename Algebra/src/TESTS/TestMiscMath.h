@@ -75,14 +75,16 @@ void MiscMath_T3_Angle2Radian()
     float rad;
 
     // Covers an entire unit circle
-    for (int deg = 0; deg < 360; deg += 5)
+    for (int deg = 0; deg < 360 + 1; deg += 5)
     {
         rad = (float)deg * DEG_TO_RAD;
+        // create a unit-vector
         x = cos(rad);
         y = sin(rad);
+        // convert vector to angle
         rad = nmr::Angle2Radian(x, y);
         // Debug Test
-        printAngle("Angle2Radian: ", deg, x, y, rad);
+        printAngle(" Angle2Radian: ", deg, x, y, rad);
     }
 }
 
@@ -93,7 +95,7 @@ void MiscMath_T2_AngleRadian()
     float rad;
 
     // Covers an entire unit circle
-    for (int deg = 0; deg < 360; deg += 5)
+    for (int deg = 0; deg < 360 + 1; deg += 5)
     {
         rad = (float)deg * DEG_TO_RAD;
         x = cos(rad);

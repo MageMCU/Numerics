@@ -312,9 +312,9 @@ void Vector2_T1_Constructor()
     nmr::Vector2<float> v1;
     printVector2("v1", v1);
 
-    float size = v1.Size();
-    Serial.print("v1 size ");
-    Serial.println(size);
+    // float size = v1.Size();  NOT USED
+    // Serial.print("v1 size ");
+    // Serial.println(size);
 
     nmr::Vector2<float> v2(1, 2);
     printVector2("v2", v2);

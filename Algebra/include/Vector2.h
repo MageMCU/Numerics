@@ -31,7 +31,7 @@ namespace nmr
     {
     private:
         // MEMBERS
-        int m_size;
+        // int m_size; NOT USED
         real m_x;
         real m_y;
 
@@ -49,7 +49,7 @@ namespace nmr
         real x();
         void y(real y);
         real y();
-        int Size();
+        // int Size();  NOT USED
         real Element(int index);
 
         // METHODS
@@ -77,7 +77,7 @@ namespace nmr
     template <typename real>
     Vector2<real>::Vector2()
     {
-        m_size = 2;
+        // m_size = 2;  NOT USED
         m_x = (real)0;
         m_y = (real)0;
     }
@@ -85,7 +85,7 @@ namespace nmr
     template <typename real>
     Vector2<real>::Vector2(real x, real y)
     {
-        m_size = 2;
+        // m_size = 2;  NOT USED
         m_x = x;
         m_y = y;
     }
@@ -93,7 +93,7 @@ namespace nmr
     template <typename real>
     Vector2<real>::Vector2(const real array[])
     {
-        m_size = 2;
+        // m_size = 2;  NOT USED
         m_x = array[0];
         m_y = array[1];
     }
@@ -109,8 +109,8 @@ namespace nmr
     template <typename real>
     real Vector2<real>::y() { return m_y; }
 
-    template <typename real>
-    int Vector2<real>::Size() { return m_size; }
+    // template <typename real>  NOT USED
+    // int Vector2<real>::Size() { return m_size; }
 
     template <typename real>
     real Vector2<real>::Element(int index)

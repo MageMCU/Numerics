@@ -149,7 +149,7 @@ void setup()
   // Point2_T1_Constructor();
 
   // Vector3 Tests ------------------------- COMPLETED
-  // Vector3_T15_COPY();
+  Vector3_T15_COPY();
   // Vector3_T14_CrossProduct();
   // Vector3_T13_DotProduct();
   // Vector3_T12_VectorVectorSubtraction();
@@ -158,6 +158,7 @@ void setup()
   // Vector3_T9_NegateVector();
   // Vector3_T8_ProjV();
   // Vector3_T7_Angle();
+  // Vector3_T6_A_UnitCross_Product();
   // Vector3_T6_Cross_Product();
   // Vector3_T5_Dot_Product();
   // Vector3_T4_UnitVector_Normalize();
@@ -173,8 +174,8 @@ void setup()
   // Vector2_T11_VectorScalarProduct();
   // Vector2_T10_NegateVector();
   // Vector2_T9_ProjV();
-  Vector2_T8_A_ZComp();
-  Vector2_T8_DotPerp();
+  // Vector2_T8_A_ZComp();
+  // Vector2_T8_DotPerp();
   // Vector2_T7_A_UnitPerp(); // New
   // Vector2_T7_Perp();
   // Vector2_T6_Angle();

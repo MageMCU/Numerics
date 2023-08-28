@@ -11,6 +11,7 @@
 - **Vector2.h** 
     - Reviewed 20230820 - bugfix: Perp()
 - **Vector3.h**    
+    - Review 20230827 - fixes...
 - **RandomNumber.h**  
 - **Statistics.h** 
 - **MiscMath.h**
@@ -47,6 +48,7 @@
     - TestVector2.h 
         - 20230820 - bugfix, Additional tests...
     - TestVector3.h
+        - 20230827 - fixes...
 
 ## ***root folder***
 
@@ -55,5 +57,5 @@
     - (Please review this document for platform configuration while testing the code.)
 
 ## ***Notes***
-- See comments in Matrix.h - not working correctly...
+- See ***Map Numerics.pdf*** in how header files are associated...
 
