@@ -42,6 +42,7 @@ namespace nmr
         Point3();
         Point3(real x, real y, real z);
         Point3(const real array[]);
+        Point3(Vector3<real>);
 
         // DESTRUCTOR
         ~Point3() {}
@@ -56,7 +57,7 @@ namespace nmr
         int Size();
         real Element(int index);
 
-        // METHODS
+        // METHODS (there are only two)
         Point3 GetPoint();
         Vector3<real> operator-(Point3<real> p);
         Point3 operator+(Vector3<real> p);
@@ -87,6 +88,15 @@ namespace nmr
         m_x = array[0];
         m_y = array[1];
         m_z = array[2];
+    }
+
+    template <typename real>
+    Point3<real>::Point3(Vector3<real> v)
+    {
+        m_size = 3;
+        m_x = v.x();
+        m_y = v.y();
+        m_z = v.z();
     }
 
     // GETTERS & SETTERS
@@ -130,6 +140,7 @@ namespace nmr
     template <typename real>
     Vector3<real> Point3<real>::operator-(Point3<real> p)
     {
+        // Vector = Point - Point
         real x = m_x - p.x();
         real y = m_y - p.y();
         real z = m_z - p.z();
@@ -142,6 +153,7 @@ namespace nmr
     template <typename real>
     Point3<real> Point3<real>::operator+(Vector3<real> v)
     {
+        // Point = Point + Vector
         real x = m_x + v.x();
         real y = m_y + v.y();
         real z = m_z + v.z();

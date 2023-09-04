@@ -137,19 +137,19 @@ void setup()
   // Quaternion_T1_Constructor();
 
   // Point3 Tests -------------------------- COMPLETED
-  // Point3_T4_PointFromPointVectorAddition();
+  Point3_T4_PointFromPointVectorAddition();
   // Point3_T3_VectorFromPointPointSubtraction();
   // Point3_T2_GetPoint();
   // Point3_T1_Constructor();
 
   // Point2 Tests -------------------------- COMPLETED
-  // Point2_T4_PointFromPointVectorAddition();
+  Point2_T4_PointFromPointVectorAddition();
   // Point2_T3_VectorFromPointPointSubtraction();
   // Point2_T2_GetPoint();
   // Point2_T1_Constructor();
 
   // Vector3 Tests ------------------------- COMPLETED
-  Vector3_T15_COPY();
+  // Vector3_T15_COPY();
   // Vector3_T14_CrossProduct();
   // Vector3_T13_DotProduct();
   // Vector3_T12_VectorVectorSubtraction();

@@ -18,7 +18,9 @@
 
 ***Herachical relationships have changed to include quaternion.h into matrices***
 + **Point2.h**
+    - Reviewed 20230904
 + **Point3.h**  
+    - Reviewed 20230904
 + **Quaternion.h** 
 + **Matrix.h**   
 + **Matrix2x2.h**  .. 
