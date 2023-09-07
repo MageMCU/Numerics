@@ -38,7 +38,7 @@ void Timer_T1_Inclusive_Test()
     // Timer Instantiation
     nmr::Timer testTimer = nmr::Timer();
     
-    // Constants (clue: distence = speed * time)
+    // Constants (clue: distance = speed * time)
     Serial.print("speed (m/s) = ");
     Serial.print(String(speed, 4));
     Serial.print(", time(s) = ");
