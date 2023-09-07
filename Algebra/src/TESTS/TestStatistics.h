@@ -24,6 +24,33 @@
 
 #include "../TESTS/Common.h"
 
+void Statistics_T6_Queue()
+{
+    printTitle("Statistics T6 Queue");
+
+    int size = 100;
+    float tuples[size];
+    nmr::Statistics<float> stats = nmr::Statistics<float>(tuples, size);
+    nmr::RandomNumber<float> randomNumber = nmr::RandomNumber<float>((float)0, (float)10);
+
+    int cnt = 0;
+    while (cnt < size)
+    {
+        float value = randomNumber.Random();
+        stats.Queue(value, cnt);
+
+        value = stats.GetElement(cnt);
+        Serial.println(String(value, 2));
+
+        cnt++;
+    }
+
+    Serial.print("Average: ");
+    Serial.println(String(stats.Average(), 2));
+    Serial.print("Standard Deviation: ");
+    Serial.println(String(stats.StandardDeviation(), 2));
+}
+
 void Statistics_T5_Queue()
 {
     printTitle("Statistics T5 Queue");
@@ -52,7 +79,8 @@ void Statistics_T5_Queue()
 
     //
     stats.QueueReset();
-    Serial.println("Queue Reset");
+    Serial.println("Purpose of Queue Reset is to increase the SD");
+    Serial.println("by arbitrarily increasing one of the elements...");
     Serial.print("Standard Deviation: ");
     Serial.println(String(stats.StandardDeviation(), 2));
 }

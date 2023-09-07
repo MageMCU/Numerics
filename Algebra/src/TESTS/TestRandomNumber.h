@@ -25,9 +25,9 @@
 
 #include "../TESTS/Common.h"
 
-void RandomNumber_T1_Inclusive_Test()
+void RandomNumber_T1_RandomNumber_Test()
 {
-    printTitle("RandomNumber T1 Inclusive");
+    printTitle("RandomNumber T1 Random Number");
 
     nmr::RandomNumber<float> randomNumber = nmr::RandomNumber<float>((float)0, (float)10);
 
@@ -38,6 +38,5 @@ void RandomNumber_T1_Inclusive_Test()
         Serial.println(String(randomNumber.Random()));
         cnt++;
     }
-
 }
 #endif

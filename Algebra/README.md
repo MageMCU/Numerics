@@ -6,15 +6,21 @@
 
 **Following classes are stand-alone**
 - **Bitwise.h** 
+    - reviewed 20230807
 - **LinearMap.h**   
-- **Timer.h**     
+    - reviewed 20230807
+- **Timer.h**    
+    - reviewed 20230807 
 - **Vector2.h** 
-    - Reviewed 20230820 - bugfix: Perp()
+    - Reviewed 20230820
 - **Vector3.h**    
-    - Reviewed 20230827 - fixes...
+    - Reviewed 20230827
 - **RandomNumber.h**  
+    - reviewed 20230807
 - **Statistics.h** 
+    - reviewed 20230807
 - **MiscMath.h**
+    - reviewed 20230807
 
 ***Herachical relationships have changed to include quaternion.h into matrices***
 + **Point2.h**
@@ -48,9 +54,7 @@
     - TestStatistics.h
     - TestTimer.h  
     - TestVector2.h 
-        - 20230820 - bugfix, Additional tests...
     - TestVector3.h
-        - 20230827 - fixes...
 
 ## ***root folder***
 
