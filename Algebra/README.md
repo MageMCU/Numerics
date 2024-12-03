@@ -21,7 +21,8 @@
     - TestQuaternion.h
     - TestRandomNumber.h
     - TestStatistics.h
-    - TestTimer.h  
+    - TestTimer.h
+    - TestTypeConv.h
     - TestVector2.h 
     - TestVector3.h
 
