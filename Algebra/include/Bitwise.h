@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: Class Bitwise.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -24,7 +20,7 @@
 
 #include <Arduino.h>
 
-namespace nmr
+namespace csjc
 {
     template <typename integer>
     class Bitwise
@@ -53,7 +49,8 @@ namespace nmr
         void SetBitsValue(integer);
         integer GetBitsValue();
         void ClearAllBits();
-        String PrintBinaryBits();
+        integer ReverseBits(integer bitsValue);
+        String PrintBinaryBits(bool leadingTextFlag = true);
     };
 
     template <typename integer>
@@ -88,7 +85,10 @@ namespace nmr
         }
         else
         {
+#ifdef _ARDUINO_
             Serial.println("Error - bitNumber size");
+#else
+#endif
         }
         return value;
     }
@@ -175,9 +175,31 @@ namespace nmr
     }
 
     template <typename integer>
-    String Bitwise<integer>::PrintBinaryBits()
+    integer Bitwise<integer>::ReverseBits(integer bitsValue)
     {
-        String str = "bits:";
+        int numBits = sizeof(bitsValue) * 8;
+        integer bitsVal = bitsValue;
+        integer result = (integer)0;
+        for (int i = 0; i < numBits; i++)
+        {
+            // Shift result left by 1
+            result <<= 1;
+            // Set the least significant bit of result
+            // to the least significant bit of bitsVal.
+            result |= (bitsVal & 1);
+            // Shift bitsVal right by 1
+            bitsVal >>= 1;
+        }
+
+        return result;
+    }
+
+    template <typename integer>
+    String Bitwise<integer>::PrintBinaryBits(bool leadingTextFlag)
+    {
+        String str = "";
+        if (leadingTextFlag)
+            str = "bits:";
         // Count backwards
         for (int bitNumber = (int)b_numberOfBits - 1; bitNumber >= 0; bitNumber--)
         {

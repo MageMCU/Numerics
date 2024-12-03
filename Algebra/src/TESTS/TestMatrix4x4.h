@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: TestMatrix4x4.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: TESTS
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -34,16 +30,16 @@ void Matrix4x4_T1_Constructor()
 {
     printTitle("Matrix4x4 T1 Constructor");
 
-    nmr::Matrix4x4<float> M1;
+    Matrix4x4<float> M1;
     printMatrix4x4("M(): ", M1);
 
     float array[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
-    nmr::Matrix4x4<float> M2(array);
+    Matrix4x4<float> M2(array);
     printMatrix4x4("M(array): ", M2);
 
     float min = 0.001;
     float max = 0.999;
-    nmr::Matrix4x4<float> M3(min, max);
+    Matrix4x4<float> M3(min, max);
     printMatrix4x4("M(0.001, 0.999): ", M3);
 }
 

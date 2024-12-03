@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: Class Point2.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -25,7 +21,7 @@
 #include "Arduino.h"
 #include "Vector2.h"
 
-namespace nmr
+namespace csjc
 {
     template <typename real>
     class Point2 : Vector2<real>
@@ -41,7 +37,7 @@ namespace nmr
         Point2();
         Point2(real x, real y);
         Point2(const real array[]);
-        Point2 (Vector2<real> v);
+        Point2(Vector2<real> v);
 
         // DESTRUCTOR
         ~Point2() {}

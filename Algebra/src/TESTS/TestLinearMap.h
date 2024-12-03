@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: TestLinearMap.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// called Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: TESTS
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -19,7 +15,6 @@
 // MIT LICENSE
 //
 
-
 #ifndef Numerics_Test_Linear_Map_h
 #define Numerics_Test_Linear_Map_h
 
@@ -30,13 +25,13 @@ void LinearMap_T2_Reverse()
     printTitle("LinearMap T2 Reverse Test");
 
     // Constructor 
-    nmr::LinearMap<float> mapCelcius =
-        nmr::LinearMap<float>(32, 212, 0, 100);
+    LinearMap<float> mapCelcius =
+        LinearMap<float>(32, 212, 0, 100);
     // Random Float
     // The constructor inputs an integer (int) type 
     // while RandomReal() outpuits a real (float)...
-    nmr::RandomNumber<float> random =
-        nmr::RandomNumber<float>((float)-100, (float)1000);
+    RandomNumber<float> random =
+        RandomNumber<float>((float)-100, (float)1000);
     // Test - Looking for negative values
     float celcius;
     float fahrenheit;
@@ -61,13 +56,13 @@ void LinearMap_T1_Inclusive_Test()
     printTitle("LinearMap T1 Inclusive Test");
 
     // Constructor 
-    nmr::LinearMap<float> mapCelcius =
-        nmr::LinearMap<float>(32, 212, 0, 100);
+    LinearMap<float> mapCelcius =
+        LinearMap<float>(32, 212, 0, 100);
     // Random Float
     // The constructor inputs an integer (int) type 
     // while RandomReal() outpuits a real (float)...
-    nmr::RandomNumber<float> random =
-        nmr::RandomNumber<float>((float)-100, (float)1000);
+    RandomNumber<float> random =
+        RandomNumber<float>((float)-100, (float)1000);
     // Test
     float celcius;
     float fahrenheit;

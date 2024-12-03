@@ -1,13 +1,9 @@
 //
 // Carpenter Software
-// File: Class MiscMath.h - was Math.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// File: Class MiscMath.h
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -24,7 +20,7 @@
 
 #include "Arduino.h"
 
-namespace nmr
+namespace csjc
 {
     enum Plane2D
     {
@@ -82,7 +78,7 @@ namespace nmr
     }
 
     template <typename real>
-    void DirectionComponents(real angleRadian, real& x, real& y, real& z, Plane2D plane2D)
+    void DirectionComponents(real angleRadian, real &x, real &y, real &z, Plane2D plane2D)
     {
         Vector3<real> vector = DirectionVector(angleRadian, plane2D);
         x = vector.x();
@@ -130,6 +126,15 @@ namespace nmr
         // m = (y2 - y1)/(x2 - x1)
         // (y - y1) = m(x - x1)
         return (y2 - y1) * (x - x1) / (x2 - x1) + y1;
+    }
+
+    template <typename T>
+    T absT(T val)
+    {
+        T zero = (T)0;
+        if (val < zero)
+            val *= (T)-1;
+        return val;
     }
 }
 

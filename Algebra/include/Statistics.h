@@ -1,13 +1,9 @@
 //
 // Carpenter Software
-// File: Class Bitwise.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// File: Class Statistics.h
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -24,7 +20,7 @@
 
 #include <Arduino.h>
 
-namespace nmr
+namespace csjc
 {
     template <typename real>
     class Statistics
@@ -233,20 +229,20 @@ namespace nmr
 
         stack[++top] = lo;
         stack[++top] = hi;
-        
+
         while (top >= 0)
         {
             hi = stack[top--];
             lo = stack[top--];
-            
+
             p = m_Partitian(lo, hi);
-            
+
             if ((p - 1) > lo)
             {
                 stack[++top] = lo;
                 stack[++top] = p - 1;
             }
-            
+
             if ((p + 1) < hi)
             {
                 stack[++top] = p + 1;
@@ -322,7 +318,7 @@ namespace nmr
         // Might try Merge Sort..
 
         // Requires Sort
-        m_Median(); 
+        m_Median();
     }
 
 }

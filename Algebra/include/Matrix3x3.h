@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: Class Matrix3x3.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -25,7 +21,7 @@
 #include "Arduino.h"
 #include "Matrix2x2.h"
 
-namespace nmr
+namespace csjc
 {
     template <typename real>
     class Matrix3x3 : Matrix2x2<real>
@@ -93,7 +89,7 @@ namespace nmr
     template <typename real>
     Matrix3x3<real>::Matrix3x3(real minRandNum, real maxRandNum)
     {
-        nmr::RandomNumber<real> rdm(minRandNum, maxRandNum);
+        RandomNumber<real> rdm(minRandNum, maxRandNum);
         for (int i = 0; i < 9; i++)
         {
             m_tuples[i] = rdm.Random();
@@ -314,7 +310,7 @@ namespace nmr
         Matrix3x3<real> R = zM * yM;
         R = R * xM;
 
-        // Note: When comparing this with the quaternion.h class, 
+        // Note: When comparing this with the quaternion.h class,
         // one might see that rotation() is more math intensive...
 
         return R;

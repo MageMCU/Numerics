@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: TestMatrix2x2.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: TESTS
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -34,12 +30,12 @@ void Matrix2x2_T13_Rotation()
     // ---------------------------------
     //            *  |  *
 
-    nmr::Vector2<float> aV[] {  {-1, -1},
+    Vector2<float> aV[] {  {-1, -1},
                                 {-1, 1},
                                 {0, 2},
                                 {1, 1},
                                 {1, -1}  };
-    nmr::Matrix2x2<float> R = R.Rotation(30 * DEG_TO_RAD);
+    Matrix2x2<float> R = R.Rotation(30 * DEG_TO_RAD);
     printMatrix2x2("R ", R);
 
     for (int i = 0; i < 5; i++)
@@ -62,15 +58,15 @@ void Matrix2x2_T12_Identity()
 {
     printTitle("Matrix2x2 T12 Identity");
     
-    nmr::Matrix2x2<float> M1((float)3, (float)2, (float)2, (float)4);
+    Matrix2x2<float> M1((float)3, (float)2, (float)2, (float)4);
     printMatrix2x2("M1 ", M1);
     
     // By using the default constructor as shown below,
     // the matrix is not zeros but an identity matrix 2x2...
-    nmr::Matrix2x2<float> I;
+    Matrix2x2<float> I;
     printMatrix2x2("I ", I);
 
-    nmr::Matrix2x2<float> M2 = M1 * I;
+    Matrix2x2<float> M2 = M1 * I;
     printMatrix2x2("M2 = M1 * I ", M2);
     
 }
@@ -79,20 +75,20 @@ void Matrix2x2_T11_MatrixMatrixMultiplication()
 {
     printTitle("Matrix2x2 T11 operator*(Matrix2x2 M)");
     
-    nmr::Matrix2x2<float> M1((float)3, (float)2, (float)2, (float)4);
+    Matrix2x2<float> M1((float)3, (float)2, (float)2, (float)4);
     printMatrix2x2("M1 ", M1);
     
-    nmr::Matrix2x2<float> M2((float)-4, (float)1, (float)8, (float)5);
+    Matrix2x2<float> M2((float)-4, (float)1, (float)8, (float)5);
     printMatrix2x2("M2 ", M2);
 
     // 3 2   -4 1     3(-4) + 2(8) =  4; 3(1) + 2(5) = 13        4  13
     // 2 4    8 5     2(-4) + 4(8) = 24; 2(1) + 4(5) = 22       24  22
 
-    nmr::Matrix2x2<float> M3 = M1 * M2;
+    Matrix2x2<float> M3 = M1 * M2;
     printMatrix2x2("M1 * M2 = M3: ", M3);
 
     printSubTitle("Non-communitive");
-    nmr::Matrix2x2<float> M4 = M2 * M1;
+    Matrix2x2<float> M4 = M2 * M1;
     printMatrix2x2("M2 * M1 = M4: ", M4);
 }
 
@@ -100,9 +96,9 @@ void Matrix2x2_T10_MatrixVectorMultiplication()
 {
     printTitle("Matrix2x2 T10 Matric Vector Multiplication");
     
-    nmr::Matrix2x2<float> M((float)3, (float)2, (float)2, (float)4);
+    Matrix2x2<float> M((float)3, (float)2, (float)2, (float)4);
     printMatrix2x2("Original M: ", M);
-    nmr::Vector2<float> v(1, 1);
+    Vector2<float> v(1, 1);
     printVector2("v(1, 1): ", v);
     printVector2("M*v: ", M*v);
 }
@@ -111,7 +107,7 @@ void Matrix2x2_T9_MatrixScalarMultiplication()
 {
     printTitle("Matrix2x2 T9 operator*(real s)");
     
-    nmr::Matrix2x2<float> M((float)3, (float)2, (float)2, (float)4);
+    Matrix2x2<float> M((float)3, (float)2, (float)2, (float)4);
     printMatrix2x2("Original M: ", M);
     float s = (float)-0.5;
     printResult("Scalar: ", s);
@@ -122,7 +118,7 @@ void Matrix2x2_T8_UnitaryOperation()
 {
     printTitle("Matrix2x2 T8 operator-()");
     
-    nmr::Matrix2x2<float> M((float)3, (float)2, (float)2, (float)4);
+    Matrix2x2<float> M((float)3, (float)2, (float)2, (float)4);
     printMatrix2x2("Original M: ", M);
     printMatrix2x2("Unitary Operator -M: ", -M);
 }
@@ -131,16 +127,16 @@ void Matrix2x2_T7_Solve()
 {
     printTitle("Matrix2x2 T7 Solve");
     // Note: Compare with T6 Inverse...
-    nmr::Matrix2x2<float> A((float)3, (float)2, (float)2, (float)4);
+    Matrix2x2<float> A((float)3, (float)2, (float)2, (float)4);
     printMatrix2x2("A: ", A);
-    nmr::Vector2<float> b(5, -2);
+    Vector2<float> b(5, -2);
     printVector2("b: ", b);
 
-    nmr::Vector2<float> x = A.Solve(b);
+    Vector2<float> x = A.Solve(b);
     printVector2("Ax = b; solve: x: ", x);
 
     Serial.println("Check if c = b");
-    nmr::Vector2<float> c = A*x;
+    Vector2<float> c = A*x;
     printVector2("A*x = c:", c);
 }
 
@@ -148,15 +144,15 @@ void Matrix2x2_T6_Inverse()
 {
     printTitle("Matrix2x2 T6 Inverse");
     // Note: Compare with T7 Solve...
-    nmr::Matrix2x2<float> m1((float)3, (float)2, (float)2, (float)4);
+    Matrix2x2<float> m1((float)3, (float)2, (float)2, (float)4);
     printMatrix2x2("Original", m1);
-    nmr::Matrix2x2<float> inverse = m1.Inverse();
+    Matrix2x2<float> inverse = m1.Inverse();
     printMatrix2x2("Inverse", inverse);
 
-    nmr::Vector2<float> b(5, -2);
+    Vector2<float> b(5, -2);
     printVector2("b: ", b);
 
-    nmr::Vector2<float> x = inverse * b;
+    Vector2<float> x = inverse * b;
     printVector2("inverse * b = x: ", x);
 }
 
@@ -164,7 +160,7 @@ void Matrix2x2_T5_Transpose()
 {
     printTitle("Matrix2x2 T5 Transpose");
 
-    nmr::Matrix2x2<float> m1((float)1, (float)2, (float)3, (float)4);
+    Matrix2x2<float> m1((float)1, (float)2, (float)3, (float)4);
     printMatrix2x2("Original", m1);
     printMatrix2x2("Transpose", m1.Transpose());
 }
@@ -173,14 +169,14 @@ void Matrix2x2_T4_Invertible()
 {
     printTitle("Matrix2x2 T3 Invertible");
 
-    nmr::Matrix2x2<float> m1((float)3, (float)2, (float)2, (float)4);
+    Matrix2x2<float> m1((float)3, (float)2, (float)2, (float)4);
     printMatrix2x2("m1: ", m1);
     if (m1.Invertible())
         Serial.println("m1 Invertible");
     else
         Serial.println("m1 NOT Invertible");
 
-    nmr::Matrix2x2<float> m2((float)1, (float)2, (float)2, (float)4);
+    Matrix2x2<float> m2((float)1, (float)2, (float)2, (float)4);
     printMatrix2x2("m2: ", m2);
     if (m2.Invertible())
         Serial.println("m2 Invertible");
@@ -192,17 +188,17 @@ void Matrix2x2_T3_Determinate()
 {
     printTitle("Matrix2x2 T4 Determinate");
 
-    nmr::Matrix2x2<float> m1((float)1, (float)3, (float)-2, (float)5);
+    Matrix2x2<float> m1((float)1, (float)3, (float)-2, (float)5);
     printMatrix2x2("m1: ", m1);
     float det = m1.Determinant();
     printResult("det: ", det);
     
-    nmr::Matrix2x2<float> m2((float)2, (float)1, (float)10, (float)5);
+    Matrix2x2<float> m2((float)2, (float)1, (float)10, (float)5);
     printMatrix2x2("m2: ", m2);
     det = m2.Determinant();
     printResult("det: ", det);
     
-    nmr::Matrix2x2<float> m3((float)-3, (float)3, (float)-7, (float)5);
+    Matrix2x2<float> m3((float)-3, (float)3, (float)-7, (float)5);
     printMatrix2x2("m3: ", m3);
     det = m3.Determinant();
     printResult("det: ", det);
@@ -212,7 +208,7 @@ void Matrix2x2_T2_Getters()
 {
     printTitle("Matrix2x2 T2 Getters");
 
-    nmr::Matrix2x2<float> m1((float)1, (float)2, (float)3, (float)4);
+    Matrix2x2<float> m1((float)1, (float)2, (float)3, (float)4);
 
     Serial.print(String(m1.E00(), 2));
     Serial.print(" ");
@@ -242,15 +238,15 @@ void Matrix2x2_T1_Constructor()
 {
     printTitle("Matrix2x2 T1 Constructor");
 
-    nmr::Matrix2x2<float> m1;
+    Matrix2x2<float> m1;
     printMatrix2x2("m1", m1);
 
-    nmr::Matrix2x2<float> m2((float)1, (float)2, (float)3, (float)4);
+    Matrix2x2<float> m2((float)1, (float)2, (float)3, (float)4);
     printMatrix2x2("m2((float)1, (float)2, (float)3, (float)4): ", m2);
 
 
     float array[] = {1, 2, 3, 4};
-    nmr::Matrix2x2<float> m3(array);
+    Matrix2x2<float> m3(array);
     printMatrix2x2("m3(array[] = {1, 2, 3, 4}): ", m3);
 }
 

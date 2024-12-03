@@ -1,13 +1,9 @@
 //
 // Carpenter Software
-// File: Class Bitwise.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// File: Class RandomNumber.h
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -24,7 +20,7 @@
 
 #include <Arduino.h>
 
-namespace nmr
+namespace csjc
 {
     template <typename real>
     class RandomNumber
@@ -36,6 +32,7 @@ namespace nmr
         ~RandomNumber() = default;
         // Methods
         real Random();
+
     private:
         // Properties
         real m_Min;
@@ -55,7 +52,6 @@ namespace nmr
         m_Max = maxValue;
         m_lastRandom = (real)0;
     }
-
 
     template <typename real>
     real RandomNumber<real>::Random()
@@ -80,14 +76,14 @@ namespace nmr
         // seed random with millis()
         m_seed();
         // Safe Method..., under study...
-        // The '7' Significant Digits Iteration 
+        // The '7' Significant Digits Iteration
         // is set for a float
-        // The '??' Significant Digits Iteration 
+        // The '??' Significant Digits Iteration
         // is set for a DOUBLE?
-        // Significant Digits are not decimal places 
+        // Significant Digits are not decimal places
         // but this may well be enough for doubles.
-        long vMultiplier = 1; // Multiplication
-        long vInteger = 0; // Addition - BUGFIX ----- Caught-Cha
+        long vMultiplier = 1;    // Multiplication
+        long vInteger = 0;       // Addition - BUGFIX ----- Caught-Cha
         real vDecimal = (real)1; // Division
         // '7' Significant Digits Iteration
         int digits = 7;
@@ -98,15 +94,15 @@ namespace nmr
             vMultiplier *= 10;
             vDecimal /= (real)10;
         }
-        // 
+        //
         real vResult = (real)m_randomInteger() +
-            ((real)vInteger * vDecimal);
+                       ((real)vInteger * vDecimal);
         //
         return vResult;
     }
 
     template <typename real>
-    void RandomNumber<real>::m_seed()   
+    void RandomNumber<real>::m_seed()
     {
         unsigned long seed = (unsigned long)analogRead(A0);
         seed += (unsigned long)analogRead(A1);

@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: Class Matrix2x2.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -25,7 +21,7 @@
 #include "Arduino.h"
 #include "Matrix.h"
 
-namespace nmr
+namespace csjc
 {
     template <typename real>
     class Matrix2x2 : Matrix<real>
@@ -227,8 +223,8 @@ namespace nmr
     Matrix2x2<real> Matrix2x2<real>::Rotation(real angleRadian)
     {
         // INCLUDE BOOLEAN OPTIONS for CW CCW ---------- FIXME
-        real cs = (real) cos(angleRadian);
-        real sn = (real) sin(angleRadian);
+        real cs = (real)cos(angleRadian);
+        real sn = (real)sin(angleRadian);
         real r00 = cs;
         real r01 = -sn;
         real r10 = sn;
@@ -238,7 +234,7 @@ namespace nmr
     }
 
     // OPERATORS
-    
+
     template <typename real>
     Matrix2x2<real> Matrix2x2<real>::operator-()
     {
@@ -260,7 +256,7 @@ namespace nmr
         Matrix2x2<real> matrix2x2(r00, r01, r10, r11);
         return matrix2x2;
     }
-    
+
     template <typename real>
     Vector2<real> Matrix2x2<real>::operator*(Vector2<real> v)
     {

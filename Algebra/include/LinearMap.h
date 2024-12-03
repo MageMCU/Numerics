@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: Class LinearMap.h
-// Folder: Algebra Numerics
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -24,15 +20,14 @@
 
 #include <Arduino.h>
 
-namespace nmr
+namespace csjc
 {
     // typename T can be either a real or an integer
     template <typename T>
     class LinearMap
     {
     private:
-
-        // Private Properties 
+        // Private Properties
         // Point-1
         T m_x1;
         T m_y1;
@@ -48,7 +43,7 @@ namespace nmr
 
         // Methods
         T Map(T x);
-        T Reverse(T x);
+        T Reverse(T y);
         T Map(T x, T x1, T x2, T y1, T y2);
     };
 

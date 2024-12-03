@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: TestRandomNumber.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// called Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: TESTS
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -19,7 +15,6 @@
 // MIT LICENSE
 //
 
-
 #ifndef Numerics_Test_Random_Number_h
 #define Numerics_Test_Random_Number_h
 
@@ -29,7 +24,7 @@ void RandomNumber_T1_RandomNumber_Test()
 {
     printTitle("RandomNumber T1 Random Number");
 
-    nmr::RandomNumber<float> randomNumber = nmr::RandomNumber<float>((float)0, (float)10);
+    RandomNumber<float> randomNumber = RandomNumber<float>((float)0, (float)10);
 
     int cnt = 0;
     while (cnt < 100)

@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: Class Matrix4x4.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -25,7 +21,7 @@
 #include "Arduino.h"
 #include "Matrix3x3.h"
 
-namespace nmr
+namespace csjc
 {
     template <typename real>
     class Matrix4x4 : Matrix3x3<real>
@@ -60,7 +56,6 @@ namespace nmr
         Matrix4x4<real> Rotation(Vector3<real> axis, real angleRadian);
 
         // Operators
-
     };
 
     template <typename real>
@@ -81,7 +76,7 @@ namespace nmr
     template <typename real>
     Matrix4x4<real>::Matrix4x4(real minRandNum, real maxRandNum)
     {
-        nmr::RandomNumber<real> rdm(minRandNum, maxRandNum);
+        RandomNumber<real> rdm(minRandNum, maxRandNum);
         for (int i = 0; i < 16; i++)
         {
             m_tuples[i] = rdm.Random();
@@ -221,7 +216,7 @@ namespace nmr
         tuples[15] = (real)1;
 
         // Matrix
-        Matrix4x4<real>m4(tuples);
+        Matrix4x4<real> m4(tuples);
         return m4;
     }
 

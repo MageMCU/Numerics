@@ -1,19 +1,11 @@
 //
 // Carpenter Software
 // File: Class Quaternion.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// called Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
-//
-// CHANGELOG
-// Created 20221015
-// Updated 20221217
 //
 // Testing Platform:
 //  * MCU:Atmega328P
@@ -31,7 +23,7 @@
 #include "Point3.h"
 #include "RandomNumber.h"
 
-namespace nmr
+namespace csjc
 {
     template <typename real>
     class Quaternion : Point2<real> /* inherits Vector2 */, Point3<real> /* inherits Vector3 */, RandomNumber<real> // Matrix<real>
@@ -73,15 +65,14 @@ namespace nmr
         Quaternion<real> UnitQuaternion();
         Quaternion<real> Conjugate();
         Quaternion<real> Inverse();
-	
-	// Experimental ///////////////
+
+        // Experimental ///////////////
         real GetRadianAngle();
         real GetEulerAngle();
         Vector3<real> GetAxis();
-	//////////////////////////////
-	
-        Quaternion<real> Multiply(Quaternion<real> c);
+        //////////////////////////////
 
+        Quaternion<real> Multiply(Quaternion<real> c);
 
         // OPERATORS
         Quaternion<real> operator*(Quaternion<real> c);

@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: Class Vector2.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -24,7 +20,7 @@
 
 #include "Arduino.h"
 
-namespace nmr
+namespace csjc
 {
     template <typename real>
     class Vector2
@@ -200,7 +196,7 @@ namespace nmr
         // * Right-handed rule
         // Rule: The z-component of the Cross-product
         //       SHOULD equal the DotPerp-product...
-        //       Change 2-component to 3-component 
+        //       Change 2-component to 3-component
         //       vectors by adding zeros.
         // (x1, y1, 0) Cross (x2, y2, 0) = z(X1Y2 - Y1X2)
         // This could be used as the DotPerp...
@@ -233,11 +229,11 @@ namespace nmr
         // * Right-handed rule
         // Rule: The z-component of the Cross-product
         //       SHOULD equal the DotPerp-product...
-        //       Change 2-component to 3-component 
+        //       Change 2-component to 3-component
         //       vectors by adding zeros.
         // (x1, y1, 0) Cross (x2, y2, 0) = x0, y0, z(X1Y2 - Y1X2)
         // This could be used as the DotPerp...
-        
+
         // Perpendicular Vector
         Vector2<real> u = Perp();
         // Dot Product
@@ -260,7 +256,7 @@ namespace nmr
         // * Right-handed rule
         // Rule: The z-component of the Cross-product
         //       SHOULD equal the DotPerp-product...
-        //       Change 2-component to 3-component 
+        //       Change 2-component to 3-component
         //       vectors by adding zeros.
         // (x1, y1, 0) Cross (x2, y2, 0) = x0, y0, z(X1Y2 - Y1X2)
         // This could be used as the DotPerp...

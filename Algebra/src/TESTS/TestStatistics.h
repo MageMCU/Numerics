@@ -1,13 +1,9 @@
 //
 // Carpenter Software
-// File: TestRandomNumber.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// called Numerics as in numeric computation.
+// File: TestStatistics.h
+// Github: MageMCU
+// Repository: Numerics
+// Folder: TESTS
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -30,8 +26,8 @@ void Statistics_T6_Queue()
 
     int size = 100;
     float tuples[size];
-    nmr::Statistics<float> stats = nmr::Statistics<float>(tuples, size);
-    nmr::RandomNumber<float> randomNumber = nmr::RandomNumber<float>((float)0, (float)10);
+    Statistics<float> stats = Statistics<float>(tuples, size);
+    RandomNumber<float> randomNumber = RandomNumber<float>((float)0, (float)10);
 
     int cnt = 0;
     while (cnt < size)
@@ -58,8 +54,8 @@ void Statistics_T5_Queue()
     float tuples[]{3.2, 5.3, 7.0, 2.2, 9.8, 4.6, 0.5, 4.5, 7.4, 6.5};
     int size = 10;
 
-    nmr::Statistics<float> stats = nmr::Statistics<float>(tuples, size);
-    nmr::RandomNumber<float> randomNumber = nmr::RandomNumber<float>((float)0, (float)10);
+    Statistics<float> stats = Statistics<float>(tuples, size);
+    RandomNumber<float> randomNumber = RandomNumber<float>((float)0, (float)10);
     float randomNum;
 
     // randomNumber.Random()
@@ -91,7 +87,7 @@ void Statistics_T4_Median()
 
     float tuples[200];
     int size = 200;
-    nmr::RandomNumber<float> rnd = nmr::RandomNumber<float>(-1.9, 2.3);
+    RandomNumber<float> rnd = RandomNumber<float>(-1.9, 2.3);
 
     for (int i = 0; i < size; i++)
     {
@@ -104,7 +100,7 @@ void Statistics_T4_Median()
     }
 
     // ok
-    nmr::Statistics<float> stats = nmr::Statistics<float>(tuples, size);
+    Statistics<float> stats = Statistics<float>(tuples, size);
 
     printResult("Average: ", stats.Average());
     printResult("Standard Deviation: ", stats.StandardDeviation());
@@ -139,7 +135,7 @@ void Statistics_T3_Standard_Deviation()
 
     float tuples[10];
     int size = 10;
-    nmr::RandomNumber<float> rnd = nmr::RandomNumber<float>(-99999.9, 99999.9);
+    RandomNumber<float> rnd = RandomNumber<float>(-99999.9, 99999.9);
 
     for (int i = 0; i < size; i++)
     {
@@ -151,7 +147,7 @@ void Statistics_T3_Standard_Deviation()
         Serial.println(String(tuples[i], 2));
     }
 
-    nmr::Statistics<float> stats = nmr::Statistics<float>(tuples, size);
+    Statistics<float> stats = Statistics<float>(tuples, size);
     printResult("Standard Deviation: ", stats.StandardDeviation());
 }
 
@@ -161,7 +157,7 @@ void Statistics_T2_Average()
 
     float tuples[10];
     int size = 10;
-    nmr::RandomNumber<float> rnd = nmr::RandomNumber<float>(-99999.9, 99999.9);
+    RandomNumber<float> rnd = RandomNumber<float>(-99999.9, 99999.9);
 
     for (int i = 0; i < size; i++)
     {
@@ -173,7 +169,7 @@ void Statistics_T2_Average()
         Serial.println(String(tuples[i], 2));
     }
 
-    nmr::Statistics<float> stats = nmr::Statistics<float>(tuples, size);
+    Statistics<float> stats = Statistics<float>(tuples, size);
     printResult("Average: ", stats.Average());
 }
 
@@ -183,7 +179,7 @@ void Statistics_T1_Constructor()
 
     float tuples[10];
     int size = 10;
-    nmr::RandomNumber<float> rnd = nmr::RandomNumber<float>(-99999.9, 99999.9);
+    RandomNumber<float> rnd = RandomNumber<float>(-99999.9, 99999.9);
 
     for (int i = 0; i < size; i++)
     {
@@ -195,7 +191,7 @@ void Statistics_T1_Constructor()
         // Serial.println(String(tuples[i], 2));
     }
 
-    nmr::Statistics<float> stats = nmr::Statistics<float>(tuples, size);
+    Statistics<float> stats = Statistics<float>(tuples, size);
 
     float v;
     printResult("Array Size: ", stats.GetTuplesSize());

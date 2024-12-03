@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: Class Vector3.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -24,7 +20,7 @@
 
 #include "Arduino.h"
 
-namespace nmr
+namespace csjc
 {
     template <typename real>
     class Vector3
@@ -224,8 +220,8 @@ namespace nmr
         // Angle between 3D vecotrs
         Vector3<real> u = GetVector();
         // ref: [ELA] by Shields, 1980. p.213.
-        // The returned value is in the range [0, pi] 
-        // radians. A domain error occurs for arguments 
+        // The returned value is in the range [0, pi]
+        // radians. A domain error occurs for arguments
         // not in the range [-1, +1]. Therefore the vectors
         // must be normalized...
         return acos((real)(u.Normalize() * v.Normalize()));

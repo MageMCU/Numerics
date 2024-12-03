@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: Class Point3.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: include
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -25,7 +21,7 @@
 #include "Arduino.h"
 #include "Vector3.h"
 
-namespace nmr
+namespace csjc
 {
     template <typename real>
     class Point3 : Vector3<real>

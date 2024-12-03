@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: TestBitwise.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// called Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: TESTS
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -24,16 +20,29 @@
 
 #include "../TESTS/Common.h"
 
+void Bitwise_T6_ReverseBits()
+{
+    printTitle("Bitwise T6 Reverse Bits");
+
+    Bitwise<int> bw;
+    int a = 0b1011001000000000;
+    bw.SetBitsValue(a);
+    Serial.println(bw.PrintBinaryBits());
+    int b = bw.ReverseBits(a);
+    bw.SetBitsValue(b);
+    Serial.println(bw.PrintBinaryBits());
+}
+
 void Bitwise_T5_GetBitsValue()
 {
     printTitle("Bitwise T5 GetBitsValue");
 
-    nmr::Bitwise<int> bw;
+    Bitwise<int> bw;
     bw.SetBitsValue(99);
     // Timer Instantiation
-    nmr::Timer testTimer = nmr::Timer();
+    Timer testTimer = Timer();
     // Test
-    int cnt = 99;
+    int cnt = 10;
     do
     {
         if (testTimer.isTimer(500))
@@ -51,9 +60,9 @@ void Bitwise_T4_SetBitsValue()
 {
     printTitle("Bitwise T4 SetBitsValue");
 
-    nmr::Bitwise<int> bw;
+    Bitwise<int> bw;
     // Timer Instantiation
-    nmr::Timer testTimer = nmr::Timer();
+    Timer testTimer = Timer();
     // Test
     int cnt = 0;
     do
@@ -66,14 +75,14 @@ void Bitwise_T4_SetBitsValue()
             cnt++;
         }
         // Iterates less than a minute
-    } while (cnt < 100);
+    } while (cnt < 10);
 }
 
 void Bitwise_T3_ClearBitNUmber()
 {
     printTitle("Bitwise T3_ClearBitNUmber");
 
-    nmr::Bitwise<int> bw;
+    Bitwise<int> bw;
     bw.SetBitNumber(0);
     Serial.println("bw.SetBitNumber(0) ");
     Serial.print("bw.GetBitsValue(): ");
@@ -109,32 +118,26 @@ void Bitwise_T2_SetBitNumber()
 {
     printTitle("Bitwise T2_SetBitNumber");
 
-    nmr::Bitwise<int> bw;
+    Bitwise<int> bw;
     bw.SetBitNumber(0);
-    Serial.println("bw.SetBitNumber(0) ");
-    bw.SetBitNumber(3);
-    Serial.println("bw.SetBitNumber(3) ");
-    //
-    Serial.print("bw.GetBitsValue(): ");
-    Serial.println(bw.GetBitsValue());
+    Debug("bw.SetBitNumber(0)");
+
     Serial.print("bw.IsBitNumberSet(0): ");
     if (bw.IsBitNumberSet(0))
-    {
         Serial.println("true");
-    }
     else
-    {
         Serial.println("false");
-    }
+
+    bw.SetBitNumber(3);
+    Debug("bw.SetBitNumber(3)");
+
     Serial.print("bw.IsBitNumberSet(3): ");
     if (bw.IsBitNumberSet(3))
-    {
         Serial.println("true");
-    }
     else
-    {
         Serial.println("false");
-    }
+    //
+    Debug("bw.GetBitsValue(): ", bw.GetBitsValue());
     Serial.println(bw.PrintBinaryBits());
 }
 
@@ -142,20 +145,17 @@ void Bitwise_T1_Constructor()
 {
     printTitle("Bitwise T1 Constructor");
     // Constructor
-    nmr::Bitwise<int> bw;
-    Serial.println("nmr::Bitwise<int> bw; ");
+    Bitwise<int> bw;
+    Serial.println("Bitwise<int> bw; ");
     //
     Serial.print("bw.GetBitsValue(): ");
     Serial.println(bw.GetBitsValue());
+
     Serial.print("bw.IsBitNumberSet(0): ");
     if (bw.IsBitNumberSet(0))
-    {
         Serial.println("true");
-    }
     else
-    {
         Serial.println("false");
-    }
     Serial.println(bw.PrintBinaryBits());
 }
 #endif

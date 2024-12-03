@@ -1,13 +1,9 @@
 //
 // Carpenter Software
 // File: TestPoint3.h
-// Folder: Algebra
-//
-// Purpose: Github Depository (MageMCU)
-//
-// Algebra OOP Library
-// The math is underneath the namespace
-// nmr for Numerics as in numeric computation.
+// Github: MageMCU
+// Repository: Numerics
+// Folder: TESTS
 //
 // By Jesse Carpenter (carpentersoftware.com)
 //
@@ -28,15 +24,15 @@ void Point3_T4_PointFromPointVectorAddition()
 {
     printTitle("Point3 Point from Point Vector Additin");
 
-    nmr::Point3<float> p1(8, -4, 21);
+    Point3<float> p1(8, -4, 21);
     printPoint3("p1(8, -4, 21) =", p1);
 
-    nmr::Vector3<float> v(6, 2, -10);
+    Vector3<float> v(6, 2, -10);
     printVector3("v(6, 2, -10) =", v);
 
     printSubTitle("Point = Point + Vector");
 
-    nmr::Point3<float> p2 = p1 + v;
+    Point3<float> p2 = p1 + v;
     printPoint3("p2 = p1 + v =", p2);
 }
 
@@ -44,15 +40,15 @@ void Point3_T3_VectorFromPointPointSubtraction()
 {
     printTitle("Point3 Vector from Point Point Subtraction");
 
-    nmr::Point3<float> p1(8, -4, 12);
+    Point3<float> p1(8, -4, 12);
     printPoint3("p1(8, -4, 12) =", p1);
 
-    nmr::Point3<float> p2(2, 7, 6);
+    Point3<float> p2(2, 7, 6);
     printPoint3("p2(2, 7, 6) =", p2);
 
     printSubTitle("Vector = Point - Point");
 
-    nmr::Vector3<float> v = p1 - p2;
+    Vector3<float> v = p1 - p2;
     printVector3("v = p1 - p2 =", v);
 }
 
@@ -60,10 +56,10 @@ void Point3_T2_GetPoint()
 {
     printTitle("Point3 GetPoint");
 
-    nmr::Point3<float> p1(3, 7, 4);
+    Point3<float> p1(3, 7, 4);
     printPoint3("p1", p1);
 
-    nmr::Point3<float> p2 = p1.GetPoint();
+    Point3<float> p2 = p1.GetPoint();
     printPoint3("p2", p2);
 }
 
@@ -71,20 +67,20 @@ void Point3_T1_Constructor()
 {
     printTitle("Point3 Constructor");
 
-    nmr::Point3<float> p1;
+    Point3<float> p1;
     printPoint3("p1 =", p1);
 
-    nmr::Point3<float> p2(1, 2, 3);
+    Point3<float> p2(1, 2, 3);
     printPoint3("p2(1, 2, 3) =", p2);
 
     printSubTitle("array[] = {4, 5, 6};");
     float array[] = {4, 5, 6};
-    nmr::Point3<float> p3(array);
+    Point3<float> p3(array);
     printPoint3("p3(array) =", p3);
     
-    nmr::Vector3<float> v(1, 2, 3);
+    Vector3<float> v(1, 2, 3);
     printVector3("v(1, 2, 3) =", v);
-    nmr::Point3<float> p4(v);
+    Point3<float> p4(v);
     printPoint3("p4(v) =", p4);
 }
 
